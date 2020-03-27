@@ -1,0 +1,193 @@
+@frame("绉佷汉瀹氬埗", "PrivateApp", "PrivateController") {
+<div class="memu">
+	<p>
+		<a class="memu-a" href="#">鍏ㄩ儴涓婚</a> <a class="memu-a" href="#">鏃呮父搴﹀亣</a>
+		<a class="memu-a" href="#">鍋ュ悍鍖荤枟</a> <a class="memu-a" href="#">閲戣瀺鏈嶅姟</a>
+		<a class="memu-a" href="#">鐢熸椿鏈嶅姟</a>
+	</p>
+</div>
+
+
+
+<div class="private">
+
+	<div class="content1">
+		<div id="left1">
+			<div class="C-left1">
+				<p class="p1">浠�涔堟槸绉佷汉瀹氬埗?</p>
+				<p class="p2">
+					瀹氬埗鏄幇鍦ㄥ叏鏂扮殑鏃呰鏂瑰紡,<br /> 涓嶈窡鍥紝涓嶇敤瀵兼父,<br /> 娌℃湁鍥哄畾璺嚎銆�<br /> 涓撲笟鐨勭浜哄畾鍒剁瓥鍒掑笀,<br />
+					鏍规嵁鎮ㄧ殑闇�姹傦紝<br /> 涓轰綘閲忚韩璁捐涓�瀵逛竴鐨勪笓灞炶鍒舵梾娓歌矾绾�,<br /> 骞朵负浣犺В鍐充竴鍒�,<br />
+					渚嬪閲囦拱,棰勫畾绛夋墍鏈夌殑楹荤儲浜�,<br /> 璁╂瘡涓�浣嶆梾娓歌�呮湁鐙闈炲嚒鏃呰璺嚎,<br /> 鎬讳綋鏉ョ湅,<br />
+					鐪佷簨鍙堢渷蹇�,鏇存病澶氳姳閽憋紒<br />
+				</p>
+			</div>
+			<div class="C-left2"></div>
+		</div>
+		<div id="right">
+			<p class="p1">绠�鍗曚笁姝ユ梾娓哥浜哄畾鍒�</p>
+			<div class="C-right">
+				<p class="step p-step1">
+					<span class="span1">1鍒嗛挓,濉啓鎮ㄧ殑闇�姹�</span>
+				</p>
+				<p class="arrow arrow1">&nbsp;</p>
+				<p class="step p-step2">
+					<span class="span1">鍥涘皬鏃跺唴,涓庢偍鐢佃瘽娌熼��</span>
+				</p>
+				<p class="arrow arrow2 ">&nbsp;</p>
+				<p class="step p-step3">
+					<span class="span1">48灏忔椂鍐�,鑾峰緱涓撳睘鏂规</span>
+				</p>
+
+			</div>
+			<p class="remind">
+				鐗瑰埆鎻愰啋锛�<br /> 1.閬囧埌鑺傚亣鏃ワ紝鐢佃瘽娌熼�氬拰鑾峰緱涓撳睘鏂规鐨勬椂闂撮『寤�;<br />
+				2.涓轰簡涓嶆墦鎵版偍浼戞伅,鎴戜滑鐨勯鐢佃瘽娌熼�氭椂闂村湪9-22鐐广��
+			</p>
+
+			<div class="div-button">
+				<a href="#a12345"> <input type="button" value="绔嬪嵆棰勫畾"
+					class="button-order" />
+				</a>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+<a name="a12345"></a>
+<div  class="private2">
+	<div class="p-t title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<table class="p-table2">
+			<tr>
+				<td><hr /></td>
+				<td>鍦ㄧ嚎鐧昏</td>
+				<td><hr></td>
+			</tr>
+		</table>
+	</div>
+	<div class="v-content v-content0">
+		<div class="v-left1"></div>
+		<div class="v-left">
+			<p class="p1">
+				<span class="span1">鍛婅瘔鎴戜滑鎮ㄧ殑闇�姹�</span><br /> <span class="span2">瀹氬埗鏃呰,閫傚悎鎵嶆槸鏈�濂界殑</span><br />
+			</p>
+			<div class="need">
+				<form name="bookForm">
+					<input type="text" ng-model="newBook.whereToGo"
+						class="T-population1" placeholder="鍘诲摢鍎�" /> <input type="text"
+						ng-model="newBook.travelDays" class="T-population1"
+						placeholder="鍑鸿澶╂暟" /> <input type="text"
+						ng-model="newBook.budget" class="T-population1" placeholder="鍗曚汉棰勭畻" />
+					<select class="S-time" ng-model="newBook.travelType" >
+						<option>鏃呮父搴﹀亣</option>
+						<option>鐢熸椿鏈嶅姟</option>
+						<option>鍋ュ悍鍖荤枟</option>
+						<option>閲戣瀺鏈嶅姟</option>
+					</select> <input type="text" ng-model="newBook.startTravelDate"
+						class="T-population1 Wdate" onFocus="WdatePicker({lang:'zh-cn'})"
+						placeholder="鍑鸿鏃ユ湡" /> <input type="text"
+						ng-model="newBook.numberOfTraveller" class="T-population1"
+						placeholder="鍑鸿浜烘暟" /> <input type="text" ng-model="newBook.phone"
+						class="T-population1" placeholder="鐢佃瘽鍙风爜" /> <input type="text"
+						class="T-population2" placeholder="楠岃瘉鐮�"> <input
+						type="button" value="鑾峰彇" class="get" />
+
+					<textarea ng-model="newBook.description" rows="7" cols="37"
+						class="n-text" style="resize: none; color:"
+						placeholder="浣犲鏋滄湁鍏朵粬闇�姹傝濉啓鍦ㄨ繖閲�"></textarea>
+				</form>
+			</div>
+			<input type="submit" value="鍏嶈垂浣撻獙" class="v-button" ng-click="addBook()"/>
+		</div>
+	</div>
+
+
+</div>
+
+
+<div class="private2 private3">
+	<div class="p-t title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<table class="p-table2">
+			<tr>
+				<td><hr /></td>
+				<td>绉佷汉瀹氬埗绛栧垝甯�</td>
+				<td><hr></td>
+			</tr>
+		</table>
+	</div>
+	<div class="p-content2">
+		<div class="v-right " ng-repeat="Info in InfoList">
+			<p>绉佷汉绛栫敓娲诲垝甯�</p>
+			<div class="photo">
+				<img style="width: 100%; height: 100%;"
+					src='@routes.Assets.at("upload/{{Info.images}}")' alt=""><a
+					href="#"></a>
+			</div>
+			<p>{{Info.name}}</p>
+			<div class="text1">{{Info.description1}}</div>
+			<a href="#"> <input type="button" value="绔嬪嵆鍜ㄨ" class="button2" />
+			</a>
+		</div>
+
+	</div>
+</div>
+
+<div class="private2 private4">
+	<div class="p-t title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<table class="p-table2">
+			<tr>
+				<td><hr /></td>
+				<td>瀹氬埗妗堜緥</td>
+				<td><hr></td>
+			</tr>
+		</table>
+	</div>
+	<div class="p-content4">
+		<div class="title1">
+			<div class="pt1"></div>
+			<div class="travel">
+				<div class="img1"></div>
+				<p>鏃呮父搴﹀亣</p>
+				<div class="text1">
+					鏍规嵁鎮ㄧ殑鏃呰璁″垝锛岀洰鐨勶紝鍏磋叮鐖卞ソ锛岃�岄噺韬畾鍒舵梾琛屾柟寮忓拰鏃呮父绾胯矾锛屾墦閫犲叿鏈夋祿閮佷釜浜轰笓灞為鏍肩殑鏃呰銆�</div>
+			</div>
+			<a href="#"> <input type="button" value="鏌ョ湅璇︽儏" class="button1" />
+			</a>
+		</div>
+		<div class="title1 title2">
+			<div class="pt2"></div>
+			<div class="travel">
+				<div class="img2"></div>
+				<p>鍋ュ悍鍖荤枟</p>
+				<div class="text1">
+					鏍规嵁鎮ㄧ殑鏃呰璁″垝锛岀洰鐨勶紝鍏磋叮鐖卞ソ锛岃�岄噺韬畾鍒舵梾琛屾柟寮忓拰鏃呮父绾胯矾锛屾墦閫犲叿鏈夋祿閮佷釜浜轰笓灞為鏍肩殑鏃呰銆�</div>
+			</div>
+			<a href="#"> <input type="button" value="鏌ョ湅璇︽儏" class="button1" />
+			</a>
+		</div>
+		<div class="title1 title3">
+			<div class="pt3"></div>
+			<div class="travel">
+				<div class="img3"></div>
+				<p>閲戣瀺鏈嶅姟</p>
+				<div class="text1">
+					鏍规嵁鎮ㄧ殑鏃呰璁″垝锛岀洰鐨勶紝鍏磋叮鐖卞ソ锛岃�岄噺韬畾鍒舵梾琛屾柟寮忓拰鏃呮父绾胯矾锛屾墦閫犲叿鏈夋祿閮佷釜浜轰笓灞為鏍肩殑鏃呰銆�</div>
+			</div>
+			<a href="#"><input type="button" value="鏌ョ湅璇︽儏" class="button1" />
+			</a>
+		</div>
+	</div>
+</div>
+
+}

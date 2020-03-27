@@ -1,0 +1,39 @@
+@frame("发票信息", "InvoiceTypeApp", "InvoiceTypeController") {
+<meta charset="UTF-8">
+<div style="min-height:450px;">
+	
+		<div class="pay-div7">
+				<p class="div7-p">
+					<span class="div6-span">我的发票信息:<span ng-bind="user.invoiceTitle"></span> </span> 
+				</p>
+			
+		</div>
+		<div class="pay-div5" >
+					<form>
+				<p class="radio-p">
+			
+					发票类型： <!-- <input  type="radio"  value="个人"
+						style="margin-left: 5%;">个人 <span class="bspn"></span> 
+						<input
+						 type="radio"  value="单位"
+						style="margin-left: 20%;">单位 -->
+<input  type="radio" ng-model="invoiceType" name="sex" value="个人" style="margin-left: 5%;"/>个人
+
+<input  type="radio" ng-model="invoiceType" name="sex" value="单位" style="margin-left: 20%;"/>单位
+				</p>
+			</form>
+		</div>
+		<div class="pay-div6" ng-show="invoiceType === '单位'">
+			<p>
+				<span class="div6-span">发票抬头：</span> <input  class="div6-text"
+					type="text" ng-model="user.invoiceTitle" 
+					placeholder="请输入发票的单位抬头" style="background:#fff;border:1px solid #fff;margin-top: 2%;">
+			</p>
+		</div>
+	<!--  <input type="button" value="保存 " ng-click="baocun()"> -->
+	<div class="location-button1"  style="" ng-click="baocun()">保存</div>	
+</div>
+
+
+
+}

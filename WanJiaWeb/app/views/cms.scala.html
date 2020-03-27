@@ -1,0 +1,45 @@
+@main("內容管理", "CmsApp", "CmsController") {
+    <style>
+    .gridStyle {
+    border : 1 px solid rgb ( 212, 212, 212 ) ;
+    width : 90 % ;
+    height : 800 px
+    }
+    </style>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>
+                手機展示信息 <small> <i class="icon-double-angle-right"></i> 內容列表
+            </small>
+            </h1>
+        </div>
+            <!-- /.page-header -->
+
+        <div class="row">
+            <div class="col-xs-12">
+                <p>
+                    <select ng-model="cmstype" id="cmstype" name="cmstype"
+                    ng-options="type.id as type.name for type in cmstypes">
+                    </select>
+
+                    <button ng-click="addContent()" class="btn btn-primary">
+                        <i class="icon-beaker align-top bigger-125"></i> 添加
+                    </button>
+
+                    <button ng-click="editContent()" class="btn btn-success">
+                        <i class="icon-beaker align-top bigger-125"></i> 編輯
+                    </button>
+
+                    <button ng-click="deleteContent()" class="btn btn-danger">
+                        <i class="icon-trash  align-top bigger-125 icon-on-left"></i> 刪除
+                    </button>
+                </p>
+
+                <div class="gridStyle" ng-grid="gridOptions"></div>
+            </div>
+                <!-- /.col -->
+        </div>
+            <!-- /.row -->
+    </div>
+    <!-- /.page-content -->
+}

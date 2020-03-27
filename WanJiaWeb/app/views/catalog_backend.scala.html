@@ -1,0 +1,100 @@
+@backend_frame("Catalog管理", "CatalogBackendApp", "CatalogBackendController") {
+	<style>
+	.page-list .pagination {float:left;}
+	.page-list .pagination span {cursor: pointer;}
+	.page-list .pagination .separate span{cursor: default; border-top:none;border-bottom:none;}
+	.page-list .pagination .separate span:hover {background: none;}
+	.page-list .page-total {float:left; margin: 25px 20px;}
+	.page-list .page-total input, .page-list .page-total select{height: 26px; border: 1px solid #ddd;}
+	.page-list .page-total input {width: 40px; padding-left:3px;}
+	.page-list .page-total select {width: 50px;}
+	</style>
+
+
+<div class="page-content">
+	<div class="page-header">
+		<p>
+			<button ng-click="addContent()" class="btn btn-primary">
+				<i class="icon-plus-sign"></i> 新增
+			</button>
+			<button ng-click="updateContent()" class="btn btn-success">
+				<i class="icon-edit"></i> 修改
+			</button>
+			<button ng-click="deleteContent()" class="btn btn-danger">
+				<i class="icon-trash"></i> 刪除
+			</button> | 
+            <input type="text" ng-model="queryKeyword" class="form-control" placeholder="按@TableInfoReader.getFieldComment("Catalog", TableInfoReader.getSearchField("Catalog"))搜" style="display: inline-block; width: 140px;text-align: center;" />
+			<button ng-click="searchContent()" class="btn btn-primary">
+				<i class="icon-search"></i> 搜索
+			</button> | <input id="startTime" type="text" ng-model="startTime" placeholder="开始时间" style="text-align: center;height: 33px; border: 1px solid #ece4e4;" > -
+			<input id="endTime" type="text" ng-model="endTime" placeholder="结束时间" style="text-align: center;height: 33px;border: 1px solid #ece4e4;" >
+			<button ng-click="refresh()" class="btn btn-warning">
+				<i class="icon-calendar"></i> 日期筛选
+			</button> | 
+			<button ng-click="report()" class="btn btn-success">
+				<i class="icon-print"></i> 报表
+			</button>@*| {{chatMsg}}*@
+		</p>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="gridStyle" style="min-height: 600px;" ui-grid="gridOptions" ui-grid-resize-columns ui-grid-selection ui-grid-edit></div>
+			<tm-pagination conf="paginationConf"></tm-pagination>
+		</div>
+	</div>
+</div>
+            
+<script type="text/javascript">
+    var hasImageField = @TableInfoReader.hasImageField("Catalog");
+    var searchFieldName = '@TableInfoReader.getSearchField("Catalog")'
+    var objFieldInfo = {};
+	var objEnumInfo = {}
+    
+    // 处理自己的字段注释, status枚举, enum枚举
+    objFieldInfo.Catalog = {};
+    objFieldInfo.Catalog.catalogIndex = '@TableInfoReader.getFieldComment("Catalog", "catalogIndex")';
+    objFieldInfo.Catalog.name = '@TableInfoReader.getFieldComment("Catalog", "name")';
+    objFieldInfo.Catalog.nameEn = '@TableInfoReader.getFieldComment("Catalog", "nameEn")';
+    objFieldInfo.Catalog.description = '@TableInfoReader.getFieldComment("Catalog", "description")';
+    objFieldInfo.Catalog.descriptionEn = '@TableInfoReader.getFieldComment("Catalog", "descriptionEn")';
+    objFieldInfo.Catalog.createdAt = '@TableInfoReader.getFieldComment("Catalog", "createdAt")';
+    objFieldInfo.Catalog.images = '@TableInfoReader.getFieldComment("Catalog", "images")';
+    objFieldInfo.Catalog.smallImages = '@TableInfoReader.getFieldComment("Catalog", "smallImages")';
+    objFieldInfo.Catalog.imagesEn = '@TableInfoReader.getFieldComment("Catalog", "imagesEn")';
+    objFieldInfo.Catalog.smallImagesEn = '@TableInfoReader.getFieldComment("Catalog", "smallImagesEn")';
+    objFieldInfo.Catalog.comment = '@TableInfoReader.getFieldComment("Catalog", "comment")';
+    objFieldInfo.Catalog.products = '@TableInfoReader.getFieldComment("Catalog", "products")';
+
+
+
+    // 处理多对多的字段注释, enum枚举
+    objFieldInfo.Product = {};
+    objFieldInfo.Product.productNo = '@TableInfoReader.getFieldComment("Product", "productNo")';
+    objFieldInfo.Product.name = '@TableInfoReader.getFieldComment("Product", "name")';
+    objFieldInfo.Product.nameEn = '@TableInfoReader.getFieldComment("Product", "nameEn")';
+    objFieldInfo.Product.description = '@TableInfoReader.getFieldComment("Product", "description")';
+    objFieldInfo.Product.descriptionEn = '@TableInfoReader.getFieldComment("Product", "descriptionEn")';
+    objFieldInfo.Product.unit = '@TableInfoReader.getFieldComment("Product", "unit")';
+    objFieldInfo.Product.images = '@TableInfoReader.getFieldComment("Product", "images")';
+    objFieldInfo.Product.smallImages = '@TableInfoReader.getFieldComment("Product", "smallImages")';
+    objFieldInfo.Product.imagesEn = '@TableInfoReader.getFieldComment("Product", "imagesEn")';
+    objFieldInfo.Product.smallImagesEn = '@TableInfoReader.getFieldComment("Product", "smallImagesEn")';
+    objFieldInfo.Product.createdAt = '@TableInfoReader.getFieldComment("Product", "createdAt")';
+    objFieldInfo.Product.price = '@TableInfoReader.getFieldComment("Product", "price")';
+    objFieldInfo.Product.originalPrice = '@TableInfoReader.getFieldComment("Product", "originalPrice")';
+    objFieldInfo.Product.isHotSale = '@TableInfoReader.getFieldComment("Product", "isHotSale")';
+    objFieldInfo.Product.isZhaoPai = '@TableInfoReader.getFieldComment("Product", "isZhaoPai")';
+    objFieldInfo.Product.soldNumber = '@TableInfoReader.getFieldComment("Product", "soldNumber")';
+    objFieldInfo.Product.thumbUp = '@TableInfoReader.getFieldComment("Product", "thumbUp")';
+    objFieldInfo.Product.inventory = '@TableInfoReader.getFieldComment("Product", "inventory")';
+    objFieldInfo.Product.comment = '@TableInfoReader.getFieldComment("Product", "comment")';
+    objFieldInfo.Product.status = '@TableInfoReader.getFieldComment("Product", "status")';
+    objFieldInfo.Product.refStoreId = '@TableInfoReader.getFieldComment("Product", "refStoreId")';
+        
+    objEnumInfo.Product = {}
+    objEnumInfo.Product.status = {}  
+	for (var i = 0; i < @EnumInfoReader.getEnumCount("Product", "status"); i++) {
+		objEnumInfo.Product.status[i] = '@EnumInfoReader.getEnumNameLinkString("Product", "status")'.split(',')[i];
+	}
+</script>
+}

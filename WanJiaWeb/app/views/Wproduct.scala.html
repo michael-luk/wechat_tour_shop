@@ -1,0 +1,186 @@
+@import LyLib.Utils.StrUtil
+@(item: Product) @frame2("首页") {
+    @*<link rel="stylesheet" href='@routes.Assets.at("css/new_product.css")' />*@
+    <link rel="stylesheet" href='@routes.Assets.at("css/new_product.css")' />
+    @*<link rel="stylesheet" href='@routes.Assets.at("css/new_style.css")' />*@
+    </head>
+    <script src='@routes.Assets.at("js/angular.min.js")'></script>
+    <script src='@routes.Assets.at("js/controllers/Wproduct_controller_new.js")'></script>
+    <script src='@routes.Assets.at("js/ui-bootstrap-tpls-0.12.0.min.js")'></script>
+    @*<script src='@routes.Assets.at("js/ourLib.js")'></script>*@
+    <script src='@routes.Assets.at("js/zepto.min.js")'></script>
+    <script src='@routes.Assets.at("js/mggScrollImg.js")'></script>
+    <body ng-app="WproductApp" ng-controller="WproductController" ng-init="storeId=@session().get("storeId")">
+
+        <div class="m_top">
+            <div class="m_logo"><img src="/showimg/images/logo.png"></div>
+        </div>
+
+        <div class="m_margin" style="position:relative">
+            <div style="float:right;position:absolute;top:10px; right:10px; background-color:#CC0000; z-index:999; width:30px;height:30px;border-radius:50%; background-color:#FFFFFF; text-align:center">
+                <div ng-click="favorite()" ng-if="!favoriteProduct" class="ng-scope">
+                    <img src="/showimg/images/collect2.png" width="20px" style="margin-top:7px" />
+                </div>
+                <div ng-click="cancelFavorite()" ng-if="favoriteProduct" class="ng-scope">
+                    <img src="/showimg/images/collect1.png" width="20px" style="margin-top:7px" />
+                </div>
+            </div>
+            <div class="imgbox">
+                <ul>
+                @for(image <- item.images.split(",")) {
+                    <li class="js_width"><a href="#"><img src="/showimg/mid_thumb/@image" /></a></li>
+                }
+                </ul>
+            </div>
+        </div>
+
+        <div class="find_nav">
+            <div class="find_nav_left">
+                <div class="find_nav_list" id="pagenavi1">
+                    <ul>
+                    @for(i <- 1 to item.images.split(",").length) {
+                        @if(i == 1) {
+                            <li><a href="#" class="m_p m_p1 m_active"></a></li>
+                        } else {
+                            <li><a href="#" class="m_p m_p@i"></a></li>
+                        }
+                    }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="m_info">
+            <p class="m_title" style="color: rgb(60, 170, 179);font-weight: bold">
+            @if("En".equals(session.get("lang"))) {
+                @item.nameEn
+            } else {
+                @item.name
+            }
+            </p>
+            <style>
+                    @@font-face {
+                        font-family: 'ArialRegular';src: url('/assets/images/Arial Black.TTF');
+                    }
+                    .imgbox{
+                        border-radius:5px;-moz-box-shadow:2px 2px 4px #B8B8B8; -webkit-box-shadow:2px 2px 4px #B8B8B8; box-shadow:2px 2px 4px #B8B8B8;
+                    }
+            </style>
+            <div class="m_price" style="margin-top:10px;">
+                <span style="font-family:ArialRegular;font-size:1.4rem;padding:2px 15px; background-color:#e94441; color:#fff;border-radius:20px">￥@item.price</span>
+            </div>
+            <div class="m_next" style="margin-top:20px; text-align:center;">
+                <img src="/showimg/images/next.png" width="60px" />
+            </div>
+        </div>
+        <div class="m_content">
+        @if("En".equals(session.get("lang"))) {
+            @if(StrUtil.isNotNull(item.smallImagesEn)) {
+                @for(image <- item.smallImagesEn.split(",")) {
+                    <img src="/showimg/mid_thumb/@image" />
+                }
+            }
+        } else {
+            @if(StrUtil.isNotNull(item.smallImages)) {
+                @for(image <- item.smallImages.split(",")) {
+                    <img src="/showimg/mid_thumb/@image" />
+                }
+            }
+        }
+        </div>
+
+        <div class="bottom_img"></div>
+
+        <div id="okcat" style="display: none;
+            position: fixed;
+            width: 150px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.5);
+            left: 0;
+            right: 0;
+            margin: auto;
+            color: #fff;
+            top: 41%;
+            text-align: center;
+            font-size: 18px;
+            line-height: 60px;
+            border-radius: 10px;">
+        @play.i18n.Messages.get("alreadyAddCart")
+        </div>
+
+        <style type="text/css">
+        .footers{
+            width:100%;
+            position:fixed;
+            bottom:0;
+            background-color:#a1b2b3;
+        }
+        .footers div{
+            float:left;
+            height:50px;
+            line-height:50px;
+            text-align:center;
+            font-size:1.2rem;
+            color:#fff;
+        }
+        .footers div:nth-child(1){
+            width:20%;
+            background-color:#bbcfd1;
+        }
+        .footers div:nth-child(2){
+            width:19.5%;
+            background-color:#bbcfd1;
+            margin-left:0.5%;
+        }
+        .footers div:nth-child(3){
+            width:30%;
+            background-color:#0fa1b1;
+        }
+        .footers div:nth-child(4){
+            width:30%;
+            background-color:#ef5151;
+        }
+
+        </style>
+        <div class="footers">
+            <div><a href="/w/wine?storeId=@session.get("storeId")"><img src='@routes.Assets.at("images/footer1.png")' align="absmiddle" /></a></div>
+            <div><a href="#" onclick="closeWindow()"><img src='@routes.Assets.at("images/footer2.png")' align="absmiddle" /></a></div>
+            <div><a href="/w/cart">购物车</a></div>
+            <div><a href="#" ng-click='addCart(product, quantity)'>加入购物车</a></div>
+        </div>
+
+        <script type="text/javascript">
+            function closeWindow() {
+                alert('@biz.ConfigBiz.getStrConfig("chat.intro")')
+                WeixinJSBridge.call('closeWindow');
+            }
+        </script>
+        <script>
+                (function () {
+                    // var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                    //width = 307;
+                    width = $(".imgbox").width()
+                    $('.js_width').width(width);
+                    $('.imgbox').width(width);
+
+                    /*
+                     注意：$.mggScrollImg返回的scrollImg对象上有
+                     next，prev，go三个方法，可以实现外部对滚动索引的控制。
+                     如：scrollImg.next();//会切换到下一张图片
+                     scrollImg.go(0);//会切换到第一张图片
+                     */
+                    var scrollImg = $.mggScrollImg('.imgbox ul', {
+                        loop: true,//循环切换
+                        auto: true,//自动切换
+                        callback: function (ind) {//这里传过来的是索引值
+                            //$('#page').text(ind+1);
+                            var m_last = ind + 1;
+                            $(".m_p").removeClass("m_active");
+                            $(".m_p" + m_last).addClass("m_active");
+                        }
+                    });
+                })()
+        </script>
+    </body>
+    </html>
+}

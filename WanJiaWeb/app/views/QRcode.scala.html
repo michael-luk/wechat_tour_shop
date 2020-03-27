@@ -1,0 +1,21 @@
+@frame("我的分销二维码", "QrCodeApp", "QrCodeController") {
+    <meta charset="UTF-8">
+    <div class="erwei">
+        <div class="erwei_img"><br />
+            <img
+            src='{{user.headImgUrl}}' style="width: 80px ;
+                height: 80px ;
+                border-radius: 100px ;
+                border: 3px solid #F08300 ;" alt="">
+                <!--  <img src="img/tou.png"/> -->
+        </div>
+        <div class="erwei_wz">
+            <span>@session.get("WX_NAME")</span>
+        </div>
+
+        <div class="erwei_pic">  <img
+        ng-src='/showimg/barcode/{{user.resellerCodeImage}}' alt=""><br /><br /></div>
+
+    </div>
+}
+<script src='@routes.Assets.at("js/controllers/qrcode_controller.js")'></script>

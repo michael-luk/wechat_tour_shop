@@ -1,0 +1,36 @@
+@frame("首页", "WineApp", "WineController") {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<div class="fenxiao_change">
+	<ul id="fenxiao_tag">
+	   <li class="fenxiao_current" >全部订单 </li>
+	   <li>总订单<p>300</p></li>
+	   <li>总销售额<p>300</p> </li>
+	   <li>总佣金<p>300</p></li>
+	</ul>
+	<div id="fenxiao_tagcontent">
+	<div class="fenxiao_forder1">1234</div>
+	<div class="fenxiao_forder1">2345</div>
+	<div class="fenxiao_forder1">3456</div>
+	<div class="fenxiao_forder1">4567</div>
+	</div>
+</div>
+<script type="text/javascript">
+var fenxiao_tag=document.getElementById("fenxiao_tag").children; //获取Tag下的li，即Tag标签 
+var fenxiao_tagcontent=document.getElementById("fenxiao_tagcontent").children; //获取Tag标签对应的内容 
+fenxiao_tagcontent[0].style.display = "block"; //默认显示第一个标签的内容 
+var len= fenxiao_tag.length; 
+for(var i=0; i<len; i++) 
+{ 
+  fenxiao_tag[i].index=i; //设置对象的INDEX属性，方便下面调用 
+  fenxiao_tag[i].onclick = function() { 
+  for(var n=0; n<len; n++) {
+      fenxiao_tag[n].className="";
+      fenxiao_tagcontent[n].style.display="none"; 
+  }
+  fenxiao_tag[this.index].className = "fenxiao_current"; 
+  fenxiao_tagcontent[this.index].style.display = "block"; 
+} 
+}
+</script>
+}

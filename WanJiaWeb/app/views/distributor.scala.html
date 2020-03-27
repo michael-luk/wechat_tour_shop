@@ -1,0 +1,89 @@
+@frame("分销中心", "DistributorApp", "DistributorController") {
+    <div class="user-img">
+        <div class="touxiang">
+            <img src='{{user.headImgUrl}}'
+            style=" width: 110px;
+                height: 110px;
+                border-radius: 100px;
+                border: 5px solid #009996;
+            "
+            alt="">
+        </div>
+        <div class="yonghum">
+            <p class="user-p">
+                <b><span ng-bind="user.resellerCode | uppercase"></span></b>
+            </p>
+            <p class="user-p">
+                <b>@play.i18n.Messages.get("totalResellerMoney"):<span ng-bind="resellerAmount | currency: '￥'"></span></b>
+            </p>
+            <p class="user-p">
+                <b>@play.i18n.Messages.get("totalResellerBonus"):<span ng-bind="user.currentResellerProfit | currency: '￥'"></span>
+                    <span ng-if="status === 0">(<span ng-bind="txz | currency: '￥'"></span>@play.i18n.Messages.get("withdrawing"))</span></b>
+            </p>
+        </div>
+    </div>
+    <div style=" width: 100%;
+        min-height: 480px;
+    ">
+            <!-- <div class="user-img"></div> -->
+        <a href="/w/DistributionOrder?storeId={{storeId}}" class="user-a"><div class="user-div1">
+            <img src='@routes.Assets.at("img/fx1.png")' alt="" class="xtb">
+            <span class="user-span">我的分销订单</span>
+            <img src='@routes.Assets.at("img/right.png")' alt=""
+            class="img-right" style="width: 25px;
+                margin-top: 4px;">
+        </div>
+        </a>
+        <a href="/w/team?storeId={{storeId}}" class="user-a">
+            <div class="user-div1">
+                <img src='@routes.Assets.at("img/fx2.png")' alt="" class="xtb">
+                <span class="user-span">我的团队</span>
+                <img src='@routes.Assets.at("img/right.png")' alt=""
+                class="img-right" style="width: 25px;
+                    margin-top: 4px;">
+            </div>
+        </a>
+        <a href="/w/QRcode?nickName={{user.nickname}}&headImg={{user.headImgUrl}}&resellerBarcode={{user.resellerCodeImage}}&storeId={{storeId}}" class="user-a"><div class="user-div1">
+            <img src='@routes.Assets.at("img/fx3.png")' alt="" class="xtb">
+            <span class="user-span">我的分销二维码</span>
+            <img src='@routes.Assets.at("img/right.png")' alt=""
+            class="img-right" style="width: 25px;
+                margin-top: 4px;">
+        </div>
+        </a>
+            <!--
+	<div class="user-div1">
+		<img src='@routes.Assets.at("img/fx3.png")' alt="" class="xtb">
+        <span class="user-span">我的下线二维码</span>
+        <img src='@routes.Assets.at("img/right.png")' alt=""
+        class="img-right">
+    </div> -->
+
+    <div class="user-div1" ng-click="checkFondout(user.currentResellerProfit)" ng-if="put && status === 1">
+        <img src='@routes.Assets.at("img/fx4.png")' alt="" class="xtb">
+        <span class="user-span" >我要提款</span>
+        <img src='@routes.Assets.at("img/right.png")' alt=""
+        class="img-right" style="width: 25px;
+            margin-top: 4px;">
+    </div>
+
+    <div class="user-div1" ng-if="allowFondout">
+        <form id="form" role="form" name="myform" novalidate>
+            <span class="fondout-span">输入手机号:</span>
+            <input type="number" ng-model="drawing.phone" required style="width: 50%;
+                height: 24px;
+                margin-left: 2%;"/>
+            <span ng-if="myform.$valid">
+                <input type="button" value="提交" ng-click="save(@session.get("userid"))" style="width: 14%;
+                    height: 24px;
+                    margin-left: 2%;"/>
+            </span>
+            <span ng-if="myform.$invalid">
+                <input type="button" value="提交" ng-disabled="myform.$invalid" style="background: wine;" ng-click="save(@session.get("userid"))" style="width: 14%;
+                    height: 24px;
+                    margin-left: 2%;"/>
+            </span>
+        </form>
+    </div>
+}
+<script src='@routes.Assets.at("js/controllers/distributor_controller.js")'></script>

@@ -1,0 +1,63 @@
+@frame("新增地址", "addLocationApp", "addLocationController") {
+    <meta charset="UTF-8">
+    <div class="location" >
+        <form id="form" role="form" name="myform"  novalidate>
+            <table><!-- ng-submit="formSave(myform.$valid)" -->
+                <tr>
+                    <td style=" width: 300px;">姓名:<input type="text" class="td-text " placeholder="最少两个字"
+                    required ng-minlength="2" ng-maxlength="10" ng-model="Shipinfo.name"
+                    style="	width:80%;"></td>
+                </tr>
+                <tr>
+                    <td style=" width: 300px;">电话:<input type="number" class="td-text "
+                    required placeholder="请用户输入手机号码" ng-model="Shipinfo.phone" ng-pattern="/^([0-9]{11})$/" style="	width:80%;"></td>
+                </tr>
+                @*<tr>
+                <td>城市: <select ng-change="change(Shipinfo.city)" ng-model="Shipinfo.city" required  ng-options="xx as xx for xx in shipPricesCity">
+                </select>
+                </td>
+                </tr>*@
+                <tr>
+                    <td>区域: <select ng-change="change(Shipinfo.zone)" ng-model="Shipinfo.zone" required  ng-options="xx as xx for xx in shipPricesZone">
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>街道: <select  ng-model="Shipinfo.area" required  ng-options="xx.area as xx.area for xx in shipPricesArea" style="width: 150PX;">
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style=" width: 300px;">详细地址:<input type="text" class="td-text " required
+                    placeholder="最少5个字" ng-model="Shipinfo.location" style="	width:80%;"></td>
+                </tr>
+                    <!-- <tr>
+				 <td>邮编:<input type="text" class="td-text " placeholder="6位邮政编码"
+					ng-model="Shipinfo.postCode"></td>
+			</tr> -->
+                <tr>
+                    <td><input type="checkbox" ng-model="Shipinfo.isDefault">设置为默认地址</td>
+                </tr>
+                    <!-- <tr><td><input type="checkbox"  name="sex" id="2"
+						  class="radio5" > <label
+						for="2" class="radio5"><span class="radio5-span1" >设置为默认地址</span></label> </td></tr> -->
+
+            </table>
+
+            <div class="location-div1">
+                    <!-- <a href="/w/myLocation?userId={{userId}}" ng-if="pid === null && myform.$valid"> -->
+                <div ng-if="pid === null && myform.$valid" class="location-button1"  ng-disabled="myform.$invalid" ng-click="updateLocation()" >保存</div>
+                    <!-- </a> -->
+
+                <div class="location-button1"  ng-disabled="myform.$invalid" style="background:#d2d2d2;border:1px solid #d2d2d2;" ng-if="myform.$invalid">保存</div>
+
+
+                    <!-- <a  ng-if="pid != null && myform.$valid" href="/w/myLocation?pid={{pid}}&num={{num}}&amount={{amount}}&price={{price}}&wishWord={{wishWord}}&theme={{theme}}&themeId={{themeId}}&image={{image}}&wishImage={{wishImage}}&userId={{userId}}&wineBody={{wineBody}}&wineWeight={{wineWeight}}&decoration={{decoration}}">
+		<div class="location-button1" ng-disabled="myform.$invalid" ng-click="updateLocation()">保存</div>
+		</a> -->
+                <div  ng-if="pid != null && myform.$valid" class="location-button1" ng-disabled="myform.$invalid" ng-click="updateLocation()">保存</div>
+            </div>
+        </form>
+    </div>
+}
+<script src='@routes.Assets.at("js/controllers/addLocation_controller.js")'></script>

@@ -1,0 +1,76 @@
+@frame("订单详情", "OrderMessageApp", "OrderMessageController") {
+<meta charset="UTF-8">
+<div class="order-wine" style="">
+
+
+<div class="pay-div1" >
+	<div class="pay1-left" style="width:84%; float:left;margin: 4% 0 2% 0;">
+	<p class="pay-p1">
+			收货人：<span ng-bind="myOrder.shipName"></span> <span ng-bind="myOrder.shipPhone" style="float:right;"></span> 		
+		</p>
+		<p class="pay-p1">
+			送货地址:&nbsp;<span style="color:#bda770;" ng-if="defaultLocation.isDefault === true ">[默认]&nbsp;</span><span ng-bind="myOrder.shipProvice"></span><span ng-bind="myOrder.shipLocation"></span>
+		</p>
+	</div>		
+	</div>
+
+	<div class="order-mg" style="float:left;">
+		<p class="order-p1" style="padding-right:10px;">
+			<span style="font-size:11px;float: left;">订单编号:<span ng-bind="myOrder.orderNo"></span></span>
+			
+			 <span  style="float:right">订单状态:
+				 <span ng-bind="myOrder.status | stateDisplay" style="color:#bda770;"></span>
+			</span>
+			 
+		</p>
+		<div class="order-div1" style=" min-height: 98px;" > 
+		<!-- <div class="myOrder-div1" style=" min-height: 98px;"> -->
+			<div style="margin-left: 8%;text-align: left;">
+				<div class="myOrder-p2" ng-repeat="orderProduct in orderProductList" style="height: 63px;;padding:0;">
+					<a href="/w/Wproduct/{{orderProduct.id}}" style="color:black;">
+						<div style="float: left; width: 20%;max-width: 50px;">
+						<img ng-src='/showimg/thumb/{{images[$index]}}' alt="" style="width: 100%; height: 100%" >
+					</div>
+
+					<div style="float: left;width: 50%;padding-left: 8%;margin-top: 5px;">
+						<p style="    width: 100%;margin: auto;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;" ng-bind="orderProduct.name"></p>
+						<p style="margin: 0;">x<span  ng-bind="quantityList[$index]"></span></p>
+					</div>
+					</a>
+					<div  class="myOrder-button"   style="float: right;width: 30%;max-width: 60px;margin-right: 8%;font-size: 12px;padding: 4px 0 4px 0;" ng-if="myOrder.status > 4">
+						<a  ng-click="Jump($index)" style="color:#fff;"><span ng-bind="orderProduct.hasCommented | commentBtnDisplay"></span></a>
+					@*	href="/w/evaluate?OrderId={{myOrder.id}}&orderProductIndex={{$index}}&quantity={{quantityList[$index]}}"*@
+					</div>
+				</div>
+			</div>
+			<div style="text-align: left;padding-left: 8%;	padding-top: 20px;">
+				<span style="font-size:14px;">
+					使用积分抵扣金额:<span ng-bind="myOrder.jifenAmount | currency: '￥'"></span><br>
+					优惠金额:<span ng-bind="myOrder.promotionAmount | currency: '￥'"></span><br>
+					订单总价:<span ng-bind="myOrder.amount | currency: '￥'"></span>
+				</span>
+				<br>
+				<span style="float:right;margin:4% 1% 1% 0;;font-size:11px;">交易时间:<span ng-bind="myOrder.createdAtStr" > </span></span>
+			</div>
+
+		</div>
+		<p class="order-p4" ng-if="myOrder.payTime != null ">
+			<span style="float:left;font-size:10px;" >付款时间:</span><span  ng-bind="myOrder.payTime" style="float:left;font-size:10px;"></span>
+			
+			<b >实付款：<span><span
+					ng-bind="myOrder.payAmount / 100  | currency: '￥'"></span>
+				</span></b>
+		</p>
+		<div class="myOrder-p5">
+			<div class="myOrder-button2"ng-if="myOrder.status == 0" ng-click="goPay()">我要支付</div>	
+			<div class="myOrder-button2"ng-if="myOrder.status == 0" ng-click="quxiao()">取消订单</div>	
+			<div class="myOrder-button" ng-if="myOrder.status == 4" ng-click="Confirm()">确认收货</div>
+			<div class="myOrder-button" ng-if="myOrder.status == 9" ng-click="">我要支付</div>			
+
+		</div>
+		
+	</div>
+	
+</div>
+}
+<script src='@routes.Assets.at("js/controllers/OrderMessage_controller.js")'></script>

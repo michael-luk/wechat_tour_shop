@@ -1,0 +1,206 @@
+@frame("个人中心", "UserApp", "UserController") {
+
+	<script>
+			window.onload = function(){
+				$('.moli li').click(function(){
+					$('.moli li').removeClass('actImg');
+					$(this).addClass('actImg');
+				})
+			}
+
+	</script>
+
+<div class="user-img">
+	<div class="touxiang">
+		<img src='{{user.headImgUrl}}'
+			style="    width: 110px;
+			height: 110px;
+			border-radius: 100px;
+			border: 5px solid #009996;"
+			alt="">
+	</div>
+	<div class="yonghum">
+		<p class="user-p">
+			<!-- <b>用户名:<span ng-bind="user.nickname">{{user.nickname}}</b> -->
+			<b style="font-size: 18px;">@session.get("WX_NAME")</b>
+			<!-- {{user.loginName}} -->
+		</p>
+		<p class="user-p">
+			<!-- <b>用户名:<span ng-bind="user.nickname">{{user.nickname}}</b> -->
+			<b>@play.i18n.Messages.get("vipNum"):</b>
+			<!-- {{user.loginName}} -->
+		</p>
+		<p class="user-p">
+			<b><span ng-bind="user.resellerCode | uppercase"></span></b>
+		</p>
+		<p class="user-p">
+			<a ng-show="user.isReseller" href="/w/distributor"><span ng-show="user.isReseller" style="color: #ffffff">@play.i18n.Messages.get("imReseller")</span></a>
+		</p>
+
+	@*	<p class="user-p">
+				<!-- <b>用户名:<span ng-bind="user.nickname">{{user.nickname}}</b> -->
+			<b>积分:<span ng-bind="user.jifen | uppercase"></span></b>
+				<!-- {{user.loginName}} -->
+		</p>*@
+		<!-- 		<p class="user-p" -->
+		<!-- 			style="font-size: 14px; text-align: right; margin-top: 15%; color: #bda770;"> -->
+		<!-- 			积分:<span ng-bind="user.jifen"></span>分{{user.loginName}} -->
+		<!-- 		</p> -->
+	</div>
+
+	<!--   <p class="user-p">总佣金:</p> -->
+</div>
+
+	<div class="wine-nav">
+		<ul>
+			<li  ng-click="showItem(1)" class="select_li"><a  style="color: #5BBFC7;">@play.i18n.Messages.get("myOrder")</a>
+				<div class="select_s" id="select_s1"></div>
+			</li>
+			<li  ng-click="showItem(2)" class="select_li"><a  style="color: #5BBFC7">@play.i18n.Messages.get("myAddress")</a>
+				<div class="" id="select_s2" ></div>
+			</li>
+			<li  ng-click="showItem(3)" class="select_li"><a  style="color: #5BBFC7">@play.i18n.Messages.get("myCollect")</a><div class="" id="select_s3"></div></li>
+			<li  ng-click="showItem(4)" class="select_li"><a  style="color: #5BBFC7">@play.i18n.Messages.get("myJifen")</a><div class="" id="select_s4"></div></li>
+		</ul>
+	</div>
+@*我的订单-start*@
+	<div class="new_page1 " id="new_page1">
+		<div class="div_selbut"><input type="button" value="@play.i18n.Messages.get("allOrder")" id="all_but" class="all_but but but_bac" ng-click="showBut(1)"/> <input type="button" value="@play.i18n.Messages.get("status1")"  id="unp_but" class="unp_but but" ng-click="showBut(2)"/> <input type="button" value="@play.i18n.Messages.get("status2")"  id="rev_but" class="rev_but but" ng-click="showBut(3)"/></div>
+		<div id="myOrder-mg1">
+			<div class="myOrder-mg" ng-repeat="order in orderList" >
+				<p class="myOrder-p1">
+					<span style="font-size:12px;">@play.i18n.Messages.get("orderNo")：<span ng-bind="order.name"></span></span>
+					<span  ng-bind="order.createdAt" style="float:right;font-size:12px;color: #777777;font-weight: normal;"></span>
+
+				</p>
+				<a href="">
+					<div class="myOrder-div1" style=" min-height: 70px;">
+						<div class="myOrder-p2">
+							<div style="float: left;width: 90%;"> <span style=" float: left;">@play.i18n.Messages.get("productName")：</span>
+								<div style="float: left;"><span style="    font-size: 13px;">
+								<span ng-repeat="orderProduct in order.products">
+									<span ng-bind="orderProduct.name@session.get("lang")" style="    font-size: 13px;"></span> ×
+									<span ng-bind="orderProduct.ProductQuantity" style="    font-size: 13px;"></span><br>
+							</span>
+								</span>
+									</div>
+							</div>
+							<div style="float: left;font-size: 13px;width: 90%;" >
+								@play.i18n.Messages.get("orderTotal")：￥<span   ng-bind="order.amount" style="    font-size: 13px;"></span>
+							</div>
+
+						</div>
+					</div>
+				</a>
+
+				<div class="myOrder-p5">
+					<div class="myOrder-button2" ng-if="order.status == 0 || order.status == 9" ng-click="setStatus(order.id,2)">@play.i18n.Messages.get("status4")</div>
+					<div class="myOrder-button2_new" ng-if="order.status == 0 || order.status == 9" ng-click="goPay(order.id)">@play.i18n.Messages.get("status3")</div>
+					<div class="myOrder-button2_new" ng-if="order.status == 4" ng-click="setStatus(order.id,5)">@play.i18n.Messages.get("status6")</div>
+					<div class="myOrder-button2_new">
+						<span  ng-if="order.status == 0">@play.i18n.Messages.get("status1")</span>
+						<span  ng-if="order.status == 1">@play.i18n.Messages.get("status2")</span>
+						<span  ng-if="order.status == 2">@play.i18n.Messages.get("status8")</span>
+						<span  ng-if="order.status == 3">@play.i18n.Messages.get("status5")</span>
+						<span  ng-if="order.status == 4">@play.i18n.Messages.get("status9")</span>
+						<span  ng-if="order.status == 5">@play.i18n.Messages.get("status7")</span>
+						<span  ng-if="order.status == 9">@play.i18n.Messages.get("status10")</span>
+						<span  ng-if="order.status == 12">@play.i18n.Messages.get("status11")</span>
+					</div>
+				</div>
+
+			</div>
+			</div>
+	</div>
+@*我的订单-end*@
+
+	@*地址-start*@
+	<div class="new_page2  new_page_hid " id="new_page2"  ng-if="pid === null" >
+		<div class="location-div1" ng-repeat="myLocation in myLocations" style="margin: 5% 0 0% 5%;">
+			<div class="location-left" ng-click="selectLeft($index)"
+			ng-class="{true: 'selectLeft'}[$index === selectLeftDiv || myLocation.isDefault === true]">
+			</div>
+			<div class="location-center">
+				<p ng-bind="myLocation.name" style="  font-size: 14px;color: black;"></p>
+				<p ng-bind="myLocation.phone" style="color: #fff;"></p>
+				<p style="color: #fff;">
+					<span ng-bind="myLocation.provice"></span>
+					<span ng-bind="myLocation.city"></span>
+					<span ng-bind="myLocation.zone"></span>
+					<span ng-bind="myLocation.location"></span>
+				</p>
+			</div>
+			<div class="location-right" ng-click="saveContent()">
+				<a href="/w/location?lid={{myLocation.id}}&userId={{user.id}}&storeId={{storeId}}"><img
+				src='@routes.Assets.at("images/design.png")' alt=""
+				style="width: 100%; height: 100%;"> </a>
+			</div>
+		</div>
+
+		<a href="/w/location?userId={{userId}}&storeId={{storeId}}">
+			<div  class="add-ads">@play.i18n.Messages.get("addAddress")</div>
+		</a>
+	</div>
+
+	@*从订单过来获取地址*@
+	<div class="new_page2  new_page_hid " id="new_page2"  ng-if="pid != null">
+		<div class="location-div1" ng-repeat="myLocation in myLocations" style="margin: 5% 0 0% 5%;" >
+			<div class="location-center" ng-click="selectMyLocation($index)">
+				<a href="/w/pay?pid={{pid}}&num={{num}}&price={{price}}&amount={{amount}}&themeName={{themeName}}&themeId={{themeId}}&image={{image}}&LocationId={{selectMyLocationIndex}}&userId={{userId}}&productAmount={{productAmount}}&storeId={{storeId}}">
+					<p ng-bind="myLocation.name" style="  font-size: 14px;color: black;"></p>
+					<p ng-bind="myLocation.phone" style="color: #fff;"></p>
+					<p style="color: #fff;">
+						<span ng-bind="myLocation.provice"></span>
+						<span ng-bind="myLocation.city"></span>
+						<span ng-bind="myLocation.zone"></span>
+						<span ng-bind="myLocation.location"></span>
+					</p>
+				</a>
+			</div>
+		</div>
+
+		<a href="/w/location?pid={{pid}}&num={{num}}&amount={{amount}}&price={{price}}&themeName={{themeName}}&themeId={{themeId}}&image={{image}}&userId={{userId}}&productAmount={{productAmount}}&storeId={{storeId}}" class="user-a">
+			<div  class="add-ads">@play.i18n.Messages.get("addAddress")</div>
+		</a>
+	</div>
+
+	@*地址-end*@
+
+	@*收藏-start*@
+	<div class="new_page3  new_page_hid" id="new_page3">
+		<div class="location-div1" ng-repeat="favorite in favoriteProducts" style="  margin: 5% 0 0% 0%; width: 100%;border-radius: 0px;">
+			<div class="well-img1">
+				<a href="/w/Wproduct/{{favorite.id}}?userId={{user.id}}&storeId={{storeId}}"
+				style="float: left; width: 100%;">
+					<img ng-src='{{favorite.images@session.get("lang") | getFirstImageFromSplitStr:0}}' alt=""
+					style="width: 100%; height: 100%;    border-radius: 8px;"></a>
+
+			</div>
+			<div class="well-p"style="    margin: 4% 0 3% 2%;">
+				<p class="well-p1" >
+						&nbsp;<span ><span ng-bind="favorite.name@session.get("lang")" style=" font-size: 14px;"> </span></span><!-- <span
+				<p class="well-p1" style="padding-top: 8%;">
+						<span ><span ng-bind="favorite.name" style=" font-size: 14px;"> </span></span><!-- <span
+					ng-bind="Product.ml"></span>ml <br>-->
+					<br>
+
+					<span ng-bind=" favorite.comment" style="line-height:30px;font-size: 13px;"></span><br>
+					<span style=" line-height: 50px;font-size: 15px;color: #d41111;">￥<span ng-bind=" favorite.price" ></span></span><br>
+					<span style="float: right;margin-top: -35px;" ng-click="cancelFavorite(favorite.id)">
+						<img src='@routes.Assets.at("images/del.png")' style="width: 18px;">
+					</span>
+				</p>
+			</div>
+		</div>
+	</div>
+	@*收藏-end*@
+
+	@*积分-start*@
+	<div class="new_page4 new_page new_page_hid" id="new_page4">
+		<a href="#" class="user-a">
+			<div class="add-ads">@play.i18n.Messages.get("creditShow"): <span ng-bind="user.credit"></span></div>
+		</a>
+	</div>
+	@*积分-end*@
+}
+<script src='@routes.Assets.at("js/controllers/userCenter_controller.js")'></script>

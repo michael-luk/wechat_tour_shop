@@ -1,0 +1,57 @@
+@frame("我要评价", "EvaluateApp", "EvaluateController") {
+    <meta charset="UTF-8">
+    <div class="order-wine">
+        <div class="order-mg" >
+
+            <div class="order-div1">
+                <div class="order-img">
+                    <img style="width: 100% ; height: 100% ;"
+                    ng-src="/showimg/upload/{{footComment.product.images | getProductFirstImage}}" alt="">
+                </div>
+
+                <div class="order-img" style="width: 60% ; border: 1px solid #fff ;">
+                    <p class="order-p3">
+                        <span style="font-weight: bold ; font-size: 15px ;" ng-bind="footComment.product.name">
+                            迈甜虾小龙虾</span> <br>
+                        单价:&nbsp;<span style="color: #f08300 ; margin-right:10px ;" ng-bind="footComment.product.price | currency: '￥'">&nbsp;90.0</span>
+                        数量:&nbsp;<span
+                    style="color: #f08300 ;" ng-bind="quantity">&nbsp;3</span><br>
+                        购买时间:&nbsp;<span ng-bind="Order.payTime">&nbsp;2015-01-14</span>
+
+
+                    </p>
+                </div>
+                <textarea class="n-text"
+                style="resize: none ; width: 100% ; height: 99px ; font-size: 14px ; color: #7F7F7F ; padding: 14px ; background: #fff ; margin-top: 15px ; border: 1px solid #eeeeee ;"
+                placeholder="吃货，今天的菜您满意吗？快分享您的美食评价吧！?" ng-model="footComment.description"></textarea>
+
+
+                <div class="eval-div1">
+                    <p>上传图片</p>
+
+                    <div class="eval-div2" style="float:left ;" ng-repeat="image in imagesList" ng-if="image.length > 0">
+                        <img ng-src="/showimg/thumb/{{image}}" style="width: 100% ; max-height: 120px ; border-radius:5px ;">
+                    </div>
+                    <form id="form1">
+                        <input ng-file-select="uploadImage($files, 'images',$index)"
+                        id="file_uploader" type="file" name="files[]" accept="image/gif,image/jpeg,image/jpg,image/png" ng-hide="true" >
+                        <input type="button" class="eval-div2"
+                        value="" onclick="form1.file_uploader.click();" style="background:url(/showimg/img/jia.png) ; float:left ;">
+                    </form>
+
+                    @* <form id="form1">
+                    <input type="file" id="file_uploader" name="files[]" accept="image/gif,image/jpeg,image/jpg,image/png"
+                    ng-file-select="uploadImage($files, 'wishImage')" value="上传要定制的照片"
+                    style="width: 200px; height: 30px; background: #888888; display: none;">
+                    <input type="button" id="file_uploader2" class="order2-button1"
+                    value="上传要定制的照片" onclick="form1.file_uploader.click();">
+                    </form>*@
+                </div>
+            </div>
+
+        </div>
+
+        <div style=" margin-top: 46px ;" class="location-button1" ng-click="Comment()">发表评价</div>
+    </div>
+}
+<script src='@routes.Assets.at("js/controllers/evaluate_controller.js")'></script>

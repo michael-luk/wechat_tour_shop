@@ -1,0 +1,64 @@
+@frame("新增地址", "LocationApp", "LocationController") {
+<meta charset="UTF-8">
+<div class="location" >
+	<form id="form" role="form" name="myform"  novalidate style="width: 80%;margin-left: 10%;">
+		<table><!-- ng-submit="formSave(myform.$valid)" -->
+			<tr>
+				<td style=" width: 300px;">@play.i18n.Messages.get("name"):<input type="text" class="td-text " placeholder=""
+					required   ng-model="Shipinfo.name"
+					style="	width:80%;"></td>
+			</tr>@*ng-minlength="2" ng-maxlength="10"*@
+			<tr>
+				<td style=" width: 300px;">@play.i18n.Messages.get("phone"):<input type="text" class="td-text "
+					required placeholder="" ng-model="Shipinfo.phone" style="	width:80%;"></td>
+			</tr> @*ng-pattern="/^([0-9]{11})$/"*@
+			<tr>
+				<td style=" width: 300px;">@play.i18n.Messages.get("country"):<input type="text" class="td-text " required
+					placeholder="" ng-model="Shipinfo.provice" style="	width:80%;"></td>
+			</tr>
+			@*<tr>*@
+				@*<td style=" width: 300px;">@play.i18n.Messages.get("provice"):<input type="text" class="td-text " required*@
+					@*placeholder="" ng-model="Shipinfo.city" style="	width:80%;"></td>*@
+			@*</tr>*@
+			@*<tr>*@
+				@*<td style=" width: 300px;">@play.i18n.Messages.get("city"):<input type="text" class="td-text " required*@
+					@*placeholder="" ng-model="Shipinfo.zone" style="	width:80%;"></td>*@
+			@*</tr>*@
+			<tr>
+				<td style=" width: 300px;">@play.i18n.Messages.get("detailAddress"):<input type="text" class="td-text " required
+					placeholder="" ng-model="Shipinfo.location" style="	width:73%;"></td>
+			</tr>
+			<tr>
+				<td style=" width: 300px;">@play.i18n.Messages.get("addressComment"):<input type="text" class="td-text "
+					placeholder="" ng-model="Shipinfo.comment" style="	width:80%;"></td>
+			</tr>
+			<!-- <tr>
+				 <td>邮编:<input type="text" class="td-text " placeholder="6位邮政编码" 
+					ng-model="Shipinfo.postCode"></td> 
+			</tr> -->
+			 <tr style="border: none; margin-top: 15px;color: white;font-size: 14px;">
+				<td><input type="checkbox" ng-model="Shipinfo.isDefault"><u> @play.i18n.Messages.get("defaultAds")</u></td>
+			</tr> 
+			<!-- <tr><td><input type="checkbox"  name="sex" id="2"
+						  class="radio5" > <label
+						for="2" class="radio5"><span class="radio5-span1" >设置为默认地址</span></label> </td></tr> -->
+
+		</table>
+	
+	<div class="location-div1">
+		<!-- <a href="/w/myLocation?userId={{userId}}" ng-if="pid === null && myform.$valid"> -->
+			<div ng-if="pid === null && myform.$valid" class="location-button1"  ng-disabled="myform.$invalid" ng-click="updateLocation()" > @play.i18n.Messages.get("save")</div>
+		<!-- </a> -->
+		
+		<div class="location-button1"  ng-disabled="myform.$invalid" style="background:#d2d2d2;border:1px solid #d2d2d2;" ng-if="myform.$invalid"> @play.i18n.Messages.get("save")</div>
+		
+		
+		<!-- <a  ng-if="pid != null && myform.$valid" href="/w/myLocation?pid={{pid}}&num={{num}}&amount={{amount}}&price={{price}}&wishWord={{wishWord}}&theme={{theme}}&themeId={{themeId}}&image={{image}}&wishImage={{wishImage}}&userId={{userId}}&wineBody={{wineBody}}&wineWeight={{wineWeight}}&decoration={{decoration}}">
+		<div class="location-button1" ng-disabled="myform.$invalid" ng-click="updateLocation()">保存</div>
+		</a> -->
+		<div  ng-if="pid != null && myform.$valid" class="location-button1" ng-disabled="myform.$invalid" ng-click="updateLocation()"> @play.i18n.Messages.get("save")</div>
+	</div>
+	</form>
+</div>
+}
+<script src='@routes.Assets.at("js/controllers/location_controller.js")'></script>

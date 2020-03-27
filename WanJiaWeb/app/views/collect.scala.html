@@ -1,0 +1,36 @@
+@frame("我的收藏", "CollectApp", "CollectController") {
+<meta charset="UTF-8">
+<div class="collect-wine">
+
+	<div class="collect-mg" ng-repeat="favoriteProduct in favoriteProducts">
+
+		<div class="collect-div1">
+		<a href="/w/Wproduct/{{favoriteProduct.id}}?userId={{userId}}">
+			<div class="collect-img">
+				<img style="width: 100%; height: 100%;"
+					ng-src="/showImage/{{images[$index]}}" alt="">
+			</div>
+			</a>
+				<a href="/w/Wproduct/{{favoriteProduct.id}}?userId={{userId}}">
+			<p class="collect-p2" style="padding:4% 0 0 0;">
+				<b> <span ng-bind="favoriteProduct.alcoholDegree"></span>度 <!-- <span
+					ng-bind="favoriteProduct.ml"></span>ml 龙鑫浩然酒<br> --> <span
+					ng-bind="favoriteProduct.name"></span>
+				</b>
+			</p>
+			</a>
+			<p class="collect-p3" style="color: #bda770;margin-top: 15%;">
+				 <input
+					type="button" value="取消收藏" class="myOrder-button2"
+					style="font-size: 13px;    margin: 0 3% 2.5% 0;"
+					ng-click="cancelFavoriteFromMyFavoritePage(favoriteProduct)">
+				
+			</p>
+		</div>
+
+	</div>
+
+
+
+</div>
+}

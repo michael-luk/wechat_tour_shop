@@ -1,0 +1,16 @@
+@frame("出错了", "", "") {
+    <meta charset="UTF-8">
+
+    <div style="width:100% ; background:#fff ; min-height:400px ; float:left ;">
+
+        <table style="width:60% ; margin:auto ; font-size:15px ; height:100px ; margin-top:50px ;">
+            <tr>
+                <td style="width: 20%;">错误: </td>
+                <td>@flash.get("error")</td>
+            </tr>
+        </table>
+        <div class="foot-s" style="margin-top:100px ;">
+            回首页
+        </div>
+    </div>
+}

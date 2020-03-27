@@ -1,0 +1,277 @@
+@frame("首页", "IndexApp", "IndexController") {
+<div class="index-b" style="width:1440px height:658px;">
+<div class="banner">
+	<div class="bd">
+		<ul>
+			<li><a class="b-a1" href="#"
+				style="background: url(assets/img/banner1.jpg) 50% 50%; background-size: 1440px 658px;"></a></li>
+			<li><a class="b-a2" href="#"
+				style="background: url(assets/img/banner2.jpg) 50% 50%; background-size: 1440px 658px;"></a></li>
+		</ul>
+
+	</div>
+
+	<div class="operation">
+		<a href="javascript:;" class="prev"></a> <span class="pageState"></span>
+		<a href="javascript:;" class="next"></a>
+	</div>
+
+</div>
+</div>
+<a name="map"></a>
+<div class="map"></div>
+
+<div class="index-theme">
+	<div class="index-title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<table class="table1">
+			<tr>
+				<td><hr /></td>
+				<td>四大主题</td>
+				<td><hr></td>
+			</tr>
+		</table>
+	</div>
+	<div class="index-theme-content">
+		<div class="title1" ng-repeat="Info in InfoList">
+			<div class="pt1">
+				<img style="width:292px; height: 292px;border-radius:7px 7px 0 0;"
+					src='@routes.Assets.at("upload/{{Info.smallImages}}")' alt="">
+			</div>
+			<div class="travel">
+				<div class="img1">
+				<img style="width: 100%; height: 100%;"
+					src='@routes.Assets.at("upload/{{Info.images}}")' alt="">
+				</div>
+				<p ng-model="Info.name">{{Info.name}}</p>
+				<div class="text1">{{Info.description1}}</div>
+			</div>
+			<form action="">
+				<input type="button" value="查看详情" class="button1" />
+			</form>
+		</div>
+		<!-- <div class="title1 title2">
+			<div class="pt2"></div>
+			<div class="travel">
+				<div class="img2"></div>
+				<p>����ҽ��</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="�鿴����" class="button1" />
+			</form>
+		</div>
+		<div class="title1 title3">
+			<div class="pt3"></div>
+			<div class="travel">
+				<div class="img3"></div>
+				<p>���ڷ���</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="�鿴����" class="button1" />
+			</form>
+		</div>
+		<div class="title1 title4">
+			<div class="pt4"></div>
+			<div class="travel">
+				<div class="img4"></div>
+				<p>�������</p>
+				<div class="text1">
+				根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="�鿴����" class="button1" />
+			</form>
+		</div> -->
+	</div>
+</div>
+
+<div class="index-private">
+	<div class="index-title">
+		<form>
+			<p>
+				<a href="#"> </a>
+			</p>
+			<table class="table2">
+				<tr>
+					<td><hr /></td>
+					<td>私人定制</td>
+					<td><hr></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="index-private-content1">
+		<div id="index-left">
+			<div class="text2"></div>
+			<div class="text-r">
+				<p>
+					私人订制旅游在国内还属新兴产品，但是在国外，定制旅游已经十份成熟。现今，私人定制的主题可谓五花八门；有太空之旅，热气球观光之旅，热带雨林探险之旅，极地之旅，海岛蜜月，高尔夫假期，奢华钟表之旅，古堡会议，时尚之旅等。<br />
+					<br />
+					但在所有的私人定制旅游主题中，最昂贵的私人定制旅行非太空旅行莫属，有报道称，曾拍摄《星球大战》，《阿凡达》的导演卡梅隆也想给自己一次正真的太空旅行。卡梅隆可能于2015年乘坐俄罗斯“联盟”号飞船登上太空。他将实现绕月光飞行，需要支付的费用大约是1.5亿美元。
+				</p>
+
+				<form action="">
+					<input type="button" value="查看详情" class="button2" />
+				</form>
+			</div>
+		</div>
+		<div id="right" >
+			<p>私人生活策划师</p>
+			<div class="photo">
+			<img style="width:100%;height:100%;"
+				src='@routes.Assets.at("upload/{{newInfo.images}}")' alt=""><a href="#"></a>
+		
+				<a href="#"></a>
+			</div>
+			<p>{{newInfo.name}}</p>
+			<div class="text1">
+				{{newInfo.description1}} 根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			<form action="">
+				<input type="button" value="立即咨询" class="button1" />
+			</form>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+<div class="index-service">
+
+	<div class="index-title">
+		<form>
+			<p>
+				<a href="#"> </a>
+			</p>
+			<table class="table2">
+				<tr>
+					<td><hr /></td>
+					<td>服务体验</td>
+					<td><hr></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="index-service-content2">
+		<div id="s-left">
+			<div class="s-left1">
+				<div class="s-div1">
+					<div class="s-text1"></div>
+					<p>
+						<span class="span1">五星级酒店</span><span class="span2">皇宫酒店/城堡 /庄园
+							/ׯ԰</span>
+					</p>
+				</div>
+				<div class="s-div2">
+					<div class="s-text2"></div>
+					<p>
+						<span class="span1">公务舱</span><span class="span2">
+							 国际航线搭乘公务舱</span>
+				</div>
+
+				<div class="s-div2">
+					<div class="s-text2"></div>
+					<p>
+						<span class="span1">米奇林餐厅</span> <span class="span2">米其林或当地经典风味</span>
+				</div>
+
+				<div class="s-div2">
+					<div class="s-text2"></div>
+					<p>
+						<span class="span1">私家团   6人团</span><span class="span2">每团最多是人</span>
+				</div>
+				<div class="s-div2">
+					<div class="s-text2"></div>
+					<p>
+						<span class="span1">专业领先</span> <span class="span2">国内最专业团队</span>
+				</div>
+			</div>
+			<div class="s-div3">
+				<p>
+					私人订制旅游在国内还属新兴产品，但是在国外，定制旅游已经十份成熟。现今，私人定制的主题可谓五花八门；有太空之旅，热气球观光之旅，热带雨林探险之旅，极地之旅，海岛蜜月，高尔夫假期，奢华钟表之旅，古堡会议，时尚之旅等。<br />
+					<br />
+					但在所有的私人定制旅游主题中，最昂贵的私人定制旅行非太空旅行莫属，有报道称，曾拍摄《星球大战》，《阿凡达》的导演卡梅隆也想给自己一次正真的太空旅行。卡梅隆可能于2015年乘坐俄罗斯“联盟”号飞船登上太空。他将实现绕月光飞行，需要支付的费用大约是1.5亿美元。
+				</p>
+				<input type="button" value="免费体验" class="button1" />
+
+			</div>
+		</div>
+	</div>
+	<div style="width: 100% height:10px;">
+		<a name="service"></a>
+	</div>
+</div>
+
+<a name="service"></a>
+
+<div class="index-vip">
+
+	<div class="v-t index-title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<form action="">
+			<table class="table2">
+				<tr>
+					<td><hr /></td>
+					<td>会员服务</td>
+					<td><hr></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="index-vip-content">
+		<div class="v-left"></div>
+		<div class="v-text">
+			<p>
+				私人订制旅游在国内还属新兴产品，但是在国外，定制旅游已经十份成熟。现今，私人定制的主题可谓五花八门；有太空之旅，热气球观光之旅，热带雨林探险之旅，极地之旅，海岛蜜月，高尔夫假期，奢华钟表之旅，古堡会议，时尚之旅等。<br />
+				<br />
+				但在所有的私人定制旅游主题中，最昂贵的私人定制旅行非太空旅行莫属，有报道称，曾拍摄《星球大战》，《阿凡达》的导演卡梅隆也想给自己一次正真的太空旅行。卡梅隆可能于2015年乘坐俄罗斯“联盟”号飞船登上太空。他将实现绕月光飞行，需要支付的费用大约是1.5亿美元。
+			</p>
+
+			<form action="">
+				<input type="button" value="查看详情" class="v-button">
+			</form>
+		</div>
+
+		<div class="v-right">
+			<form action="">
+				<table class="v-table">
+					<tr>
+						<td class="v-td1">环球订制生活会员卡</td>
+					</tr>
+					<tr>
+						<td class="v-td2 v-bd"><a class="v-a123" href="#"></a>
+							<p>普通会员卡</p></td>
+					</tr>
+					<tr>
+						<td class="v-td2 v-bd"><a class="v-a2" href="#"></a>
+							<p>银玉会员卡</p></td>
+					</tr>
+					<tr>
+						<td class="v-td2 v-bd"><a class="v-a3" href="#"></a>
+							<p>金玉会员卡</p></td>
+					</tr>
+					<tr>
+						<td class="v-td2 v-bd"><a class="v-a4" href="#"></a>
+							<p>钻石会员卡</p></td>
+					</tr>
+					<tr>
+						<td class="v-td2 v-le"><a class="v-a5" href="#"></a>
+							<p>黑钻石会员卡</p></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="english">XINYU HUANQIU DINGZH</div>
+<a name="about"></a>
+}

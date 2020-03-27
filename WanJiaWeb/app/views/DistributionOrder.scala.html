@@ -1,0 +1,76 @@
+@frame("我的分销订单", "MyResellerOrderApp", "MyResellerOrderController") {
+    <meta charset="UTF-8">
+    <div class="myOrder-wine">
+        <div class="Dis-div" style="font-size: 10px;">
+            <ul style="font-size: 10px">
+                <li style="width: 33.3%"><a href="" id="" style="cursor: hand;
+                    font-size: 10px">总订单<br><span ng-bind="myOrders.length" style="color: #f08300;"></span></a></li>
+                <li style="width: 33.3%"><a href="" id="" style="cursor: hand;
+                    font-size: 10px">
+                    总分销额<br><span ng-bind="resellerAmount | currency: '￥'" style="color: #f08300;"></span></a></li>
+                <li style="width: 33.4%"><a href="" id="" style="cursor: hand;
+                    font-size: 10px">
+                    总佣金<br><span ng-bind="user.currentResellerProfit | currency: '￥'" style="color: #f08300;"></span></a></li>
+            </ul>
+        </div>
+            <!-- <div class="myOrder-mg" ng-repeat="xx in myOrders">
+		<p class="myOrder-p1" >
+			<b>订单编号:{{xx.orderNo}}</b>
+				<div class="disOrder-button">交易完成</div>
+			 <input type="button" value="已支付" class="disOrder-button" ng-show="xx.status === 1"> 
+			 <input type="button" value="已收货" class="disOrder-button" ng-show="xx.status === 5"> 
+			 <input type="button" value="已计算分销" class="disOrder-button" ng-show="xx.status === 6"> 
+			 <input type="button" value="已取消分销" class="disOrder-button" ng-show="xx.status === 7"> 
+		</p>
+			<a href="/w/Wproduct/{{xx.orderProducts[0].id}}">
+		<div class="myOrder-div1">
+	
+			<div class="myOrder-img">
+				<img style="width: 100%; height: 100%;" ng-src="/showimg/thumb/{{images[$index]}}" alt="">
+			</div>
+			<p class="myOrder-p2">
+				<b ng-bind="xx.orderProducts[0].name">
+				</b>
+			</p>
+			<p class="myOrder-p3">
+				<b>数量：{{xx.quantity}}<span ng-bind="xx.quantity"></span> <span class="myOrder-span1" ng-bind="xx.price | currency: '￥'">&yen;
+            {{xx.orderProducts[0].price}}</span></b>
+			</p>
+		</div>
+		</a>
+		<p class="myOrder-p4">
+			<b>订单总价:&yen;
+            {{xx.amount}} <span ng-bind="xx.amount | currency: '￥'"> </span>&nbsp;  总佣金:<span ng-show="xx.status === 6"> </span><span style="color:#bda770" ng-show="xx.status === 6"></span><span style="color:#bda770" ng-bind="xx.resellerProfit3  | currency: '￥'"></span></b>
+		</p>
+	</div> -->
+
+
+        <div class="myOrder-mg" ng-repeat="xx in myOrders" >
+
+            <p class="myOrder-p1">
+                订单编号: {{xx.name}}<br>
+                订单状态: {{xx.status | stateDisplay}}
+            </p>
+            <div class="myOrder-div1">
+                <p class="myOrder-p2">
+                    <span ng-repeat="orderProduct in xx.products">
+                        <span ng-bind="orderProduct.name"></span>
+                        x<span ng-bind="orderProduct.ProductQuantity"></span>
+                        <br>
+                    </span>
+                    订单总价: <span ng-bind="xx.amount | currency: '￥'" style="color: #F08300;"></span>
+                    <br>
+                    交易时间: <span ng-bind="xx.createdAt" > </span>
+                </p>
+            </div>
+            <div class="myOrder-p5">
+                <p class="myOrder-p4">
+                    <span>
+                        佣金: </span><span style="color: #bda770" ng-show="xx.status === 7" ng-bind="xx.resellerProfit1  | currency: '￥'"></span>
+            </div>
+
+        </div>
+
+    </div>
+}
+<script src='@routes.Assets.at("js/controllers/DistributionOrder_controller.js")'></script>

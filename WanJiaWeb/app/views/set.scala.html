@@ -1,0 +1,20 @@
+@(list: List[Catalog]) @frame("所有分类", "", "") {
+    <meta charset="UTF-8">
+    <p class="type-p" style="color: #131212 ; font-size: 17px ; text-align: center ; background: #b9e0e4 ;" >
+    @play.i18n.Messages.get("allCatalog")
+    </p>
+    @for(data <- list) {
+        <div class="wine-type">
+            <div class="type-img" style="margin-top: 10px ;">
+                <a href='/w/marry/@data.id?storeId=@session.get("storeId")'><img
+                src='/showimg/mid_thumb/@{
+                    val imageStr = if("En".equals(session.get("lang"))) data.imagesEn else data.images;
+                    ImageController.getImageString(imageStr)
+                }' alt=""
+                style="width: 100% ; height: 100% ;">
+                </a>
+            </div>
+        </div>
+    }
+    <div class="mt"></div>
+}

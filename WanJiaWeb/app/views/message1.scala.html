@@ -1,0 +1,15 @@
+@frame("��ҳ", "Message1App", "Message1Controller") {
+
+<div style="width: 1440px; background: #e3e3e3; padding: 30px 0 40px 0;">
+	<div class="message1-service">
+		<div class="service1" ng-repeat="Info in InfoList">
+			<a href="/w/message2/{{Info.id}}"><p class="s-p1">{{Info.name}}</p></a>
+			<p class="s-p2">{{Info.displayDate}}</p>
+			<p class="s-p3" ng-bind-html="Info.description1 | safehtml"></p>
+
+
+		</div>
+	</div>
+</div>
+
+}

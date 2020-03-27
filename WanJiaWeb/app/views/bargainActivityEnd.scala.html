@@ -1,0 +1,35 @@
+@dm_frame_not("我的收获地址", "BargainActivityEndApp", "BargainActivityEndController") {
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href='@routes.Assets.at("css/address.css")' />
+  <link rel="stylesheet" type="text/css" href='@routes.Assets.at("css/order.css")' />
+  <script src='@routes.Assets.at("js/controllers/bargainActivityEnd_controller.js")'></script>
+
+  <header>
+
+  </header>
+
+  <div ng-if="ActivityEnd != null" style="text-align:center; padding-top: 50%; font-size: 24px;padding-bottom: 50%; background-color: #17615d;color: #fff;    margin-top: -4%;">
+    <p >
+      亲, 活动已结束<br>
+      欢迎下次再来参加哟~
+      </p>
+  </div>
+
+  <div ng-if="ThisActivityLineEnd != null"  style="    margin-top: -4%;text-align:center; padding-top: 50%; font-size: 13px; background-color: #17615d;padding-bottom: 50%;color: #fff;">
+    不用再砍了哦! 亲,赶紧去参加活动吧~<br>
+    <a href="/w/bargain">
+    <button style="font-family: 'shiguang';width: 31%;margin-top: 5%;background-color: #ffe135;border: 1px solid #ffe135;border-radius: 7px;box-shadow: 0px 5px 1px rgba(255, 225, 53, 0.5);padding: 2% 0;color: #9e352a;">
+      我要参加
+    </button>
+    </a>
+  </div>
+  <div ng-if="ThisActivityLineProductEnd != null"  style="    margin-top: -4%;text-align:center; padding-top: 50%; font-size: 13px; background-color: #17615d;padding-bottom: 50%;color: #fff;">
+    亲,该商品已抢光,快去看看还有没有其他商品吧~<br>
+    <a href="/w/bargain">
+    <button style="font-family: 'shiguang';width: 31%;margin-top: 5%;background-color: #ffe135;border: 1px solid #ffe135;border-radius: 7px;box-shadow: 0px 5px 1px rgba(255, 225, 53, 0.5);padding: 2% 0;color: #9e352a;">
+      参与活动
+    </button>
+    </a>
+  </div>
+
+}

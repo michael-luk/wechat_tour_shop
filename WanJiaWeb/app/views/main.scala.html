@@ -1,0 +1,294 @@
+@(title: String, app: String, controller: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="zh" ng-app="@app">
+    <head>
+        <meta charset="utf-8" />
+        <title>@title - 后台管理系统</title>
+
+        <meta name="description" content="overview &amp; stats" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+            <!-- basic styles -->
+        <link rel="shortcut icon" href='@routes.Assets.at("icon/bitbug_favicon.ico")'/>
+        <link href='@routes.Assets.at("css/bootstrap.min.css")' rel="stylesheet" />
+        <link href='@routes.Assets.at("css/ng-grid.min.css")' rel="stylesheet" />
+        <link href='@routes.Assets.at("css/mygrid.css")' rel="stylesheet" />
+        <link href='@routes.Assets.at("css/jquery.gritter.css")' rel="stylesheet" />
+        <link rel="stylesheet" href='@routes.Assets.at("css/font-awesome.min.css")' />
+
+            <!--[if IE 7]>
+		  <link rel="stylesheet" href='      @routes.Assets.at("css/font-awesome-ie7.min.css")
+            ' />
+            <![endif]-->
+
+            <!-- page specific plugin styles -->
+
+            <!-- fonts -->
+
+            <!-- ace styles -->
+
+        <link rel="stylesheet" href='@routes.Assets.at("css/ace.min.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/ace-rtl.min.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/ace-skins.min.css")' />
+
+            <!--[if lte IE 8]>
+		  <link rel="stylesheet" href='      @routes.Assets.at("css/ace-ie.min.css")
+            ' />
+            <![endif]-->
+
+            <!-- inline styles related to this page -->
+
+            <!-- ace settings handler -->
+
+        <script src='@routes.Assets.at("js/ace-extra.min.js")'></script>
+
+            <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+            <!--[if lt IE 9]>
+		<script src='      @routes.Assets.at("js/html5shiv.js")
+            '/>
+        <script src='@routes.Assets.at("js/respond.min.js")'/>
+        <![endif]-->
+    </head>
+
+    <body ng-controller="@controller">
+        <div class="navbar navbar-default" id="navbar">
+            <script type="text/javascript">
+            try { ace.settings.check ( 'navbar', 'fixed' ) } catch ( e ) { }
+            </script>
+
+            <div class="navbar-container" id="navbar-container">
+                <div class="navbar-header pull-left">
+                    <a href='#' class="navbar-brand">
+                        <small>
+                            <i class="icon-leaf"></i>
+                            漫天香-后台管理系统
+                        </small>
+                    </a> <!-- /.brand -->
+                </div> <!-- /.navbar-header -->
+
+                <div class="navbar-header pull-right" role="navigation">
+                    <ul class="nav ace-nav">
+                        <li class="light-blue">
+                            <a href='/logout'>
+                                <i class="icon-off"></i>
+                                退出
+                            </a>
+                        </li>
+                    </ul> <!-- /.ace-nav -->
+                </div> <!-- /.navbar-header -->
+            </div> <!-- /.container -->
+        </div>
+
+        <div class="main-container" id="main-container">
+
+            <div class="main-container-inner">
+                <a class="menu-toggler" id="menu-toggler" href='#'>
+                    <span class="menu-text"></span>
+                </a>
+
+                <div class="sidebar" id="sidebar">
+
+                    <ul class="nav nav-list">
+
+                            <!-- <li class="active"> -->
+                        <li>
+                            <a href='/admin/orders'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 订单管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/company'>
+                                <i class="icon-dashboard"></i>
+                                <span class="menu-text"> 企业信息管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/stores'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 店铺管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/ads'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 广告管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/catalogs'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 主题管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/products'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 产品管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/themes'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 产品口味管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/users'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 用户管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/shipprices'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 运费管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/foodcomments'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 美食评价管理 </span>
+                            </a>
+                        </li>
+                        @*<li>
+                        <a href='/admin/coupons'>
+                        <i class="icon-list-alt"></i>
+                        <span class="menu-text"> 优惠券管理 </span>
+                        </a>
+                        </li>*@
+                        <li>
+                            <a href='/admin/promotions'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 促销活动管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/fondoutrequests'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 佣金管理 </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/admin/EnjoyTheCode'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 尊享码管理 </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href='/admin/commercialactivities'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 砍价活动操作与统计 </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/admin/LineActivities'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 砍价活动线 </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='/admin/lineactivities'>
+                                <i class="icon-list-alt"></i>
+                                <span class="menu-text"> 砍价活动历史 </span>
+                            </a>
+                        </li>
+
+                    </ul> <!-- /.nav-list -->
+
+                    <div class="sidebar-collapse" id="sidebar-collapse">
+                        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                    </div>
+
+                </div>
+
+                <div class="main-content">
+                @content
+                </div>
+
+                <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+                    <i class="icon-double-angle-up icon-only bigger-110"></i>
+                </a>
+            </div> <!-- /.main-container -->
+        </div>
+            <!-- basic scripts -->
+        <script src="@routes.Assets.at("js/jquery-2.0.3.min.js")"></script>
+
+        <script src="@routes.Assets.at("js/angular-file-upload-shim.min.js")"></script>
+        <script src="@routes.Assets.at("js/angular.min.js")"></script>
+        <script src="@routes.Assets.at("js/angular-file-upload.min.js")"></script>
+        <script src="@routes.Assets.at("js/createDialog.js")"></script>
+        <script src="@routes.Assets.at("js/ng-grid-flexible-height.js")"></script>
+
+        <script src="@routes.Assets.at("js/ng-grid-2.0.7.min.js")"></script>
+
+        <script src='@routes.Assets.at("js/controllers/controllers.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/company_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/product_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/order_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/catalog_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/shipprices_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/store_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/info_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/product_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/theme_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/user_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/foodcomment_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/fondOutRequest_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/promotion_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/EnjoyTheCode_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/LineActivities_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/ActivityHistory_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/controllers/CommercialActivities_backend_controller.js")'></script>
+        <script src='@routes.Assets.at("js/bootstrap.min.js")'></script>
+        <script src='@routes.Assets.at("js/typeahead-bs2.min.js")'></script>
+
+            <!-- Add fancyBox main JS and CSS files -->
+        <script type="text/javascript" src="@routes.Assets.at("js/fancybox/jquery.fancybox.js?v=2.1.5")"></script>
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("js/fancybox/jquery.fancybox.css?v=2.1.5")" media="screen" />
+
+            <!-- Add Button helper (this is optional) -->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5")" />
+        <script type="text/javascript" src="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5")"></script>
+
+            <!-- Add Thumbnail helper (this is optional) -->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7")" />
+        <script type="text/javascript" src="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7")"></script>
+
+            <!-- Add Media helper (this is optional) -->
+        <script type="text/javascript" src="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-media.js?v=1.0.5")"></script>
+
+            <!-- page specific plugin scripts -->
+
+            <!--[if lte IE 8]>
+		  <script src='      @routes.Assets.at("js/excanvas.min.js")
+            '/>
+            <![endif]-->
+
+        <script src='@routes.Assets.at("js/jquery-ui-1.10.3.custom.min.js")'></script>
+        <script src='@routes.Assets.at("js/jquery.ui.touch-punch.min.js")'></script>
+        <script src='@routes.Assets.at("js/jquery.slimscroll.min.js")'></script>
+        <script src='@routes.Assets.at("js/jquery.gritter.min.js")'></script>
+        <script src='@routes.Assets.at("js/bootbox.min.js")'></script>
+
+            <!-- ace scripts -->
+
+        <script src='@routes.Assets.at("js/ace-elements.min.js")'></script>
+        <script src='@routes.Assets.at("js/ace.min.js")'></script>
+
+    </body>
+</html>
+

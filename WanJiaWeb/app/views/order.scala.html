@@ -1,0 +1,92 @@
+@frame("产品定制", "OrderApp", "OrderController") {
+<meta charset="UTF-8">
+<div class="order-wine">
+
+	<div class="order-mg">
+		<p class="order-p1">
+			<b>订单信息</b>
+		</p>
+		<div class="order-div1">
+			<div class="order-img">
+				<img style="width: 100%; height: 100%;"
+					ng-src="/showimg/thumb/{{newOrder.image}}" alt="">
+			</div>
+			<p class="order-p2">
+				<b> <span ng-bind="newProduct.alcoholDegree"></span>度 <span
+					ng-bind="newProduct.ml"></span>ml <br> <span
+					ng-bind="newProduct.name"></span>
+				</b>
+				<span class="order-span1" style="font-weight:bold;"><span
+						ng-bind="newOrder.price  | currency: '￥'"></span></span>
+			</p>
+			<p class="order-p3">
+				<b>数量：<span ng-bind="newOrder.quantity"></span> 
+				&nbsp;斤数：<span
+					ng-bind="newOrder.wineWeight"></span>
+				<br>
+					酒体：<span
+					ng-bind="newOrder.wineBody"></span>
+					&nbsp;<span ng-if="newProduct.canPaint && newProduct.canCarve">工艺：<span
+					ng-bind="newOrder.decoration"></span></span>
+					</b>
+			</p>
+		</div>
+		<p class="order-p4">
+			<b>共<span ng-bind="newOrder.quantity"></span>件商品 &nbsp; 合计：<span><span
+					ng-bind="newOrder.price * newOrder.quantity  | currency: '￥'"></span>
+				</span></b>
+		</p>
+		
+	</div>
+	 <div class="order2" ng-if="newOrder.decoration === '打印' || newOrder.decoration === '雕刻'"> 
+		<p class="order-p5">
+			<b>定制我的祝福语</b>
+		</p>
+		<form style="text-align: center;">
+			<div ng-repeat="wish in wishWord" ng-click="selectDiv($index)"
+				ng-class="{true: 'selectWish'}[$index === selectWishWordDiv]"
+				class="word">
+				&nbsp;<b ng-bind="wish.word">
+					<!-- {{wish.word}} -->
+				</b>
+			</div>
+
+
+			<textarea class="n-text"
+				style="resize: none; width: 75%; height: 166px; font-size: 14px; color: #7F7F7F; background: #C8C8C8; border-radius: 5px; margin-top: 15px;"
+				placeholder="请输入您的祝福语" ng-model="newOrder.wishWord"></textarea>
+
+		</form>
+	</div>
+	<!-- <div class="order3" ng-if="newProduct.canPaint"> -->
+	<div class="order3" >
+		<p class="order-p5">
+			<b>定制我的照片</b>
+		</p>
+		<div class="order-img2" style="background:url(/showImage/{{newProduct.productImage}});background-size:100% 100%;">
+		
+		<div class="order3-img"> <img
+				ng-src="/showimg/thumb/{{newOrder.wishImage}}"
+				style="width: 100%;max-height: 120px;border-radius:5px;">
+		</div>
+		</div> 
+		
+
+		<form id="form1">
+			<input type="file" id="file_uploader" name="files[]" accept="image/gif,image/jpeg,image/jpg,image/png"
+				ng-file-select="uploadImage($files, 'wishImage')" value="上传要定制的照片"
+				style="width: 200px; height: 30px; background: #888888; display: none;">
+			<input type="button" id="file_uploader2" class="order2-button1"
+				value="上传要定制的照片" onclick="form1.file_uploader.click();">
+		</form>
+	</div>
+	<a
+		href="/w/pay?pid={{newProduct.id}}&num={{newOrder.quantity}}&amount={{newOrder.price * newOrder.quantity}}&wishWord={{newOrder.wishWord}}&theme={{newOrder.theme}}&themeId={{newOrder.themeId}}&image={{newOrder.image}}&userId={{userId}}&wishImage={{ newOrder.wishImage}}&wineBody={{ newOrder.wineBody}}&wineWeight={{ newOrder.wineWeight}}&decoration={{ newOrder.decoration}}&price={{ newOrder.price}}" >
+		<div class="order2-button1">去结算</div>
+	</a>
+</div>
+
+
+</body>
+</html>
+}

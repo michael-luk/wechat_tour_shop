@@ -1,0 +1,41 @@
+@frame("��ҳ", "ServiceApp", "ServiceController") {
+<div style="width:1440px;background:#e3e3e3;padding:38px 0 40px 0;">
+<div class="S-service" >
+  <div class="S-service1" ng-repeat="Info in InfoList">
+    <div class="left" "><!-- style="background:url(assets/upload/{{Info.images}})50% 50%; background-size:100% 100%; -->
+    <img style="width:100%; height:100%; border-radius:7px 7px 0 0;"
+				src='@routes.Assets.at("upload/{{Info.images}}")' alt="">
+    </div>
+     <div class="right" >
+      <p class="s-p1">{{Info.name}}</p>
+      <p class="s-p2">{{Info.displayDate}}</p>
+      <p class="s-p3" >{{Info.description1}}</p>    
+    </div>
+   </div>
+  </div>
+ <!--  <div class="service2"> 
+    <div class="left"></div>
+     <div class="right">
+      <p class="s-p1">新玉环球定制旅行推免费极光之旅</p>
+      <p class="s-p2">【网易新闻】2015年10月20日</p>
+      <p class="s-p3">近日，我们联手网易BOBO直播平台</p>
+      <p class="s-p3">近日，我们联手网易BOBO直播平台</p>
+      <p class="s-p3">近日，我们联手网易BOBO直播平台</p>
+    </div>
+  </div>
+ <div class="service3">
+   <div class="left">
+   </div>
+   <div class="right">
+      <p class="s-p1">新玉环球定制旅行推免费极光之旅</p>
+      <p class="s-p2">【网易新闻】2015年10月20日</p>
+      <p class="s-p3">近日，我们联手网易BOBO直播平台</p>
+      <p class="s-p3">近日，我们联手网易BOBO直播平台</p>
+      <p class="s-p3">近日，我们联手网易BOBO直播平台</p>
+   </div>
+ </div> -->
+</div>
+
+
+
+}

@@ -1,0 +1,63 @@
+@frame("��ҳ", "Message2App", "Message2Controller") {
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href='@routes.Assets.at("css/message2.css")' />
+<title>Insert title here</title>
+</head>
+<body>
+<div class="topbar">
+    <div class="wrap">
+       <ul class="fl">
+<li>  <a href="#" class="btn " >登录 LOGIN <b></b></a></li>
+         <li>
+             <a href="#" class="btn" >注册 REGISTER <b></b></a>
+
+         </li>
+
+       </ul>
+        <ul class="fr">
+            <li class="border"></li>
+            <li><a href="" class="btn area">广州  GuangZhou <b></b></a></li>
+            <li><input type="text" name="search" id="search" placeholder="" /> <a href="" class="search btn"><em></em></a></li>
+            <li><a href="" class="global btn"><em></em><b></b></a></li>
+        </ul>
+    </div>
+</div>
+<div id="nav" class="nav">
+    <div class="wrap">
+        <a href="#" class="logo" ><img src="img/logo.jpg" alt=""></a>
+        <ul>
+            <li><a href="" ><b class="b1"></b><br/>最新资讯</a>
+              
+            </li>
+            <li><a href="#" ><b class="b2"></b><br/>全球地图</a></li>
+            <li><a href=" #" class="active"><b class="b3"></b><br/>四大主题</a></li>
+            <li><a href=""><b class="b4"></b><br/>私人定制</a> </li>
+            <li><a href=""><b class="b5"></b><br/>服务体验</a></li>
+            <li><a href=""><b class="b6"></b><br/>会员服务</a></li>
+            <li><a href=""><b class="b7"></b><br/>关于我们</a></li>
+            <li><a href=""><b class="b8"></b><br/>加入我们</a></li>
+
+        </ul>
+    </div>
+</div>
+ -->
+<div style="width:1440px;background:#e3e3e3;padding:30px 0 40px 0;">
+<div class="message2-service" >
+  <div class="service1" >
+ 
+     <p class="s-p1" >{{newInfo.name}}</p>
+     <p class="s-p2">{{newInfo.displayDate}}{{newInfo.images}}</p>
+     <img style="width:40%;height:50%;"
+				src='@routes.Assets.at("upload/{{newInfo.images}}")' alt="">
+     <p class="s-p3">{{newInfo.description1}}</p>
+     
+   </div>
+  </div>
+  
+</div>
+
+
+} 

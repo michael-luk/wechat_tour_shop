@@ -1,0 +1,240 @@
+GET           /resellerorders/users/:id                    controllers.TicketController.getResellerOrders(id: Long)
+GET           /resellerorders/amount/users/:id             controllers.TicketController.getResellerOrderAmount(id: Long)
+GET           /fondoutrequests                             controllers.FundOutRequestController.getAll(refUserId: Long ?= 0, page: Integer ?= 1, size: Integer ?=0)
+POST          /fondoutrequests                             controllers.FundOutRequestController.addFundout()
+PUT           /orders/resellers/calculate/:id              controllers.TicketController.doCalculate(id :Long)
+GET           /downlines/users/:id                         controllers.UserController.getDownLineUsers(id: Long, page: Integer ?= 1, size: Integer ?=0)
+
+
+# Admin
+GET           /admin/admin                                 controllers.AdminController.adminBackendPage()
+GET           /report/admin                                controllers.AdminController.report(startTime :String?="", endTime :String?="")
+
+PUT           /admin/:id                                   controllers.AdminController.update(id: Long)
+POST          /admin                                       controllers.AdminController.add()
+
+#wx page
+GET           /                                            controllers.Application.winePage(resellerCode :String ?="", lang :String ?="zh-CN")
+GET           /w/wine                                      controllers.Application.winePage(resellerCode :String ?="", lang :String ?="zh-CN")
+GET           /w/pay                                       controllers.Application.payPage()
+GET           /w/marry/:id                                 controllers.Application.marryPage(id :Long)
+GET           /w/Wproduct/:id                              controllers.Application.WproductPage(id :Long)
+GET           /w/order                                     controllers.Application.orderPage()
+GET           /w/location                                  controllers.Application.locationPage()
+GET           /w/addlocation                               controllers.Application.addlocationPage()
+GET           /w/userCenter                                controllers.Application.userCenterPage()
+GET           /w/myLocation                                controllers.Application.myLocationPage()
+GET           /w/myOrder                                   controllers.Application.myOrderPage()
+GET           /w/distributor                               controllers.Application.distributorPage()
+GET           /w/DistributionOrder                         controllers.Application.DistributionOrderPage()
+GET           /w/QRcode                                    controllers.Application.QRcodePage()
+GET           /w/team                                      controllers.Application.teamPage()
+GET           /w/process                                   controllers.Application.processPage()
+GET           /w/allProduct                                controllers.Application.allProductPage()
+GET           /w/invoiceTitle                              controllers.Application.invoiceTitlePage()
+GET           /w/collect                                   controllers.Application.collectPage()
+GET           /w/about                                     controllers.Application.aboutPage()
+GET           /w/weixinPay                                 controllers.Application.weixinPayPage()
+#GET           /w/error                                     controllers.Application.errorPage()
+GET           /w/OrderMessage                              controllers.Application.OrderMessagePage()
+GET           /w/set                                       controllers.Application.setPage()
+GET           /w/cart                                      controllers.Application.catPage()
+GET           /w/evaluate                                  controllers.Application.evaluatePage()
+GET           /w/privilege                                 controllers.Application.privilegePage()
+GET           /w/myPrivilege                               controllers.Application.myPrivilegePage()
+GET           /w/HotSaleProducts                           controllers.Application.HotSaleProductsPage()
+GET           /w/bargain                                   controllers.Application.bargainPage()
+#GET           /w/bargain4friends/:aid                     controllers.Application.bargain4FriendsPage(aid :Long)
+#GET           /bargain/go/:aid                             controllers.WeiXinController.bargaingo(aid :Long)
+#GET           /w/buyimmediately                           controllers.Application.buyImmediatelyPage()
+GET           /w/error                                     controllers.Application.errorPage()
+
+#GET           /w/bargainactivityend                       controllers.Application.bargainactivityendPage()
+
+PUT           /cart/set                                    controllers.Application.setCart()
+GET           /cart/clear                                  controllers.Application.clearCart()
+GET           /cart/get                                    controllers.Application.getCart()
+
+# favoriteProducts
+GET           /users/:id/favoriteproducts                  controllers.FavoriteController.getFavoriteProducts(id: Long)
+GET           /users/:id/favoriteproducts/:pid             controllers.FavoriteController.getFavoriteProduct(id: Long, pid: Long)
+PUT           /users/:id/favoriteproducts/:pid/on          controllers.FavoriteController.addFavoriteProduct(id: Long, pid: Long)
+PUT           /users/:id/favoriteproducts/:pid/off         controllers.FavoriteController.cancelFavoriteProduct(id: Long, pid: Long)
+
+GET           /users/current/login                         controllers.UserController.getCurrentUser(id: Long ?=0)
+
+PUT           /orders/userupdate/:id/status/:status        controllers.TicketController.updateOrderStatusByUser(id :Long, status: Int)
+PUT           /order/update/traveltime/:id                 controllers.TicketController.updateOrderTravelTime(id :Long)
+
+GET           /users/:id/shipInfos                         controllers.ShipInfoController.getAllShipInfos(id: Long)
+POST          /users/:id/shipInfos                         controllers.ShipInfoController.addShipInfo(id: Long)
+DELETE        /users/:id/shipInfos/:sid                    controllers.ShipInfoController.deleteShipInfo(id: Long, sid: Long)
+PUT           /users/:id/shipInfos/:sid                    controllers.ShipInfoController.updateShipInfo(id: Long, sid: Long)
+GET           /users/:id/shipInfos/:sid                    controllers.ShipInfoController.getShipInfo(id: Long, sid: Long)
+
+
+# Catalog
+#GET           /p/catalog                                     controllers.CatalogController.catalogPage()
+GET           /admin/catalog                               controllers.CatalogController.catalogBackendPage()
+GET           /report/catalog                              controllers.CatalogController.report(startTime :String?="", endTime :String?="")
+
+PUT           /catalog/:id                                 controllers.CatalogController.update(id: Long)
+POST          /catalog                                     controllers.CatalogController.add()
+GET           /catalog/:id                                 controllers.CatalogController.get(id: Long)
+
+GET           /catalog/:id/products                        controllers.CatalogController.getCatalogProducts(id: Long, storeId:Long,page: Integer ?= 1, size: Integer ?=0)
+
+DELETE        /catalog/:id                                 controllers.CatalogController.delete(id: Long)
+
+
+# Config
+#GET           /p/config                                     controllers.ConfigController.configPage()
+GET           /admin/config                                controllers.ConfigController.configBackendPage()
+GET           /report/config                               controllers.ConfigController.report(startTime :String?="", endTime :String?="")
+
+PUT           /config/:id                                  controllers.ConfigController.update(id: Long)
+POST          /config                                      controllers.ConfigController.add()
+
+
+# FundOutRequest
+#GET           /p/fundoutrequest                                     controllers.FundOutRequestController.fundOutRequestPage()
+GET           /admin/fundoutrequest                        controllers.FundOutRequestController.fundOutRequestBackendPage()
+GET           /report/fundoutrequest                       controllers.FundOutRequestController.report(startTime :String?="", endTime :String?="")
+
+PUT           /fundoutrequest/:id                          controllers.FundOutRequestController.update(id: Long)
+POST          /fundoutrequest                              controllers.FundOutRequestController.add()
+
+
+# Info
+#GET           /p/info                                     controllers.InfoController.infoPage()
+GET           /admin/info                                  controllers.InfoController.infoBackendPage()
+GET           /report/info                                 controllers.InfoController.report(startTime :String?="", endTime :String?="")
+
+PUT           /info/:id                                    controllers.InfoController.update(id: Long)
+POST          /info                                        controllers.InfoController.add()
+
+
+# Product
+#GET           /p/product                                     controllers.ProductController.productPage()
+GET           /admin/product                               controllers.ProductController.productBackendPage()
+GET           /report/product                              controllers.ProductController.report(startTime :String?="", endTime :String?="")
+
+PUT           /product/:id                                 controllers.ProductController.update(id: Long)
+POST          /product                                     controllers.ProductController.add()
+
+GET           /product/:id/catalogs                        controllers.ProductController.getProductCatalogs(id: Long, page: Integer ?= 1, size: Integer ?=0)
+GET           /product/:id/tickets                         controllers.ProductController.getProductTickets(id: Long, page: Integer ?= 1, size: Integer ?=0)
+
+DELETE        /product/:id                                 controllers.ProductController.delete(id: Long)
+
+
+# ProductComment
+#GET           /p/productcomment                                     controllers.ProductCommentController.productCommentPage()
+GET           /admin/productcomment                        controllers.ProductCommentController.productCommentBackendPage()
+GET           /report/productcomment                       controllers.ProductCommentController.report(startTime :String?="", endTime :String?="")
+
+PUT           /productcomment/:id                          controllers.ProductCommentController.update(id: Long)
+POST          /productcomment                              controllers.ProductCommentController.add()
+
+
+# ShipInfo
+#GET           /p/shipinfo                                     controllers.ShipInfoController.shipInfoPage()
+GET           /admin/shipinfo                              controllers.ShipInfoController.shipInfoBackendPage()
+GET           /report/shipinfo                             controllers.ShipInfoController.report(startTime :String?="", endTime :String?="")
+
+PUT           /shipinfo/:id                                controllers.ShipInfoController.update(id: Long)
+POST          /shipinfo                                    controllers.ShipInfoController.add()
+
+
+# Store
+GET           /w/store                                     controllers.StoreController.storePage()
+GET           /admin/store                                 controllers.StoreController.storeBackendPage()
+GET           /report/store                                controllers.StoreController.report(startTime :String?="", endTime :String?="")
+
+PUT           /store/:id                                   controllers.StoreController.update(id: Long)
+POST          /store                                       controllers.StoreController.add()
+
+GET           /store/set                                   controllers.StoreController.setStore(id: Long)
+GET           /store/get                                   controllers.StoreController.getStore()
+
+
+# Ticket
+#GET           /p/ticket                                     controllers.TicketController.ticketPage()
+GET           /admin/ticket                                controllers.TicketController.ticketBackendPage()
+GET           /report/ticket                               controllers.TicketController.report(startTime :String?="", endTime :String?="")
+
+PUT           /ticket/:id                                  controllers.TicketController.update(id: Long)
+POST          /ticket                                      controllers.TicketController.add()
+
+GET           /ticket/:id/products                         controllers.TicketController.getTicketProducts(id: Long, page: Integer ?= 1, size: Integer ?=0)
+
+DELETE        /ticket/:id                                  controllers.TicketController.delete(id: Long)
+PUT           /orders/wxpay/update/:id                     controllers.TicketController.updateOrderStatusByWxPay(id :Long)
+
+GET           /weixin/serververify                         controllers.WeiXinController.serverVerify(signature :String, timestamp :String, nonce :String, echostr :String)
+POST          /weixin/serververify                         controllers.WeiXinController.serverNotification()
+
+GET           /dowxuser                                    controllers.WeiXinController.doWxUser(code :String ?="", resellerCode :String ?="", state :String ?="")
+GET           /wxpay/pay                                   controllers.WeiXinController.prepareWxPay(oid :Long ?=0)
+GET           /wxpay/pay/go                                controllers.WeiXinController.doWxPay()
+POST          /wxpay/pay/notify                            controllers.WeiXinController.getPayNotify()
+GET           /users/renew/barcode                         controllers.WeiXinController.renewAllUserBarcode()
+GET           /users/renew/barcode/:id                     controllers.WeiXinController.renewUserBarcode(id :Long)
+GET           /users/sync/info                             controllers.WeiXinController.syncUserInfo()
+GET           /wx/menu/add                                 controllers.WeiXinController.addMenu()
+GET           /wx/msg/send                                 controllers.WeiXinController.sendMsg(openId :String?="", msg :String?="")
+
+# User
+#GET           /p/user                                     controllers.UserController.userPage()
+GET           /admin/user                                  controllers.UserController.userBackendPage()
+GET           /report/user                                 controllers.UserController.report(startTime :String?="", endTime :String?="")
+
+PUT           /user/:id                                    controllers.UserController.update(id: Long)
+POST          /user                                        controllers.UserController.add()
+
+
+
+# Backend management
+GET           /admin                                       controllers.Application.backendPage()
+
+# Base API
+GET           /base/:modelName/all                         controllers.BaseController.getAll(modelName: String, status :Integer?=(-100), notStatus :Integer?=(-100), fieldOn :String?="", fieldValue :String?="", isAnd :Boolean?=true, searchOn :String?="", kw :String?="", startTime :String?="", endTime :String?="", order :String ?="", sort :String ?="", page: Integer ?= 1, size:Integer ?=0)
+GET           /base/:modelName/:id                         controllers.BaseController.getOne(modelName: String, id: Long)
+DELETE        /base/:modelName/:id                         controllers.BaseController.delete(modelName: String, id: Long)
+
+# Login auth
+GET           /login                                       controllers.Application.login()
+#GET           /logout                                      controllers.Application.logout()
+
+# Backend auth
+GET           /admin/login                                 controllers.Application.backendLogin()
+GET           /admin/auth                                  controllers.Application.backendAuthenticate()
+GET           /admin/logout                                controllers.Application.backendLogout()
+
+# check
+GET           /check                                       controllers.Application.checkAlive()
+GET           /check/cfg                                   controllers.Application.cfgSelfCheck()
+
+# Static resource
+GET           /assets/*file                                controllers.Assets.at(path="/public", file)
+GET           /MP_verify_BgcOk6dGUcK5Q5zb.txt              controllers.Assets.at(path="/public", file="MP_verify_BgcOk6dGUcK5Q5zb.txt")
+
+# image & thumb
+POST          /upload/image                                controllers.ImageController.uploadImage()
+GET           /showImage/:name                             controllers.ImageController.showImage(name: String)
+GET           /showBarcode/:name                           controllers.ImageController.showBarcode(name: String)
+GET           /showimg/:folder/:name                       controllers.ImageController.showImg(folder :String, name: String)
+GET           /genthumb                                    controllers.ImageController.generateAllThumbNailImg(tagsize :Float ?=0)
+
+# Captcha on server
+GET           /captcha                                     controllers.Application.captcha(tag: String?="common")
+
+# DB Backup
+GET           /db/backup/:dbtype                           controllers.DbController.dbBackup(dbtype :String)
+
+# Web socket
+GET           /chat/connect                                controllers.Application.webSocket()
+GET           /chat/msg/:msg                               controllers.Application.chat(msg: String)
+
+#i18n
+GET           /i18n                                        controllers.Application.changeLanguage(lang: String?="zh-CN")

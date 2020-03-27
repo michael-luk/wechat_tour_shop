@@ -1,0 +1,71 @@
+@frame("我的地址", "MyLocationApp", "MyLocationController") {
+<meta charset="UTF-8">
+<div style=" width: 100%; min-height: 450px;"  ng-if="pid === null">
+	<!-- <div class="user-img"></div> -->
+	<!-- 从个人中心我的收获地址进去 -->
+	<a href="/w/location?userId={{userId}}&storeId={{storeId}}" class="user-a"><div class="myL-div1">
+
+			<span class="user-span">新增收货地址</span> <img
+				src='@routes.Assets.at("img/right.png")' alt="" class="img-right" style=" width: 25px; margin-top: 3px;">
+		</div> </a>
+
+	<div class="location-div1" ng-repeat="myLocation in myLocations" >
+		<div class="location-left" ng-click="selectLeft($index)" 
+			ng-class="{true: 'selectLeft'}[$index === selectLeftDiv || myLocation.isDefault === true]">			
+		</div>		
+		<div class="location-center">
+			<p ng-bind="myLocation.name"></p>
+			<p>
+				<span ng-bind="myLocation.zone"></span><span ng-bind="myLocation.area"></span> <span
+					ng-bind="myLocation.location"></span>
+			</p>
+		</div>
+		<div class="location-right" ng-click="saveContent()">
+			<a href="/w/location?lid={{myLocation.id}}&userId={{user.id}}&storeId={{storeId}}"><img
+				src='@routes.Assets.at("img/bianji.png")' alt=""
+				style="width: 100%; height: 100%;"> </a>
+		</div>
+	</div>
+	
+	<!-- <a href="/w/pay?pid={{pid}}&num={{num}}&price={{price}}&wishWord={{wishWord}}&theme={{theme}}&themeId={{themeId}}&image={{image}}">
+	<div class="location-div1" ng-repeat="myLocation in myLocations" ng-if="pid != null">
+		
+		
+		<div class="location-center" style="width:90%">
+			<p ng-bind="myLocation.name"></p>
+			<p>
+				<span ng-bind="myLocation.provice"></span><span
+					ng-bind="myLocation.location"></span>
+			</p>
+		</div>
+		
+	</div>
+	</a> -->
+</div>
+
+
+<div style=" width: 100%; min-height: 450px;"  ng-if="pid != null">
+	
+	<a href="/w/location?pid={{pid}}&num={{num}}&amount={{amount}}&price={{price}}&themeName={{themeName}}&themeId={{themeId}}&image={{image}}&userId={{userId}}&productAmount={{productAmount}}&storeId={{storeId}}" class="user-a">
+	<div class="myL-div1">
+
+			<span class="user-span">新增收货地址</span> <img
+				src='@routes.Assets.at("img/right.png")' alt="" class="img-right" style=" width: 25px; margin-top: 3px;">
+		</div> </a>
+	
+	<a href="/w/pay?pid={{pid}}&num={{num}}&price={{price}}&amount={{amount}}&themeName={{themeName}}&themeId={{themeId}}&image={{image}}&LocationId={{selectMyLocationIndex}}&userId={{userId}}&productAmount={{productAmount}}&storeId={{storeId}}">
+	<div class="location-div1" ng-repeat="myLocation in myLocations" ng-click="selectMyLocation($index)">
+		<div class="location-center" style="width:90%;    margin: 6% 0 2% 3%;" >
+			<p style=" color: #f08300;"> <span ng-bind="myLocation.name"></span><span ng-bind="myLocation.phone" style="float:right;"></span></p>
+			<p style="color:#757371;">
+				<span ng-bind="myLocation.zone"></span>
+				<span ng-bind="myLocation.area"></span>
+				<span ng-bind="myLocation.location"></span>
+			</p>
+		</div>
+	</div>
+	</a>
+</div>
+
+}
+<script src='@routes.Assets.at("js/controllers/myLocation_controller.js")'></script>

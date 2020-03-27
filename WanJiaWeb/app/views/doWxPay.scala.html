@@ -1,0 +1,172 @@
+@frame("订单支付", "PayApp", "PayController") {
+<meta charset="UTF-8">
+<div class="pay">
+	<div class="pay-div1">
+		<div class="pay-img">
+			<img style="width: 100%; height: 100%;"
+				src='@routes.Assets.at("upload/{{newOrder.wishImage}}")' alt="">
+		</div>
+		<div class="pay-div3"
+			style="width: 57%; min-height: 120px; float: left; margin: 1% 0 1% 0;">
+			<p class="pay-p2">
+				<b> <span ng-bind="newOrder.orderProducts[0].alcoholDegree"></span>度
+					<span ng-bind="newOrder.orderProducts[0].ml"></span>ml <span
+					ng-bind="newOrder.orderProducts[0].name"></span></b>
+			</p>
+			<p class="pay-p3">
+				<b>订单编号：32356678 </b>
+			</p>
+		</div>
+		<div class="pay-div4">
+			<p class="pay-p4">
+				<span ng-bind="newOrder.orderProducts[0].price  | currency: '￥'"></span>
+			</p>
+			<p class="pay-p5">
+				x<span ng-bind="newOrder.quantity"></span>
+			</p>
+		</div>
+		<div class="pay-div5">
+			<form>
+				<p style="font-size: 14px;">
+					
+
+					<input type="checkbox" ng-model="newOrder.freight" name="sex"
+						id="1" style="margin-left: 6%;">运费: <span
+						class="radio-span2" ng-bind="shipPrice * 2 * newOrder.quantity * newOrder.orderProducts[0].totalWeight | currency: '￥'"><!-- &yen;{{shipPrice * 2 * newOrder.quantity * newOrder.orderProducts[0].totalWeight}} -->（系统自动选择）</span>
+
+				</p>
+			</form>
+		</div>
+		<div class="pay-div6">
+			<p class="div6-p">
+				总计：<span class="span-zj"><span
+					ng-bind="newOrder.orderProducts[0].price * newOrder.quantity + shipPrice * 2 * newOrder.quantity * newOrder.orderProducts[0].totalWeight  | currency: '￥'" ></span>
+				<!-- {{newOrder.orderProducts[0].price *
+				newOrder.quantity}} --></span>
+			</p>
+		</div>
+		<div class="pay-div7">
+			<form>
+				<p class="div7-p">
+					<input type="checkbox" ng-model="needInvoice" name="sex" id="2"
+						style="margin-left: 6%;">我要开发票 <span class="div7-span">
+						发票说明</span>
+				</p>
+			</form>
+		</div>
+		<div class="pay-div5" ng-show="needInvoice">
+			<form>
+				<p class="radio-p">
+					发票类型： <input ng-model="invoiceType" type="radio" id="3" value="个人"
+						style="margin-left: 5%;">个人 <span class="bspn"></span> <input
+						ng-model="invoiceType" type="radio" id="4" value="单位"
+						style="margin-left: 20%;">单位
+
+				</p>
+			</form>
+		</div>
+		<div class="pay-div6" ng-show="needInvoice && invoiceType === '单位'">
+			<p>
+				<span class="div6-span">发票抬头：</span> <input class="div6-text"
+					type="text" ng-model="newOrder.invoiceTitle"
+					placeholder="请输入发票的单位抬头">
+			</p>
+		</div>
+		<div class="div-foot">
+			<p class="foot-p1">
+				实付款：<span class="foot-span1"><span
+					ng-bind="newOrder.orderProducts[0].price * newOrder.quantity + shipPrice * 2 * newOrder.quantity * newOrder.orderProducts[0].totalWeight  | currency: '￥'"></span></span>（含运费:<span ng-bind="shipPrice * 2 * newOrder.quantity * newOrder.orderProducts[0].totalWeight  | currency: '￥'"></span>）
+			</p>
+			<a href="#"><div class="foot-s" ng-click="addOrder()">
+					<img style="float: left; margin: 8px 0 0 34%;"
+						src='@routes.Assets.at("img/pay.png")' alt="">
+					<div class="weix"
+						style="width: 60px; float: left; padding: 16px 0 0 0;">微信支付</div>
+				</div> </a>
+		</div>
+	</div>
+
+
+</div>
+
+											       nonce @flash.get("nonce")
+											       timestamp @flash.get("timestamp")
+											       ticket @flash.get("ticket")
+											       signature @flash.get("signature")
+											       orderid @flash.get("orderid")
+												   openid @session.get("WX_OPEN_ID")
+	responsexml @flash.get("responsexml")
+}
+
+	<input id="wxbtn" type="button" value="check wx" />
+	<input id="wxpaybtn" type="button" value="GOPAY" />
+					
+<script type="text/javascript">
+	$("#wxbtn").click(function() {
+		alert("check wx")
+		wx.checkJsApi({
+		  jsApiList: [
+			'getNetworkType',
+			'previewImage'
+		  ],
+		  success: function (res) {
+			alert("support wx")
+			//alert(JSON.stringify(res));
+		  }
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	wx.config({
+		debug: false, 
+		appId: '@flash.get("appid")',
+		timestamp: '@flash.get("timestamp")',
+		nonceStr: '@flash.get("nonce")',
+		signature: '@flash.get("signature")',
+		jsApiList: [  
+			'chooseWXPay'
+		]// 必填，需要使用的JS接口列表 
+	});
+	
+	wx.ready(function () {
+		wx.ready(function () {
+			$('#wxpaybtn').click(function (event) {
+				//alert('wx config ready')
+				
+				wx.chooseWXPay({
+						timestamp: '@flash.get("timeStamp2")', // 支付签名时间戳
+						 nonceStr: '@flash.get("nonceStr2")', // 支付签名随机串
+						package: '@flash.get("package")', // 统一支付接口返回的package包
+						 signType: 'MD5', // 签名方式，'MD5'
+						 paySign: '@flash.get("paySign")', // 支付签名
+					success: function (res) { 
+						//alert(res);
+						//alert(res.errMsg);
+						if (res.errMsg == "chooseWXPay:ok") {
+							window.location.href = window.location.protocol + '//' + window.location.host + '/w/myOrder'
+							//alert("支付成功");
+
+							//location.href = "payresult.aspx?usrno=" + $('#useropenid').val() + "&ordernum=" + $('#pay_ordernum').val();
+
+							 // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。 
+						}
+					 }
+				
+				});
+
+			}); 
+
+			//监听错误事件 出现'invalid signature' AJAX刷新ticket,并刷新当前页面
+			wx.error(function (res) {
+			alert("支付fail");
+				  if(res.errMsg.indexOf("invalid signature") > 0 )
+					{
+					  alert("PAY ERROR: 无效签名");
+					}
+				 else{alert(res.errMsg);}
+			});
+
+		});
+	})
+</script>

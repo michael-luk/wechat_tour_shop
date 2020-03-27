@@ -1,0 +1,111 @@
+@frame("产品详情", "WproductApp", "WproductController") {
+    <meta charset="UTF-8">
+    <div class="P-marry">
+@*<script>
+
+window.onload = function(){
+	
+	setInterval("self.ce2()",1);
+	
+}
+function ce2(){
+	var spe = document.getElementById("carspan").innerHTML ;
+	if(spe == 0){
+		 document.getElementById("carspan").style.display="none"
+	}	
+	if(spe > 0){
+		 document.getElementById("carspan").style.display=""
+	}
+
+/*    $(".bigimage1").click(function(){
+        $(".bigimage1").hide();
+    });
+
+    $(".bigimage").click(function(){
+        $(".bigimage1").show();
+    });*/
+
+}
+</script>*@
+
+<div class="P-marry">
+
+	<carousel interval="myInterval"> <slide
+		ng-repeat="slide in slides" active="slide.active"> <img
+		ng-src="{{slide.image}}" style="margin: auto;    width: 100%;">
+	<div class="carousel-caption"></div>
+	</slide> </carousel>
+</div>
+<div class="order">
+	<div class="details">
+		<p class="details-p1">
+			<b> <span ng-bind="product.name@session.get("lang")"></span>
+                </b>
+            </p>
+            <p class="details-p2" ng-bind-html="product.description@session.get("lang") | safehtml" style="font-size: 14px;margin-top: 3px;"></p>
+            <p class="details-p3">
+                <b><span ng-bind="product.price  | currency: '￥'"></span></b>
+
+            </p>
+        </div>
+    </div>
+
+    @*<div class="number clear">
+        <div style="float: left ; width:50% ; line-height: 40px ; font-size: 16px ;">
+            购买数量
+        </div>
+        <div style="float: right ; width:40% ; margin-top: 5px ;">
+            <p id="min" ng-click="setMinus()">-</p>
+            <input ng-model="quantity" id="text_box" type="text" readOnly="true">
+            <p id="add" ng-click="setAdd()">+</p>
+        </div>
+    </div>*@
+            <span class="color-span1">@play.i18n.Messages.get("seeDetail")</span>
+
+        <div class="par_img">
+            <img ng-repeat="desc in description" src="/showimg/upload/{{desc}}">
+        </div>
+    </div>
+    <input type="hidden" id="language" value="@session.get("lang")"/>
+
+        <footer style="    z-index: 99;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 8%;">
+            <div class="cat_div3_by">
+                <div class="cat_div3 clear" style="line-height: 23px;text-align:center;">
+                    <div class="product_left" ng-click='addCart(product,quantity)'>
+                    @play.i18n.Messages.get("addCart")
+                    </div>
+                    <div class="product_right" ng-click="favorite()" ng-if="!favoriteProduct"  onclick="show1()">
+                    @play.i18n.Messages.get("addCollect")
+                    </div>
+                    <div class="product_right" ng-click="cancelFavorite()" ng-if="favoriteProduct" onclick="show2()">
+                    @play.i18n.Messages.get("alreadyAddCollect")
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <div class="foot">
+        <ul>
+            <li class="foot1" style="padding: 0 ;"><a
+            href="/w/wine?storeId={{storeId}}"><b class="f1"></b></a></li>
+            <li class="foot2"><a href="/w/store?storeId={{storeId}}"><b class="f2"></b></a></li>
+            <li class="foot3"><a href="/w/cart?storeId={{storeId}}"><b class="f3"></b>(<span  ng-bind="cart | cartCalculate"></span>)<!-- (@session.get("CART")) --></a></li>
+
+            <li class="foot4"><a href="/w/userCenter?storeId={{storeId}}"><b class="f4"></b></a></li>
+        </ul>
+    </div>
+
+<div id="okcat" style="display:none;position: fixed; width: 150px;  height: 60px; background-color: rgba(0, 0, 0, 0.5); left: 0; right: 0; margin: auto; color: #fff;  top: 41%;text-align: center; font-size: 18px;  line-height: 60px;border-radius: 10px;">
+@play.i18n.Messages.get("alreadyAddCart")
+</div>
+    <div class="pxc" id="pxc1"><p> @play.i18n.Messages.get("alreadyAddCollect")</p></div>
+    <div class="pxc" id="pxc2"><p> @play.i18n.Messages.get("cancelCollect")</p></div>
+
+}
+<script src='@routes.Assets.at("js/controllers/Wproduct_controller.js")'></script>
+<script src='@routes.Assets.at("js/ui-bootstrap-tpls-0.12.0.min.js")'></script>

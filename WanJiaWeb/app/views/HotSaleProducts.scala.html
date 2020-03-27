@@ -1,0 +1,137 @@
+@frame("特价优惠", "HotSaleApp", "HotSaleController") {
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href='@routes.Assets.at("hd/css/reset.css")' />
+  <link rel="stylesheet" href='@routes.Assets.at("hd/css/case-style.css")' />
+  <link rel="stylesheet" href='@routes.Assets.at("hd/css/default_skin.css")' />
+  <script src='@routes.Assets.at("hd/js/jquery-1.11.2.min.js")'></script>
+  <script src='@routes.Assets.at("hd/js/jquery.cycle2.min.js")'></script>
+  <script src='@routes.Assets.at("hd/js/jquery.sky.carousel-1.0.2.min.js")'></script>
+  <script src='@routes.Assets.at("hd/js/lib.js")'></script>
+  <script src='@routes.Assets.at("hd/js/scripts.js")'></script>
+  <script type="text/javascript">
+          $(function () {
+
+            buildSideNav();
+
+            skyCarousel = $('#character-slider').carousel({
+              itemWidth: 528,
+              itemHeight: 512,
+              enableMouseWheel: false,
+              gradientOverlayVisible: true,
+              gradientOverlayColor: '#F0F3EE',
+              gradientOverlaySize: 300,
+              distance: 30,
+              selectedItemDistance: 80,
+              selectByClick: true,
+              selectedItemZoomFactor: 0.8,
+              unselectedItemZoomFactor: 0.4,
+              navigationButtonsVisible: false,
+              showPreloader: false,
+              autoSlideshow: true
+            })
+
+          })
+
+  </script>
+
+  <div id="site-wrapper">
+    <section id="section-header" data-coloroverlap="dark"></section>
+    <section id="second-phase" class="phase-row" data-title="Illustrations" data-coloroverlap="light">
+      <div class="shell">
+        <div class="second-row">
+          <article>
+            <div id="character-slider" class="sky-carousel sc-no-select" style="visibility: visible;">
+              <div class="sky-carousel-wrapper" style="visibility: visible; opacity: 1;">
+                <ul class="sky-carousel-container" style="margin-top: -21.2px; left: -1552.4px; transition: left 0.45s ease-out; -webkit-transition: left 0.45s ease-out;">
+                  <li style="transform-origin: center 256px 0px; transform: translate(0px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 10;" class="">
+                    <img src="@routes.Assets.at("hd/images/one1.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Snoop</h2>
+                      <p>Are you in the market for information? If so, then Snoop's the Bird for you! This Bird specialises at working undercover, discretely finding out whatever you need to know. Shhh… it's a secret, alright?</p>
+                    </div>
+                  </li>
+                  <li style="transform-origin: center 256px 0px; transform: translate(241.2px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 8;" class="">
+                    <img src="@routes.Assets.at("hd/images/one2.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Snappy</h2>
+                      <p>Looking for a wedding photographer? Or perhaps you want a portrait of your adorable pooch, to decorate the mantelpiece! When it comes to photography, call Snappy.</p>
+                    </div>
+                  </li>
+                  <li style="transform-origin: center 256px 0px; transform: translate(482.4px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 8;" class="">
+                    <img src="@routes.Assets.at("hd/images/one3.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Handy</h2>
+                      <p>Our Handy Bird loves the jobs you hate… from putting up shelves to fixing a leaky pipe, this Bird is the DIY master. </p>
+                    </div>
+                  </li>
+                  <li style="transform-origin: center 256px 0px; transform: translate(723.6px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 9;" class="">
+                    <img src="@routes.Assets.at("hd/images/one4.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Blabber</h2>
+                      <p>Got a message that needs to be delivered? Or perhaps it's an urgent package you need sent. Blabber will get your mail to its recipient, faster than a speeding bullet. Well, almost.</p>
+                    </div>
+                  </li>
+                  <li style="transform-origin: center 256px 0px; transform: translate(964.8px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 8;" class="">
+                    <img src="@routes.Assets.at("hd/images/one5.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Wordy</h2>
+                      <p>Wordy loves to talk. No matter whether you're writing an email, a website, your resignation note or your acceptance speech - this Bird always knows what to say!</p>
+                    </div>
+                  </li>
+                  <li class="" style="transform-origin: center 256px 0px; transform: translate(1206px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 8;">
+                    <img src="@routes.Assets.at("hd/images/one6.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Basher</h2>
+                      <p>When it comes to construction, Basher is the Bird for the job. From putting up fences and garden sheds, through to interior remodelling - this Bird just loves to build.</p>
+                    </div>
+                  </li>
+                  <li style="transform-origin: center 256px 0px; transform: translate(1447.2px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 8;" class="">
+                    <img src="@routes.Assets.at("hd/images/one7.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Splasher</h2>
+                      <p>Splasher is the expert when it comes to painting. From choosing the colours for your new nursery, through to exterior weather proofing treatments: this Bird was born with a brush in its hand!</p>
+                    </div>
+                  </li>
+                  <li style="transform-origin: center 256px 0px; transform: translate(1688.4px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 10;" class="sc-selected">
+                    <img src="@routes.Assets.at("hd/images/one8.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Nerdy</h2>
+                      <p>The ultimate iBird, our Tinker has the know-how that most of us lack. If you find yourself baffled by technology, then join the club - and call on Tinker for all your IT needs.</p>
+                    </div>
+                  </li>
+                  <li style="transform-origin: center 256px 0px; transform: translate(2009.6px, 0px) scale(0.799983333333332) translateZ(0px); opacity: 0.999983333333332; z-index: 11;" class="">
+                    <img src="@routes.Assets.at("hd/images/one9.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Thinker</h2>
+                      <p>Out of all the Birds, Thinker is the brains of the operation. Need a cunning plan delivered in a flash? From business strategies through to first class excuses, Thinker has got a plan for every scenario.</p>
+                    </div>
+                  </li>
+                  <li style="transform-origin: center 256px 0px; transform: translate(2330.8px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 9;" class="">
+                    <img src="@routes.Assets.at("hd/images/one10.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Maestro</h2>
+                      <p>Maestro is no stranger to haute cuisine. From baking lessons through to full-scale catering operations, let Maestro cook you up a treat!</p>
+                    </div>
+                  </li>
+                  <li style="transform-origin: center 256px 0px; transform: translate(2572px, 0px) scale(0.4) translateZ(0px); opacity: 0.6; z-index: 8;" class="">
+                    <img src="@routes.Assets.at("hd/images/one11.jpg")" alt="" class="sc-image">
+                    <div class="sc-content">
+                      <h2>Super</h2>
+                      <p>Is it a Bird? Is it a… no hang on, it is a Bird. Our Super Bird offers the ultimate, all-in-one service. If you've got a unique problem that the other Birds can't fix, then Super is always ready to come to your rescue.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="sc-content-wrapper"><div class="sc-content-container" style="visibility: visible; opacity: 1;"><div class="sc-content"><h2>Thinker</h2><p>Out of all the Birds, Thinker is the brains of the operation. Need a cunning plan delivered in a flash? From business strategies through to first class excuses, Thinker has got a plan for every scenario.</p></div></div></div><canvas class="sc-overlay sc-overlay-left" width="300" height="1" style="width: 300px;"></canvas><canvas class="sc-overlay sc-overlay-right" width="300" height="1" style="width: 300px;"></canvas></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="okcat" style="display:none;position: fixed; width: 150px;  height: 60px; background-color: rgba(0, 0, 0, 0.5); left: 0; right: 0; margin: auto; color: #fff;  top: 41%;text-align: center; font-size: 18px;  line-height: 60px;border-radius: 10px;">
+    已加入购物车
+  </div>
+}
+<script src='@routes.Assets.at("js/controllers/HotSaleProduct_controller.js")'></script>
+

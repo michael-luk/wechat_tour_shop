@@ -1,0 +1,20 @@
+@frame("加入我们", "RecruitmentApp", "RecruitmentController") {
+<meta charset="UTF-8">
+<!-- <p>{{teststr}}</p> -->
+<div style="width:1440px;background:#e3e3e3;padding:30px 0 40px 0;">
+<div class="R-service" >
+<!-- <div class="R-service" ng-app="RecruitmentApp" ng-controller="RecruitmentController" > -->
+
+	<div class="service1" ng-repeat="Info in InfoList">
+		<p class="s-p1">
+		{{Info.name}}
+		</p>		
+		<p class="s-p2">{{Info.duty}}</p>
+		<p class="s-p3" ng-bind-html="Info.description1 | safehtml"></p>
+		<p class="s-p2">{{Info.requirement}}</p>
+		<p class="s-p3" ng-bind-html="Info.description2 | safehtml"></p>
+
+	</div>
+  </div>
+</div>
+}

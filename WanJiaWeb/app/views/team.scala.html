@@ -1,0 +1,43 @@
+@frame("我的分销团队", "MyResellerTeamApp", "MyResellerTeamController") {
+<meta charset="UTF-8">
+
+<div class="Dis-div" style="font-size: 10px;">
+	<ul style="font-size: 10px">
+		<li style="width: 25%;"><a href="" id=""
+			style="cursor: hand; font-size: 10px">一级下线<br> <span
+				ng-bind="downlineUserOne" style="color: #f08300;"></span></a></li>
+		<li style="width: 25%;"><a href="" id=""
+			style="cursor: hand; font-size: 10px">二级下线<br> <span
+				ng-bind="downlineUserTwo" style="color: #f08300;"></span></a></li>
+		@*<li style="width: 20%;"><a href="" id=""
+		style="cursor: hand; font-size: 10px">三级下线<br> <span
+		ng-bind="downlineUserThree" style="color: #f08300;"></span></a></li>*@
+		<li style="width: 25%;"><a href="" id=""
+			style="cursor: hand; font-size: 10px">总分销额<br> <span
+				ng-bind="resellerAmount | currency: '￥'" style="color: #f08300;"></span></a></li>
+		<li style="width: 25%;"><a href="" id=""
+			style="cursor: hand; font-size: 10px">总佣金<br> <span
+				ng-bind="user.currentResellerProfit | currency: '￥'"
+				style="color: #f08300;"></span></a></li>
+	</ul>
+</div>
+<div class="team_user" ng-repeat="xx in downlineUsers">
+	<div class="team_roll">
+		<br /> <img ng-if="xx.headImgUrl != null && xx.headImgUrl.length > 0"
+			style="width: 100px;height:100px;" ng-src='{{xx.headImgUrl}}' alt=""> <img
+			ng-show='xx.headImgUrl == null || xx.headImgUrl.length <= 0'
+			src='@routes.Assets.at("img/default_head_img.jpg")' alt=""
+			style="width: 100px;height:100px;">
+		<div class="team_wenzi">
+			<span ng-if="xx.name != null" ng-bind="xx.name" style="display: block;width: 65%;margin: auto;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"></span> <span
+				ng-if="xx.name == null" ng-bind="xx.resellerCode | uppercase"></span><br />
+			<br />
+			<!-- 订单数：10<br />
+ 额：34000<br />
+我的佣金：<span style=" color:#b48f4f;">3400 </span>-->
+
+		</div>
+	</div>
+</div>
+}
+<script src='@routes.Assets.at("js/controllers/myteam_controller.js")'></script>

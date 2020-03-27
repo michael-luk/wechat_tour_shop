@@ -1,0 +1,22 @@
+@frame("优惠活动", "PrivilegeApp", "PrivilegeController") {
+<meta charset="UTF-8">
+
+<p class="priv-p1">新店开业优惠活动</p>
+
+	@*<p   style="font-size:25px;color:#f08300;text-align: center;margin-top:150px;float:left;background:#faf6f2;"><b>下单立减&yen;10</b></p>*@
+@*<div class="priv-div1" ng-repeat="Coupon in Coupons">
+<div class="priv-div3">
+	<p class="priv-p2" ng-bind="Coupon.discount | currency: '￥'"></p>
+	<p class="priv-p3" style="float: left;">优惠卷</p>
+	<p class="priv-p4" >有效期:<span ng-bind=""></span>2016/01/1-<span ng-bind="Coupon.endTime"></span><!-- 2016/03/34 --></p>
+	<p class="priv-p5"> 订单满<span  ng-bind="Coupon.reachMoney | currency: '￥'"></span>使用<!-- 订单满99.0元使用 --></p>
+	</div>
+	<div class="priv-div2" ng-click="toReceive(IndexNo)">领取</div>
+
+
+</div>*@
+	<img
+	src='@routes.Assets.at("img/ban.jpg")' alt="" style="    width: 86%;margin-left: 7%;">
+}
+<script src='@routes.Assets.at("js/controllers/privilege_controller.js")'></script>
+

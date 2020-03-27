@@ -1,0 +1,170 @@
+@frame("微信支付", "WeixinPayApp", "WeixinPayController") {
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href='@routes.Assets.at("css/bootstrap-datetimepicker.min.css")' />
+    <div style="width:100% ; background:#eeeeee ; min-height: 100px ; float:left ; padding: 15px 0 0 20px;" ng-init="getOrderInfo(@flash.get("orderid"))">
+            <!--  <table style="width:60% ; margin:auto ; font-size:15px ; height:100px ; margin-top:50px ;">
+            <tr>
+                <td>订单编号:</td>
+                <td>@flash.get("orderNo")</td>
+        </tr>
+        <tr>
+            <td>支付金额:</td>
+            <td>@flash.get("orderAmount")</td>
+        </tr>
+        <tr>
+            <td><span id="wxpayDisplay">支付准备中...</span></td>
+            <td> </td>
+        </tr>
+        </table> -->
+       @* <p class="weixin-p1" style="background:#fff ; height:30px ;"></p>
+        <p class="weixin-p1">请在<span style="color:#f08300 ;"> 2小时 </span>之内完成网上支付，否则系统将自动取消订单</p>
+        <p class="weixin-p1">收到货品后请在<span style="color:#f08300 ;"> 3小时 </span>之内对订单进行收货确认，否则系统将自动确认</p>
+        <div class="myOrder-div1" style="background:#fff ; margin-bottom:13px ;">*@
+
+                <!-- <div class="myOrder-img">
+				<img style="width: 100%; height: 100%;" ng-src="/showimg/thumb/{{images[$index]}}" alt="">
+			</div>
+					 -->
+            <p class="myOrder-p2" style="font-weight: bold;">
+                <span> @play.i18n.Messages.get("orderNo")：<span> @flash.get("name")</span>
+                    <br>
+                    @play.i18n.Messages.get("orderTotal")：<span>￥ @flash.get("orderAmount") </span>
+                    <br>
+                    @play.i18n.Messages.get("orderProductTime")：<input id="travelTime" type="text" ng-model="travelDate" style="text-align: center;height: 33px; border: 1px solid #ece4e4;" > <input value="提交" type="button" ng-click="updateTravelTime()" />
+                </span>
+            </p>
+        <br>
+            <p class="myOrder-p2" ng-repeat="product in products">
+                <span> @play.i18n.Messages.get("orderProduct")：<span ng-bind="product.name"></span>
+                    <br>
+                    @play.i18n.Messages.get("orderProductQuantity")：<span ng-bind="product.quantity"></span>
+                </span>
+            </p>
+        <br>
+
+                <!-- 	<p class="myOrder-p3">
+				<b>数量:<span ng-bind="myOrder.quantity"></span> 酒体：<span
+					ng-bind="myOrder.wineBody"></span><span class="myOrder-span1"><span ng-bind="myOrder.price  | currency: '￥'"></span></span></b>
+			</p> -->
+
+        </div>
+
+    </div>
+    <p class="newpay-p3" style="float:left ; padding-left: 20px ; margin-top: 0px ;    border: 1px solid rgb(183, 228, 232);background: rgba(84, 191, 200, 0.42);color: #fff;"><span id="wxpayDisplay">
+        @play.i18n.Messages.get("payPrepare")...</span><span id="wxpayAmountDisplay" style="color: rgb(60, 170, 179);font-weight: bold;display: none ;">
+        @play.i18n.Messages.get("payTotal")：￥@flash.get("orderAmount") </span></p>
+        <!--   <div style="float:left;width:85%;"> -->
+    <div class="foot-s" id="wxpaybtn" style="float:left ; display: none">
+    @play.i18n.Messages.get("wxpay")
+    </div>
+
+        <!-- </div> -->
+        <!-- <div class="order2-button1" style="margin-top:100px;">
+去支付
+</div> -->
+        @*<div class="div-foot" style="margin-top:30px ; display:none" id="wxpaybtn">*@
+        @*<div class="foot-s">*@
+        @*<img style="float: left ; margin: 8px 0 0 34% ;"*@
+        @*src='@routes.Assets.at("img/pay.png")' alt="">*@
+        @*<div class="weix"*@
+        @*style="width: 60px ; float: left ; padding: 16px 0 0 0 ;">微信支付</div>*@
+        @*</div>*@
+        @*</div>*@
+    }
+
+<!-- <script type="text/javascript">
+	$("#wxbtn").click(function() {
+		alert("check wx")
+		wx.checkJsApi({
+		  jsApiList: [
+			'getNetworkType',
+			'previewImage'
+		  ],
+		  success: function (res) {
+			alert("support wx")
+			//alert(JSON.stringify(res));
+		  }
+		});
+	});
+</script> -->
+<script src='@routes.Assets.at("js/bootstrap.min.js")'></script>
+<script src='@routes.Assets.at("js/bootstrap-datetimepicker.min.js")'></script>
+<script src='@routes.Assets.at("js/controllers/weixin_pay_controller.js")'></script>
+
+<script language="javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script type="text/javascript">
+//	$('#wxpaybtn').hide()
+//    $('#wxpayAmountDisplay').hide()
+
+wx.config({
+    debug: false,
+    appId: '@flash.get("appid")',
+    timestamp: '@flash.get("timestamp")',
+    nonceStr: '@flash.get("nonce")',
+    signature: '@flash.get("signature")',
+    jsApiList: [
+        'chooseWXPay'
+    ]// 必填，需要使用的JS接口列表
+});
+
+wx.ready(function () {
+    wx.ready(function () {
+        $('#wxpayDisplay').hide()
+        $('#wxpayAmountDisplay').show()
+        $('#wxpaybtn').show()
+        $('#wxpaybtn').click(function (event) {
+            //alert('wx config ready')
+            if ($("#travelTime").val() == ''){
+                alert('请输入出行日期')
+                return
+            }
+
+            wx.chooseWXPay({
+                timestamp: '@flash.get("timeStamp2")', // 支付签名时间戳
+                nonceStr: '@flash.get("nonceStr2")', // 支付签名随机串
+                package: '@flash.get("package")', // 统一支付接口返回的package包
+                signType: 'MD5', // 签名方式，'MD5'
+                paySign: '@flash.get("paySign")', // 支付签名
+                success: function (res) {
+                    //alert(res);
+                    //alert(res.errMsg);
+                    if (res.errMsg == "chooseWXPay:ok") {
+                        $.ajax({
+                            url: '/orders/wxpay/update/@flash.get("orderid")',
+                            type: 'PUT',
+                            success: function( response ) {
+                                window.location.href = window.location.protocol + '//' + window.location.host + '/w/userCenter?userId=' + @session.get("userid") + '&storeId='+ GetQueryString('storeId')
+                                // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                            }
+                        });
+                    }
+                }
+
+            });
+
+        });
+
+        //监听错误事件 出现'invalid signature' AJAX刷新ticket,并刷新当前页面
+        wx.error(function (res) {
+            //alert("支付出错");
+            if(res.errMsg.indexOf("invalid signature") > 0 )
+            {
+                alert("微信支付失败: 无效签名");
+            }
+            else{alert(res.errMsg);}
+        });
+
+    });
+})
+
+
+function GetQueryString(name) {
+    var url = decodeURI(window.location.search);
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = url.substr(1).match(reg);
+    if (r != null)
+        return unescape(r[2]);
+    return null;
+}
+</script>
+@*<script src='@routes.Assets.at("js/controllers/qrcode_controller.js")'></script>*@

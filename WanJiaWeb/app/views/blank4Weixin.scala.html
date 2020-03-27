@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, target-densitydpi=medium-dpi" />
+        <title>@play.i18n.Messages.get("siteName")</title>
+            <!-- <script type="text/javascript">
+  (function() {
+    WgateJs = {};
+    WgateJs.auto_auth=true;
+    WgateJs.ready=function(){
+        var wgateid=WgateJs.getWgateid();
+    	window.location.href='http://120.25.167.233?openId=' + wgateid;
+		alert(window.location.href)
+      }
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://st.weixingate.com/";
+    u=u+'st/1851';
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+    g.defer=true; g.async=true; g.src=u; s.parentNode.insertBefore(g,s);
+  })();
+</script> -->
+        <script type="text/javascript">
+	var system = {
+        win : false,
+        mac : false,
+        xll : false
+    };
+    var p = navigator.platform;
+    system.win = p.indexOf("Win") == 0;
+    system.mac = p.indexOf("Mac") == 0;
+    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+
+    var timestamp = new Date(Date).getTime()
+    if (system.win || system.mac || system.xll) {
+//        alert("pc");
+        //window.location.href = window.location.protocol + '//' + window.location.host + '/p/wine'//?t=' + timestamp;
+    } else {
+//        alert("mobile");
+        if(is_weixin()){
+//            alert("weixin");
+            window.location.href = window.location.protocol + '//' + window.location.host + '/w/one?t=' + timestamp;
+        }else{
+//            alert("mobile browser");
+            // window.location.href = window.location.protocol + '//' + window.location.host + '/p/wine'//?t=' + timestamp;
+        }
+    }
+
+    function is_weixin(){
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i)=="micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+    </head>
+    <body>
+</body>
+</html>

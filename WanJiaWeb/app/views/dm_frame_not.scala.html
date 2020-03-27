@@ -1,0 +1,28 @@
+@(title: String, app: String, controller: String)(content: Html)
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <!--  移动端页面设置视口宽度等于设备宽度，并禁止缩放。-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.at("css/common.css")' />
+    <link rel="stylesheet"  href='@routes.Assets.at("css/font-awesome.min.css")'>
+
+
+	 <script src='@routes.Assets.at("js/angular.min.js")'></script>
+     <script src='@routes.Assets.at("js/jquery-1.11.1.min.js")'></script>
+    <meta name="keywords" content="漫天香" />
+    <meta name="Description" content="漫天香" />
+    <title>漫天香</title>
+</head>
+<body ng-app="@app" ng-controller="@controller">
+   
+    	@content
+  
+</body>
+</html>

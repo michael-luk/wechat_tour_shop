@@ -1,0 +1,495 @@
+@frame("��ҳ", "Theme2App", "Theme2Controller") {
+<div class="theme2-memu">
+	<p>
+		<a class="memu-a" href="#">全部主题</a> <a class="memu-a" href="#">旅游度假</a>
+		<a class="memu-a" href="#">健康医疗</a> <a class="memu-a" href="#">金融服务</a>
+		<a class="memu-a" href="#">生活服务</a>
+	</p>
+</div>
+
+
+
+<div class="theme2-private">
+
+	<div class="content1">
+		<div id="left">
+			<div class="banner">
+				<div class="bd">
+					<ul>
+						<li><a href="#"
+							style="background: url(assets/upload/theme1.png) 50% 50%; background-size: 100% 100%; border: 1px solid red;"></a>
+						</li>
+						<li><a href="#"
+							style="background: url(assets/img/banner2.jpg) 50% 50%; background-size: 100% 100%;"></a>
+						</li>
+						<li><a href="#"
+							style="background: url(assets/img/banner1.jpg) 50% 50%; background-size: 100% 100%;"></a>
+						</li>
+					</ul>
+
+				</div>
+				<div class="operation">
+					<a href="javascript:;" class="prev"></a> <span class="pageState"></span>
+					<a href="javascript:;" class="next"></a>
+				</div>
+
+			</div>
+		</div>
+		<div id="T-right" class="T-right">
+			<p></p>
+			<form action="">
+				<p ng-repeat="packs in travelProduct.packs">
+					<input type="radio" name="sex" id="{{packs.id}}"
+						ng-click="select($index)" value="X" class="radio"> <label
+						for="{{packs.id}}" class="radio"><span
+						ng-click="select($index)">{{packs.name}}</span></label>
+				</p>
+				
+			 	<span class="S-span1" > 出发日期：</span>  
+				
+				<input type="text" 
+						class="S-time1 Wdate" onFocus="WdatePicker({lang:'zh-cn'})"
+						placeholder="出行日期" />
+				<br /> <span class="S-span1"> 出发城市：</span> <select class="S-time">
+					<option>深圳</option>
+					<option>选项二</option>
+					<option>选项三</option>
+				</select><br /> <span class="S-span1"> 
+			
+				成人人数：</span> <input type="text" 
+					value="请输入" class="T-population" onclick="this.value=''"> <br />
+				<span class="S-span1"> 儿童人数：</span> <input type="text" value="请输入"
+					class="T-population" onclick="this.value=''"> <br />
+			
+				<span class="S-span1"> 核算总价：</span> <input type="text" value=""
+					class="T-population"> <br /> <input type="button"
+					value="立即预定" class="button1" />
+			</form>
+		</div>
+
+	</div>
+</div>
+<div class="theme2-theme">
+	<div class="title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<form>
+			<table class="table1">
+				<tr>
+					<td><hr /></td>
+					<td>项目详情</td>
+					<td><hr></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="T-content1" >
+
+		<span class="T-span1">{{travelProduct.name}} </span> <input
+			type="button" value="下载PDF文档" class="b-download" />
+
+		<p class="T-p1">{{travelProduct.description}}</p>
+		<p class="T-p2" >一场绿色的旅行，一次生命的不给
+			天行健绿色生命之旅---让旅行为生命增加能量，给身体补给健康。全球注册的第一种肺癌疫苗在古巴诞生。。。</p>
+		<p class="T-p3">一场绿色的旅行，一次生命的不给
+			天行健绿色生命之旅---让旅行为生命增加能量，给身体补给健康。全球注册的第一种肺癌疫苗在古巴诞生。。。</p>
+		<div
+			style="width: 100%; height: 600px; border: 1px solid; margin-top: 227px;">
+			<div class="C-div C-div1"
+				ng-repeat="highlight in selectedPack.highlights">
+				<img style="width: 100%; height: 20%;"
+			src='@routes.Assets.at("upload/{{highlight.smallImages}}")' alt="">
+			
+				<p>{{highlight.images}}{{highlight.description}}</p>
+				<!-- <p ng-repeat="highlight in travelProduct.packs.highlights">123{{highlight.name}}</p> -->
+			</div>
+		</div>
+		
+		<div class="C-div4" style="cursor: hand" onclick="isHidden('C-div5')">
+			<a href="">+点击展开更多</a>
+		</div>
+		<div id="C-div5" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>Day1-2:北京-莫斯科-哈瓦那</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</div>
+			
+		</div>
+	</div>
+
+</div>
+
+<div class="theme2-theme theme2-theme2">
+	<div class="title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<form>
+			<table class="table1">
+				<tr>
+					<td><hr /></td>
+					<td>行程地图</td>
+					<td><hr></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="T-content2">
+		<img style="width: 100%; height: 100%;"
+			src='@routes.Assets.at("upload/{{selectedPack.routeImage}}")' alt="">
+	</div>
+
+</div>
+
+<div class="theme2-theme theme2-theme3">
+	<div class="title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<form>
+			<table class="table1">
+				<tr>
+					<td><hr /></td>
+					<td>行程安排</td>
+					<td><hr></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="T-content3"  >
+		<div  ng-repeat="treat in selectedPack.treats"class="div-0" style="cursor: hand" onclick="isHidden('{{treat.id}}')">
+			<div class="div-abc1">
+				<!-- <p class="abc"> -->
+				第1-2天：北京-莫斯科-哈瓦那{{treat.title}}{{treat.id}}
+				<!-- </p> -->
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</div>
+
+		<div ng-repeat="treat in selectedPack.treats" id="{{treat.id}}" style="display: none" >
+			<div class="div1-left">
+				<p class="p1">
+					<b>Day1-2:北京-莫斯科-哈瓦那</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</div>
+			
+		</div>
+		 <DIV class="div-0 div-1" style="cursor: hand"
+			onclick="isHidden('div2')">
+			<div class="div-abc1">
+				<p class="abc">第3天：哈瓦那</p>
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</DIV>
+
+		<DIV id="div2" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>第3天：哈瓦那</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</DIV>
+		</div>
+
+
+
+
+		<DIV class="div-0 div-1" style="cursor: hand"
+			onclick="isHidden('div3')">
+			<div class="div-abc1">
+				<p class="abc">第4天：哈瓦那(普拉德拉国际医疗中心)</p>
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</DIV>
+
+		<DIV id="div3" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>Day4:哈瓦那(普拉德拉国际医疗中心)</b><br />
+					晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</DIV>
+		</div>
+
+		<DIV class="div-0 div-1" style="cursor: hand"
+			onclick="isHidden('div4')">
+			<div class="div-abc1">
+				<p class="abc">第5天：哈瓦那</p>
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</DIV>
+
+		<DIV id="div4" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>Day5:哈瓦那</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</DIV>
+		</div>
+
+		<DIV class="div-0 div-1" style="cursor: hand"
+			onclick="isHidden('div5')">
+			<div class="div-abc1">
+				<p class="abc">第6天：哈瓦那</p>
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</DIV>
+
+		<DIV id="div5" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>Day6:哈瓦那</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</DIV>
+		</div>
+
+		<DIV class="div-0 div-1" style="cursor: hand"
+			onclick="isHidden('div6')">
+			<div class="div-abc1">
+				<p class="abc">第7天：哈瓦那</p>
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</DIV>
+
+		<DIV id="div6" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>Day7:哈瓦那</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</DIV>
+		</div>
+
+		<DIV class="div-0 div-1" style="cursor: hand"
+			onclick="isHidden('div7')">
+			<div class="div-abc1">
+				<p class="abc">第8天：哈瓦那-巴拉德罗</p>
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</DIV>
+		<DIV id="div7" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>Day8:哈瓦那-巴拉德罗</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</DIV>
+		</DIV>
+
+		<DIV class="div-0 div-1" style="cursor: hand"
+			onclick="isHidden('div8')">
+			<div class="div-abc1">
+				<p class="abc">第9天：巴拉德罗-哈瓦那</p>
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</DIV>
+
+		<DIV id="div8" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>day9：巴拉德罗-哈瓦那</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</DIV>
+		</div>
+
+		<DIV class="div-0 div-1" style="cursor: hand"
+			onclick="isHidden('div9')">
+			<div class="div-abc1">
+				<p class="abc">第10天：哈瓦那-莫斯科</p>
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</DIV>
+
+		<DIV id="div9" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>Day10:哈瓦那-莫斯科</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</DIV>
+		</div>
+
+
+		<DIV class="div-0 div-1" style="cursor: hand"
+			onclick="isHidden('div10')">
+			<div class="div-abc1">
+				<p class="abc">第11-12天：莫斯科-北京</p>
+			</div>
+			<div class="div-abc2">
+				<a class="abc1"></a>
+			</div>
+		</DIV>
+
+		<DIV id="div10" style="display: none">
+			<div class="div1-left">
+				<p class="p1">
+					<b>Day11-12:莫斯科-北京</b><br /> 晚上22点北京首都机场2号航站楼2楼8号门集合，搭乘机次日凌晨的国际航
+					班经莫斯科转机前往古巴首都哈瓦那。（具体航班信息请见出团知书，飞行<br /> 时间约为21小时30分钟）
+				</p>
+				<p class="p2">
+					<b>参考航班：</b><br /> 北&nbsp;&nbsp;&nbsp;京-莫斯科<br />
+					俄罗斯航空SU201（起飞时间01:55-抵达时间 06:15）<br /> 莫斯科-哈瓦那<br />
+					俄罗斯航空SU150（起飞时间12:50-抵达时间17:00）
+				</p>
+			</DIV>
+		</div>
+
+	</div> 
+</div>
+
+
+<div class="theme2-theme theme2-theme4">
+	<div class="title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<table class="table1">
+			<tr>
+				<td><hr /></td>
+				<td>费用说明</td>
+				<td><hr></td>
+			</tr>
+		</table>
+	</div>
+	<div class="T-content4">
+		<p class="p1">
+			<b>费用包含</b>
+		</p>
+		<p class="p2">
+			1.【机票】{{selectedPack.travelCost}}travelCost<br /> 2.【签证】<br /> 3.【住宿】<br /> 4.【交通】<br /> 5.【餐饮】<br />
+			6.【门票】<br /> 7.【小费】<br /> 8.【导游】<br /> 9.【保险】<br />
+
+		</p>
+		<p class="p3">
+			<b>费用不包含</b>
+		</p>
+		<p class="p2">
+			1.【升头等舱】<br /> 2.【护照】<br /> 3.【酒店小费】<br /> 4.【延长住宿】<br />
+			5.【自行安排行程】<br /> 6.【行李超重费】<br /> 7.【私人消费】<br /> 8.【单人房差价】<br />
+			9.【其他费用】<br />
+		</p>
+	</div>
+
+	<div class="title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<table class="table1">
+			<tr>
+				<td><hr /></td>
+				<td>旅游贴士</td>
+				<td><hr></td>
+			</tr>
+		</table>
+	</div>
+	<div class="T-content5">
+
+		<!--  <p ng-repeat="packs in travelProduct.packs">123{{packs.travelTips}}</p>  -->
+		<p>123{{selectedPack.travelTips}}</p>
+		<p>
+			<b>1.酒店：</b><br /> <b>2.电压：</b><br /> <b>3.小费：</b><br /> <b>4.货币：</b><br />
+			<b>5.衣着：</b><br /> <b>6.入关和出关</b>：<br /> <b>7.通讯：</b><br /> <b>8.宗教信仰：</b><br />
+			<b>9.时差</b><br /> <b>9.语言：</b><br />
+		</p>
+	</div>
+
+	<div class="title">
+		<p>
+			<a href="#"> </a>
+		</p>
+		<table class="table1">
+			<tr>
+				<td><hr /></td>
+				<td>签证信息</td>
+				<td><hr></td>
+			</tr>
+		</table>
+	</div>
+	<div class="T-content6">
+		<p>
+			{{travelProduct.visaInfo}}<br> <b>1.签证形式：</b><br /> <b>2.审核周期：</b><br />
+			<b>3.签证材料：</b><br />
+
+		</p>
+	</div>
+
+</div>
+
+
+}

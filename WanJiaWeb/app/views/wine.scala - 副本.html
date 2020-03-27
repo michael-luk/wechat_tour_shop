@@ -1,0 +1,86 @@
+@frame("首页", "WineApp", "WineController") {
+<meta charset="UTF-8">
+	@if(flash.contains("handleUplineError")) {
+		<script type="text/javascript">alert('@flash.get("handleUplineError")')</script>
+}
+
+<div class="wine">
+	<div id="slideBox" class="slideBox">
+		<div class="bd">
+			<carousel interval="myInterval"> 
+				<slide ng-repeat="slide in slides" active="slide.active"> 
+					<img ng-src="{{slide.image}}" style="margin: auto;">
+					<div class="carousel-caption">
+						<!-- <h4>Slide {{$index}}</h4> -->
+						<!-- <p>{{slide.text}}</p> -->
+					</div>
+				</slide> 
+			</carousel>
+		</div>
+
+		<div class="hd">
+			<ul>
+			</ul>
+		</div>
+	</div>
+
+	<div class="wine-nav">
+		<ul>
+			<li style="margin-left: -6%;"><a href="/w/about"><b class="b1"></b><br />关于我们</a></li>
+			<li><a href="/w/marry/1"><b class="b2"></b><br />一键定制</a></li>
+			<li><a href="/w/process"><b class="b3"></b><br />定制流程</a></li>
+			<li><a href="/w/userCenter"><b class="b4"></b><br />个人中心</a></li>
+		</ul>
+	</div>
+
+
+</div>
+		
+<!-- <div infinite-scroll="loadMoreItems()">
+  <ul class="list">
+    <li class="item" ng-repeat="Catalog in CatalogList | filter:idOver500k | orderBy:predicate:!reverse | lazyLoad">{{Catalog.id}}</li>
+  </ul>
+</div> -->
+
+<div class="wine-type" ng-repeat="Catalog in CatalogList | filter:idOver500k | orderBy:predicate:!reverse | lazyLoad">
+	<div class="type-img">
+
+<a href="/w/marry/{{Catalog.id}}"><img
+			src='@routes.Assets.at("upload/{{Timages[$index]}}")' alt=""
+			style="width: 100%; height: 100%;"></a>
+	</div>
+	<p class="type-p2">
+		<b ng-bind="Catalog.name"></b>|
+		<span ng-bind="Catalog.description1"></span>
+		<!-- {{Catalog.description1}} -->
+	</p>
+</div>
+<div class="mt"></div>
+<p class="type-p">
+	&nbsp;&nbsp;|畅销产品<a href="/w/allProduct"><span>更多>&nbsp;</span></a>
+</p>
+<div class="wine-well">
+	<div class="well-left" ng-repeat="Product in ProductList | limitTo:8">
+		<div class="well-img1">
+		<a href="/w/Wproduct/{{Product.id}}?userId={{user.id}}"
+				style="float: left; width: 100%;"><img 
+				ng-src='/showimg/thumb/{{images[$index]}}' alt=""
+				style="width: 100%; height: 100%;"></a> 
+
+		</div>
+		<div class="well-p">
+			<p class="well-p1" style="font-weight:bold;">
+				<span ng-bind="Product.alcoholDegree"> </span>度 <!-- <span
+					ng-bind="Product.ml"></span>ml <br>-->
+					 <span ng-bind=" Product.name" style="line-height:10px;">
+				</span>
+			</p>
+			<!-- <p class="well-p2">
+				<b>&yen;<span ng-bind="winebodys[0].price"></span></b>
+			</p> -->
+		</div>
+	</div>
+</div>
+}
+
+	<script src='@routes.Assets.at("js/controllers/wine_controller.js")'></script>

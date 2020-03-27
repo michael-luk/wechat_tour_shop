@@ -1,0 +1,210 @@
+config:
+    - !!models.Config
+        name: "is.prod"
+        content: "no"
+        typeEnum: 3
+        comment: "是否生产模式(yes/no)"
+
+    - !!models.Config
+        name: "admin.login"
+        content: "yes"
+        typeEnum: 3
+        comment: "是否启用管理员权限(yes/no), 若不启用则后台不需要管理员登陆"
+
+    - !!models.Config
+        name: "app.name"
+        content: "泛玩家"
+        typeEnum: 0
+        comment: "网站名称"
+
+    - !!models.Config
+        name: "protocol"
+        content: "http"
+        typeEnum: 0
+        comment: "协议(http或https)"
+
+    - !!models.Config
+        name: "domain.name"
+        content: "localhost:9000"
+        typeEnum: 0
+        comment: "域名 (若本地则localhost:9000, 带端口号), 不带http头"
+
+    - !!models.Config
+        name: "company.name"
+        content: "桂林旅游玩家"
+        typeEnum: 0
+        comment: "公司名称"
+
+    - !!models.Config
+        name: "user.timeout.minute"
+        content: "30"
+        typeEnum: 1
+        comment: "用户登陆过期时间(分钟), 超过此时间需重新登陆"
+
+    - !!models.Config
+        name: "admin.timeout.minute"
+        content: "30"
+        typeEnum: 1
+        comment: "管理员登陆过期时间(分钟), 超过此时间需重新登陆"
+
+    - !!models.Config
+        name: "forget.password.email.timeout.minute"
+        content: "30"
+        typeEnum: 1
+        comment: "重置密码邮件验证的过期时间(分钟), 超过此时间需要重新申请"
+
+    - !!models.Config
+        name: "email.send.protect.second"
+        content: "20"
+        typeEnum: 1
+        comment: "邮件发送频率保护时间(秒)"
+
+    - !!models.Config
+        name: "dbbak.receive.email"
+        content: "db_bak_email@126.com"
+        typeEnum: 0
+        comment: "接收数据库备份文件的邮箱地址"
+
+    - !!models.Config
+        name: "smtp.host"
+        content: "smtp.126.com"
+        typeEnum: 0
+        comment: "发件邮箱SMTP地址, 如smtp.126.com"
+
+    - !!models.Config
+        name: "smtp.user"
+        content: "db_bak_email@126.com"
+        typeEnum: 0
+        comment: "发件邮箱用户名"
+
+    - !!models.Config
+        name: "smtp.password"
+        content: "emuml7080cicf"
+        typeEnum: 0
+        comment: "发件邮箱密码"
+
+    - !!models.Config
+        name: "pic.thumb.size"
+        content: "200"
+        typeEnum: 2
+        comment: "图片缩略图尺寸(如200)"
+
+    - !!models.Config
+        name: "pic.mid.thumb.size"
+        content: "500"
+        typeEnum: 2
+        comment: "图片缩略图尺寸(如500)"
+
+    - !!models.Config
+        name: "company.location"
+        content: "桂林市"
+        typeEnum: 0
+        comment: "公司地址"
+
+    - !!models.Config
+        name: "company.email"
+        content: "fanwanjia@fanwanjia.com"
+        typeEnum: 0
+        comment: "公司邮箱"
+
+    - !!models.Config
+        name: "company.phone"
+        content: "0774"
+        typeEnum: 0
+        comment: "公司电话"
+
+    - !!models.Config
+        name: "company.weibo"
+        content: "fanwanjiaweibo"
+        typeEnum: 0
+        comment: "公司微博"
+
+    - !!models.Config
+        name: "company.qq"
+        content: "fanwanjiaqq"
+        typeEnum: 0
+        comment: "公司qq"
+
+    - !!models.Config
+        name: "company.weixin"
+        content: "fanwanjiaweixin"
+        typeEnum: 0
+        comment: "公司微信"
+
+    - !!models.Config
+        name: "company.description1"
+        content: "description1"
+        typeEnum: 0
+        comment: "公司描述1"
+
+    - !!models.Config
+        name: "company.description2"
+        content: "description2"
+        typeEnum: 0
+        comment: "公司描述2"
+
+    - !!models.Config
+        name: "company.registerInfo1"
+        content: "registerInfo1"
+        typeEnum: 0
+        comment: "公司注册信息1"
+
+    - !!models.Config
+        name: "company.registerInfo2"
+        content: "registerInfo2"
+        typeEnum: 0
+        comment: "公司注册信息2"
+
+    - !!models.Config
+        name: "company.barcodeImg1"
+        content: "barcodeImg1"
+        typeEnum: 0
+        comment: "公司二维码1"
+
+    - !!models.Config
+        name: "company.barcodeImg2"
+        content: "barcodeImg2"
+        typeEnum: 0
+        comment: "公司二维码2"
+
+    - !!models.Config
+        name: "company.barcodeImg3"
+        content: "barcodeImg3"
+        typeEnum: 0
+        comment: "公司二维码3"
+
+    - !!models.Config
+        name: "company.logo1"
+        content: "logo1"
+        typeEnum: 0
+        comment: "公司logo1"
+
+    - !!models.Config
+        name: "company.logo2"
+        content: "logo2"
+        typeEnum: 0
+        comment: "公司logo2"
+
+    - !!models.Config
+        name: "company.logo3"
+        content: "logo3"
+        typeEnum: 0
+        comment: "公司logo3"
+
+    - !!models.Config
+        name: "company.marketing1"
+        content: "0.12"
+        typeEnum: 2
+        comment: "1级分销提成百分比"
+
+    - !!models.Config
+        name: "company.marketing2"
+        content: "0.09"
+        typeEnum: 2
+        comment: "2级分销提成百分比"
+
+    - !!models.Config
+        name: "company.marketing3"
+        content: "0.06"
+        typeEnum: 2
+        comment: "3级分销提成百分比"

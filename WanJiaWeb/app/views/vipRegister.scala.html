@@ -1,0 +1,55 @@
+@frame("��ҳ", "IndexApp", "IndexController") {
+<div class="theme1-memu">
+	<p>
+		<a class="memu-a" href="#">全部主题</a> <a class="memu-a" href="#">旅游度假</a>
+		<a class="memu-a" href="#">健康医疗</a> <a class="memu-a" href="#">金融服务</a>
+		<a class="memu-a" href="#">生活服务</a>
+	</p>
+</div>
+<div class="vR-div1">
+ <p class="vR-login"> < 已有账号 ,快速登录   </p>
+ <div class="vR-content">
+<img style="margin-left:328px;" src='@routes.Assets.at("img/hua.png")' alt="">
+<p class="vR-p1">VIP会员注册</p>
+<img style="" src='@routes.Assets.at("img/dashed.png")' alt="">
+<p class="vR-p2" >请选择申请表填写方式</p>
+<form>
+ <input type="radio" name="sex" id="a" value="X" class="radio" style="margin-left:290px;">
+   <label for="a" class="radio"><span>线上填写</span></label><br>
+    <input type="radio" name="sex" id="b" value="M" class="radio"style="margin-left:290px;">
+    <label for="b" class="radio" ><span>线下填写</span></label><br>
+    </form>
+    <input type="button" value="立即预定" class="vR-button1"/>
+    <p class="vR-p3">尊敬的女士/先生,为保障您在新玉环球定制的尊享权益，也为了我们能更好的为您服务，请您在填写以下信息时确保它的真实性及有效性，谢谢！</p>
+    
+    
+    <img style="" src='@routes.Assets.at("img/dashed.png")' alt="">
+    <p class= "vR-p4">(一) 基本信息 (必填)</p>
+     <span class="vR-span1">  真实姓名</span> <input type="text"  class="vR-text1" > <br/>
+      <span class="vR-span1"> 性别</span>
+      <input type="radio" name="sex" id="a" value="X" class="radio" style="margin-left:30px;">
+   <label for="a" class="radio"><span>女士</span></label>
+    <input type="radio" name="sex" id="b" value="M" class="radio"style="margin-left:30px;">
+    <label for="b" class="radio" ><span>先生</span></label><br>
+    
+    
+    <table class="vR-table"style="border:1px solid;">
+    <tr>
+    <td style="border:1px solid;padding:5px 0 5px 0;"><span class="vR-span1">  真实姓名</span> </td>
+    <td style="border:1px solid;padding:5px 0 5px 0;"><input type="text"  class="vR-text1" ></td>
+      </tr>
+      <tr>
+     <td style="border:1px solid;padding:5px 0 5px 0;">  <span class="vR-span1"> 性别</span></td>
+     <td style="border:1px solid;padding:5px 0 5px 0;">    <input type="radio" name="sex" id="a" value="X" class="radio" style="margin-left:30px;">
+   <label for="a" class="radio"><span>女士</span></label>
+    <input type="radio" name="sex" id="b" value="M" class="radio"style="margin-left:30px;">
+    <label for="b" class="radio" ><span>先生</span></label><br></td>
+    </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    </tr>
+    </table>
+</div>
+</div>
+}

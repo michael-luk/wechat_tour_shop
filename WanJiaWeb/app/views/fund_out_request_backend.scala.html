@@ -1,0 +1,79 @@
+@backend_frame("FundOutRequest管理", "FundOutRequestBackendApp", "FundOutRequestBackendController") {
+	<style>
+	.page-list .pagination {float:left;}
+	.page-list .pagination span {cursor: pointer;}
+	.page-list .pagination .separate span{cursor: default; border-top:none;border-bottom:none;}
+	.page-list .pagination .separate span:hover {background: none;}
+	.page-list .page-total {float:left; margin: 25px 20px;}
+	.page-list .page-total input, .page-list .page-total select{height: 26px; border: 1px solid #ddd;}
+	.page-list .page-total input {width: 40px; padding-left:3px;}
+	.page-list .page-total select {width: 50px;}
+	</style>
+
+
+<div class="page-content">
+	<div class="page-header">
+		<p>
+			上级: <a href="#" data-toggle="tooltip" title="按上级筛选数据"><select ng-model="selectedParentId" ng-options="parent.id as parent.name for parent in parents" style="padding: 6px;border-radius: 3px;">
+				<option value="0">全部</option>
+			</select></a> | 
+			状态: <a href="#" data-toggle="tooltip" title="按状态筛选数据"><select ng-model="selectedStatus" ng-options="sta.id as sta.name for sta in status" style="padding: 6px;border-radius: 3px;">
+				<option value="-100">全部</option>
+			</select></a> | 
+			<button ng-click="addContent()" class="btn btn-primary">
+				<i class="icon-plus-sign"></i> 新增
+			</button>
+			<button ng-click="updateContent()" class="btn btn-success">
+				<i class="icon-edit"></i> 修改
+			</button>
+			<button ng-click="deleteContent()" class="btn btn-danger">
+				<i class="icon-trash"></i> 刪除
+			</button> | 
+            <input type="text" ng-model="queryKeyword" class="form-control" placeholder="按@TableInfoReader.getFieldComment("FundOutRequest", TableInfoReader.getSearchField("FundOutRequest"))搜" style="display: inline-block; width: 140px;text-align: center;" />
+			<button ng-click="searchContent()" class="btn btn-primary">
+				<i class="icon-search"></i> 搜索
+			</button> | <input id="startTime" type="text" ng-model="startTime" placeholder="开始时间" style="text-align: center;height: 33px; border: 1px solid #ece4e4;" > -
+			<input id="endTime" type="text" ng-model="endTime" placeholder="结束时间" style="text-align: center;height: 33px;border: 1px solid #ece4e4;" >
+			<button ng-click="refresh()" class="btn btn-warning">
+				<i class="icon-calendar"></i> 日期筛选
+			</button> | 
+			<button ng-click="report()" class="btn btn-success">
+				<i class="icon-print"></i> 报表
+			</button>@*| {{chatMsg}}*@
+		</p>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="gridStyle" style="min-height: 600px;" ui-grid="gridOptions" ui-grid-resize-columns ui-grid-selection ui-grid-edit></div>
+			<tm-pagination conf="paginationConf"></tm-pagination>
+		</div>
+	</div>
+</div>
+            
+<script type="text/javascript">
+    var hasImageField = @TableInfoReader.hasImageField("FundOutRequest");
+    var searchFieldName = '@TableInfoReader.getSearchField("FundOutRequest")'
+    var objFieldInfo = {};
+	var objEnumInfo = {}
+    
+    // 处理自己的字段注释, status枚举, enum枚举
+    objFieldInfo.FundOutRequest = {};
+    objFieldInfo.FundOutRequest.refUserId = '@TableInfoReader.getFieldComment("FundOutRequest", "refUserId")';
+    objFieldInfo.FundOutRequest.user = '@TableInfoReader.getFieldComment("FundOutRequest", "user")';
+    objFieldInfo.FundOutRequest.userId = '@TableInfoReader.getFieldComment("FundOutRequest", "userId")';
+    objFieldInfo.FundOutRequest.phone = '@TableInfoReader.getFieldComment("FundOutRequest", "phone")';
+    objFieldInfo.FundOutRequest.yongJin = '@TableInfoReader.getFieldComment("FundOutRequest", "yongJin")';
+    objFieldInfo.FundOutRequest.name = '@TableInfoReader.getFieldComment("FundOutRequest", "name")';
+    objFieldInfo.FundOutRequest.bank = '@TableInfoReader.getFieldComment("FundOutRequest", "bank")';
+    objFieldInfo.FundOutRequest.createdAt = '@TableInfoReader.getFieldComment("FundOutRequest", "createdAt")';
+    objFieldInfo.FundOutRequest.status = '@TableInfoReader.getFieldComment("FundOutRequest", "status")';
+    objFieldInfo.FundOutRequest.comment = '@TableInfoReader.getFieldComment("FundOutRequest", "comment")';
+
+	objEnumInfo.FundOutRequest = {}
+
+	objEnumInfo.FundOutRequest.status = {}
+	for (var i = 0; i < @EnumInfoReader.getEnumCount("FundOutRequest", "status"); i++) {
+		objEnumInfo.FundOutRequest.status[i] = '@EnumInfoReader.getEnumNameLinkString("FundOutRequest", "status")'.split(',')[i];
+	}
+</script>
+}

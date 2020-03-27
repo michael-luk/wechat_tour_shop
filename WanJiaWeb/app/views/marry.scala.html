@@ -1,0 +1,63 @@
+@frame("产品系列", "MarryApp", "MarryController") {
+<meta charset="UTF-8">
+
+    <navigation-bar status="status"></navigation-bar>
+@*<div id="slideBox" class="slideBox">
+		<div class="bd">
+			<carousel interval="myInterval"> <slide
+				ng-repeat="slide in slides" active="slide.active"> <img
+				ng-src="{{slide.image}}" style="margin: auto;">
+			<div class="carousel-caption">
+				
+			</div>
+			</slide> 
+			</carousel>
+		</div>
+		<div class="hd">
+			<ul>
+			</ul>
+		</div>
+	</div>
+
+<div class="mt"></div>*@
+
+<div class="wine-well">
+	<div class="well-left" ng-repeat="Product in ProductList">
+		<div class="well-img1">
+		<a href="/w/Wproduct/{{Product.id}}?userId={{user.id}}&storeId={{storeId}}"
+				style="float: left; width: 100%;">
+			<img ng-src='{{Product.images@session.get("lang") | getFirstImageFromSplitStr:0}}' alt=""
+				style="width: 100%; height: 100%;    border-radius: 8px;"></a>
+
+		</div>
+		<div class="well-p"style="    margin: 4% 0 3% 2%;">
+			<p class="well-p1" >
+					&nbsp;<span style="    font-size: 14px;"><span ng-bind="Product.name@session.get("lang")" style="    font-size: 15px;"> </span></span><!-- <span
+					ng-bind="Product.ml"></span>ml <br>-->
+					<br>
+					&nbsp;
+				<span ng-bind=" Product.comment" style="line-height:30px;font-size: 13px;"></span><br>
+					<span style=" line-height: 50px;font-size: 15px;color: #d41111;">&yen;<span ng-bind=" Product.price" style="font-size: 15px;" ></span></span>
+			</p>
+		@*	<p class="well-p2">
+				<b>&yen;<span ng-bind="Product.price" class="wellP2-span" style="font-size: 20px;"></span></b>
+				<img src='@routes.Assets.at("img/5.png")' alt="" style="" ng-click="addCart(Product, 1)">
+				<br>
+				<span style="font-size:10px;color:#c8c8c8;float:right;" ng-bind="Product.inventory | inventoryDisplay"></span>
+			</p> *@
+		</div>
+	</div>
+</div>
+
+	@*<input type="hidden" id="language" value="@session.get("lang")"/>*@
+	@*<div class="number3" style="">*@
+	@*<div class="custom2" style="" ng-click="goNextPage()">*@
+		@*<a class="a-custom" style="color:#1a8471;"> <span ng-bind="pageInfo | showMoreDisplay:@session.get("lang")"></span> </a>*@
+	@*</div>*@
+@*</div>*@
+	@*<div id="okcat" style="display:none;position: fixed; width: 150px;  height: 60px; background-color: rgba(0, 0, 0, 0.5); left: 0; right: 0; margin: auto; color: #fff;  top: 41%;text-align: center; font-size: 18px;  line-height: 60px;border-radius: 10px;">*@
+		@*已加入购物车*@
+	@*</div>*@
+}
+<script src='@routes.Assets.at("js/controllers/marry_controller.js")'></script>
+<script src='@routes.Assets.at("js/ui-bootstrap-tpls-0.12.0.min.js")'></script>

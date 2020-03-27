@@ -1,0 +1,134 @@
+@frame("��ҳ", "Theme1App", "Theme1Controller") {
+<div class="theme1-memu">
+	<p>
+		<a class="memu-a" href="#" >全部主题</a> <a class="memu-a" href="#" ng-repeat="TravelProducts in TravelProductsList">{{TravelProducts.classify}}</a>
+		<!-- <a class="memu-a" href="#">健康医疗</a> <a class="memu-a" href="#">金融服务</a>
+		<a class="memu-a" href="#">生活服务</a> -->
+	</p>
+</div>
+<div class="theme1-theme" >
+	<div class="theme1-content" >
+		<div class="title1" ng-repeat="TravelProducts in TravelProductsList">
+			<div class="pt1">
+			 <img style="width:100%;height:100%;border-radius:7px 7px 0 0;"
+				src='@routes.Assets.at("upload/{{TravelProducts.images}}")' alt="">
+			</div>
+			<div class="travel">
+				<div class="img1"></div>
+				<p >{{TravelProducts.name}}</p>
+				<div class="text1">
+					{{TravelProducts.comment}}</div>
+			</div>
+			<form action="">
+				<a href="/w/theme2/{{TravelProducts.id}}"><input type="button" value="查看详情" class="button1" /></a>
+			</form>
+		</div>
+	<!-- 	<div class="title1 title2">
+			<div class="pt2"></div>
+			<div class="travel">
+				<div class="img2"></div>
+				<p>健康医疗</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="查看详情" class="button1" />
+			</form>
+		</div>
+		<div class="title1 title3">
+			<div class="pt3"></div>
+			<div class="travel">
+				<div class="img3"></div>
+				<p>金融服务</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="查看详情" class="button1" />
+			</form>
+		</div> -->
+	</div>
+</div>
+
+<!-- <div class="theme1-theme theme1-theme2">
+	<div class="theme1-content">
+		<div class="title1">
+			<div class="pt1"></div>
+			<div class="travel">
+				<div class="img1"></div>
+				<p>旅游度假</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="查看详情" class="button1" />
+			</form>
+		</div>
+		<div class="title1 title2">
+			<div class="pt2"></div>
+			<div class="travel">
+				<div class="img2"></div>
+				<p>健康医疗</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="查看详情" class="button1" />
+			</form>
+		</div>
+		<div class="title1 title3">
+			<div class="pt3"></div>
+			<div class="travel">
+				<div class="img3"></div>
+				<p>金融服务</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="查看详情" class="button1" />
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="theme1-theme theme1-theme3">
+	<div class="content">
+		<div class="title1">
+			<div class="pt1"></div>
+			<div class="travel">
+				<div class="img1"></div>
+				<p>旅游度假</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="查看详情" class="button1" />
+			</form>
+		</div>
+		<div class="title1 title2">
+			<div class="pt2"></div>
+			<div class="travel">
+				<div class="img2"></div>
+				<p>健康医疗</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="查看详情" class="button1" />
+			</form>
+		</div>
+		<div class="title1 title3">
+			<div class="pt3"></div>
+			<div class="travel">
+				<div class="img3"></div>
+				<p>金融服务</p>
+				<div class="text1">
+					根据您的旅行计划，目的，兴趣爱好，而量身定制旅行方式和旅游线路，打造具有浓郁个人专属风格的旅行。</div>
+			</div>
+			<form action="">
+				<input type="button" value="查看详情" class="button1" />
+			</form>
+		</div>
+	</div>
+</div> -->
+}

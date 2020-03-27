@@ -1,0 +1,119 @@
+@dm_frame_not("我的收货地址", "BuyImmediatelyApp", "BuyImmediatelyController") {
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href='@routes.Assets.at("css/address.css")' />
+  <link rel="stylesheet" type="text/css" href='@routes.Assets.at("css/abc.css")' />
+  <script src='@routes.Assets.at("js/controllers/BuyImmediately_controller.js")'></script>
+
+  <header>
+    <div class="logo">
+      <img src='@routes.Assets.at("img/title.png")'>
+    </div>
+  </header>
+  <section>
+    <div class="order_div1" >
+      <div class="site" ng-repeat="add in adds" ng-click="SelectLc($index)">
+        <ul class="site_ul clear">
+          <li class="site_li1"><i class="icon-ok-sign"  ng-if="add.select"></i></li>
+          <li class="site_li2">
+            <p class="site_ul_p1"><b ng-bind="add.name"></b>(<span ng-bind="add.phone"></span>  )</p>
+            <p class="site_ul_p2"><span ng-bind="add.zone"></span ><span ng-bind="add.area"></span><span  ng-bind="add.location"></span></p>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="addsite">
+      @*  <p class="addsite_p1" onclick="show1()">添加新地址</p>*@
+        <a href="/w/addlocation?presentPrice={{presentPrice}}&price={{price}}&productId={{productId}}&sponsorId={{sponsorId}}"><p class="addsite_p1">添加新地址</p></a>
+
+      </div>
+
+      <div class="order_div4">
+        <ul class="order_div4_ul">
+          <li class="clear">
+            <div class="div4_img">
+              <img src="/showimg/upload/{{product.images | getFirstImage}}">
+            </div>
+            <a href="/w/particulars?allid={{product.id}}">
+              <div class="div4_text">
+                <p class="div4_text_p1 noWrapEllipsis" ng-bind="product.name" style="font-size: 16px;font-weight: bold;"></p>
+                <p class="div4_text_p2" style="font-size: 13px;">原价:<span ng-bind="product.price | currency: '￥'" ></span></p>
+                <p class="div4_text_p2" style="font-size: 13px;" >现价:<span ng-bind="presentPrice | currency: '￥'"></span></p>
+                <p class="div4_text_p2" style="font-size: 13px;">x <span >1</span></p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="order_div5" style=" margin-top: 10px;">
+        <div class="cat_div3_left">
+          <p class="div3_p1" >
+            实付款：
+            <span  ng-bind="presentPrice | currency: '￥'"></span>
+          </p>
+        </div>
+        <div class="cat_div3_right"  onclick="show()" ng-click="addOrder()">立即下单</div>
+        @*<div class="cat_div3_right" ng-if="presentPrice == 0" onclick="show()" ng-click="addOrderZero()">付款</div>*@
+      </div>
+
+    </div>
+
+
+    <div class="addsite bianji" id=“bianji>
+      <div class="ff">
+        <p class="addsite_p1">编辑地址</p>
+        <div class="check" id="show" style="opacity:1">
+          <table class="check_tab">
+            <tr>
+              <td class="lef">姓名：</td>
+              <td class="righ"><input type="text" name="" ng-model="Shipinfo.name"><b>*</b></td>
+            </tr>
+            <tr>
+              <td class="lef">电话：</td>
+              <td class="righ"><input type="text" name=""  maxlength="11" ng-model="Shipinfo.phone" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"><b>*</b></td>
+            </tr>
+            <tr>
+              <td class="lef">详细地址：</td>
+              <td class="righ"><input type="text" name="" ng-model="Shipinfo.location"><b>*</b></td>
+            </tr>
+            <tr>
+              <td class="lef">邮政编码：</td>
+              <td class="righ"><input type="text" name="" maxlength="6" ng-model="Shipinfo.postCode" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></td>
+            </tr>
+          </table>
+          <p class="check_p1" ng-if="Shipinfo.isDefault == false" ng-click="ond()"><i class="icon-check-empty" style="padding-right: 7.5px;"></i>设为默认收货地址</p>
+          <p class="check_p1" ng-if="Shipinfo.isDefault == true" ng-click="offd()"><i class="icon-check"></i>设为默认收货地址</p>
+
+          <p class="addsite_p1" ng-click="addLocation()" onclick="show1cl()">保存</p>
+
+        </div>
+      </div>
+
+    </div>
+
+
+ @*   <div class="homefooter" style="margin-top: 46px;">
+     *@@* <div class="homefooter_ul">
+        <a href="http://mp.weixin.qq.com/s?__biz=MzI5MjAyNTYzMw==&mid=401459816&idx=1&sn=37d990bc94678db77a0910f37df34044#rd">
+          <ul class="clear">
+            <li>支付配送</li>
+            <li>售后服务</li>
+            <li>关于我们</li>
+            <li style="border:0;">联系我们</li>
+          </ul>
+        </a>
+      </div>*@@*
+      <hr>
+      <div class="homefooter_text">
+        <p class="homefooter_text_p1"><i class=" icon-phone" style="padding-right: 8px;"></i>网上订购咨询热线：0756-3621999</p>
+        <p class="homefooter_text_p2" style="color: #999">ICP备案号：粤ICP备<a href="http://www.miitbeian.gov.cn" style="color: #b58f50;">16001691</a>号</p>
+      </div>
+      <div class="homefooter_7080" style="margin-top: 4%;">
+        <img src='@routes.Assets.at("images/7080.png")' style="width: 20%;    margin-left: 4%;">
+        <P class="homefooter_text_p2" style="color: #999;margin-top: 3px;">由7080网络提供技术支持</P>
+      </div>
+    </div>*@
+  </section>
+}

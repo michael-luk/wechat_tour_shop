@@ -1,0 +1,65 @@
+@(title: String, app: String, controller: String)(content: Html)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="keywords" content="泛玩家旅游平台"/>
+        <meta name="description" content="泛玩家旅游平台"/>
+
+       
+        <title>@play.i18n.Messages.get("siteName")</title>
+
+        <link rel="stylesheet" href='@routes.Assets.at("css/bootstrap.min.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/Wproduct.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/marry.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/wine.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/pay.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/order1.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/location.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/userCenter.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/myLocation.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/myOrder.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/DistributionOrder.css")' />
+    </head>
+    <body ng-app="@app" ng-controller="@controller">
+      @*  <div class="wine-title">
+            <div class="title-left">
+                <a href="/w/wine?storeId={{storeId}}" class="lxhr"><img
+                src='@routes.Assets.at("img/title.png")' alt="" style="width: 100% ;"></a>
+            </div>
+            <div class="title-right" onclick="isHidden('sosuo')" style="cursor: hand">
+                <a href="/w/allProduct?storeId={{storeId}}" class="ss"><img src='@routes.Assets.at("img/ss.png")'
+                alt="" style="width: 100% ;"></a>
+            </div>
+        </div>*@
+
+        @content
+
+        <div class="foot">
+            <ul>
+                <li class="foot1" style="padding: 0 ;"><a
+                href='/w/wine?storeId=@session.get("storeId")'><b class="f1"></b></a></li>
+                <li class="foot2"><a href='/w/store'><b class="f2"></b></a></li>
+                <li class="foot3"><a href='/w/cart'><b class="f3"></b><!--(<span  ng-bind="cart | cartCalculate"></span>) (@session.get("CART")) --></a></li>
+
+                <li class="foot4"><a href='/w/userCenter'><b class="f4"></b></a></li>
+            </ul>
+        </div>
+
+        <div style="clear: both ; height: 65px ;"></div>
+        <script src='@routes.Assets.at("js/angular.min.js")'></script>
+        <script src='@routes.Assets.at("js/jquery-1.11.1.min.js")'></script>
+        @*<script src='@routes.Assets.at("js/TouchSlide.1.1.js")'></script>*@
+        <script src='@routes.Assets.at("js/jquery.min.js")'></script>
+        @*<script src='@routes.Assets.at("js/jquery.touchSwipe.min.js")'></script>*@
+        <script src="@routes.Assets.at("js/angular-file-upload-shim.min.js")"></script>
+        <script src="@routes.Assets.at("js/angular-file-upload.min.js")"></script>
+        @*<script src="@routes.Assets.at("js/createDialog.js")"></script>*@
+        @*<script src='@routes.Assets.at("js/bootbox.min.js")'></script>*@
+        @*<script src='@routes.Assets.at("js/ui-bootstrap-tpls-0.12.0.min.js")'></script>*@
+        <script src='@routes.Assets.at("js/controllers/wine_controller.js")'></script>
+        <script src='@routes.Assets.at("js/ourLib.js")'></script>
+    </body>
+</html>

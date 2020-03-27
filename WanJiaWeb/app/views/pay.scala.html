@@ -1,0 +1,120 @@
+@frame("确认订单", "PayApp", "PayController") {
+<meta charset="UTF-8">
+<div class="pay">
+	<div class="pay-div1" ng-if="myLocations != null">
+		<p class="p-title">@play.i18n.Messages.get("address")</p>
+		<a href="/w/userCenter?address=true&pid={{pid}}&num={{newOrder.quantity}}&price={{newOrder.price}}&amount={{newOrder.amount}}&themeName={{newOrder.themeName}}&themeId={{newOrder.refThemeId}}&image={{newOrder.image}}&userId={{userId}}&productAmount={{newOrder.productAmount}}&storeId={{storeId}}">
+			<div style=" width: 13%;float: left;">
+				<img src='@routes.Assets.at("images/redio3.png")' alt="" style=" width: 100%;margin-top: 18%;border-radius: 5px;height: 100%;">
+			</div>
+	<div class="pay1-left" style=" width: 72%;float: left;margin: 2% 0 2% 0%;">
+	<p class="pay-p1">
+		@play.i18n.Messages.get("adsName")：<span ng-bind="defaultLocation.name" style="font-size: 14px;"></span>
+		</p>
+	<p class="pay-p1">
+		@play.i18n.Messages.get("adsPhone")：<span ng-bind="defaultLocation.phone" style="font-size: 14px;"></span>
+		</p>
+		<p class="pay-p1">
+			@*收货地址：<span ng-if="defaultLocation.isDefault === true ">[默认]&nbsp;</span>*@
+				<span ng-bind="defaultLocation.provice" style="font-size: 13px;"></span>
+				<span ng-bind="defaultLocation.city" style="font-size: 13px;"></span>
+				<span ng-bind="defaultLocation.zone" style="font-size: 13px;"></span>
+				<span ng-bind="defaultLocation.location" style="font-size: 13px;"></span>
+		</p>
+	</div>
+	<div class="pay1-right" style="width:15%;float:left;margin:5% 0 5% 0;">
+
+	<img src='@routes.Assets.at("images/design.png")' alt="" class="xtb" style="float:right; width: 45%;margin-right: 26%;">
+	</div>
+		</a>
+	</div>
+	<!-- 没有地址  -->
+	<a href="/w/userCenter?address=true&pid={{pid}}&num={{newOrder.quantity}}&price={{newOrder.price}}&&amount={{newOrder.amount}}&themeName={{newOrder.themeName}}&themeId={{newOrder.refThemeId}}&image={{newOrder.image}}&wishImage={{newOrder.wishImage}}&userId={{user.id}}&productAmount={{newOrder.productAmount}}&storeId={{storeId}}">
+	<div class="pay-div1" style="min-height: 30px;" ng-if="myLocations === null ">
+	<div class="pay1-left" style="width:84%; float:left;">
+	<p class="pay-p1" style="margin-top:2%;">
+	@play.i18n.Messages.get("inputAds")
+		</p>		
+	</div>
+	<div class="pay1-right" style="width:15%;float:left;margin:1% 0 1% 0;">
+	
+	<img src='@routes.Assets.at("img/right.png")' alt="" class="xtb" style="float:right; width:55%;">
+	</div>
+		
+	</div>
+	</a>
+
+	<div class="vipmub">
+		<span style="font-size: 18px;color: #54bfc8;">@play.i18n.Messages.get("onLinePayment")</span><br>
+		<span style="font-size: 14px;">@play.i18n.Messages.get("onLinePaymentDetail")</span>
+	</div>
+
+	<p class="newpay-p1">
+		<span style="color: black;font-size: 19px;">@play.i18n.Messages.get("payment")</span><br>
+		<span style="line-height: 40px;">
+			<img src='@routes.Assets.at("images/wei.jpg")' alt="" style="width:25px;margin-right: 6px;border-radius: 5px;    height: 25px;">
+			<span style="color: #fff;margin-left: 2%;font-size: 15px;">
+			@play.i18n.Messages.get("wxpay")
+			</span>
+			<span style="float: right;width: 15%;margin-top: -5%;">
+				<img src='@routes.Assets.at("images/redio3.png")' alt="" style=" width: 100%;border-radius: 5px;height: 100%;">
+			</span>
+		</span>
+		<!-- <img src='@routes.Assets.at("img/19.png")' alt="" style="width:20px;margin: 0 2px 0 51px;"> 货到付款</p> -->
+<!-- 	<p class="newpay-p2"> <img src='@routes.Assets.at("img/{{UseImage}}")' alt="" style="width:20px;margin-right: 6px;" ng-click="UseCoupons()">使用我的积分<span style="font-size:10px;">(500积分抵用5.00元)</span>:&nbsp;<input type="text"  style="width: 46px;" ng-model="newOrder.jifen"><span style="width: 46px; border:1px solid #eeeeee;height:25px;padding:0 8px;"ng-bind="newOrder.jifen">123</span> <span class="newpay-span">-<span ng-bind="newOrder.jifen / 100"></span></span></p> -->
+	<!-- <p class="newpay-p2"> <img src='@routes.Assets.at("img/19.png")' alt="" style="width:20px;margin-right: 6px;">使用优惠卷 <span class="newpay-span"> -5.00</span></p> -->
+	<!-- <p class="newpay-p2"> 满减优惠 <span class="newpay-span"> -5.00</span></p> -->
+	
+	@*<p class="newpay-p3"> 买家留言:<input type="text;" ng-model="newOrder.liuYan" style="width:70%;"></p>*@
+
+	<div class="newpay-p2" ng-repeat="item in cart.items" ng-if="item.select">
+		<div class="p-left">
+			<a href="/w/Wproduct/{{item.pid}}?storeId={{storeId}}">
+				<img style="width: 100%; height: 100%;border-radius: 6px;"
+			ng-src="/showimg/thumb/{{item.product.images@session.get("lang") | getFirstImage}}" alt="">
+			</a>
+		</div>
+		<div class="p-right">
+			<ul class="order-p3" style="margin-top: 8%;">
+				<a href="/w/Wproduct/{{item.pid}}"><li ng-bind="item.product.name@session.get("lang")" style="color:#000;font-size: 14px;"></li></a> <br>
+				@*<li ng-bind="item.product.comment" style="font-size: 13px;">color,type</li><br>*@
+				<li ng-bind="item.product.price | currency: '￥'" style="color: #e81111;"></li>
+			</ul>
+			<div class="p-num">
+				x <span ng-bind="item.num"></span >
+			</div>
+		</div>
+	</div>
+	<!-- <p class="newpay-p2"> 漫天虾小龙虾大份    <span>x1</span>  <span class="newpay-span1">9.00</span></p> -->
+	
+@*	<p class="newpay-p3"> 配送费:&nbsp;<span style="color:#f08300;"></span> <span class="newpay-span1"  ng-bind="newOrder.shipFee  | currency: '￥'"></span></p>
+	<p class="newpay-p3" ng-repeat="promotion in promotions" ng-if="promotion.available"> <span ng-bind="promotion.title" style="font-size: 13px;"></span>&nbsp;<span style="color:#f08300;"></span>  <span class="newpay-span1"  ng-bind="promotion.discount | currency: '￥'"></span><span class="newpay-span1" style="color:black;">-</span></p>*@
+	@*<p class="newpay-p3" >满100元送价值40元濑尿虾1份</p>*@
+	<!-- <p class="newpay-p4"> <a style="color:#f08300;" >不清楚消费规则?</a></p> -->
+
+	<footer style="    z-index: 99;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	right: 0;
+	bottom: 8%;">
+		<div class="cat_div3_by">
+			<div class="cat_div3 clear">
+				<div class="cat_div3_left">
+					<p class="div3_p1" style="font-size: 4.4vw;margin-top: 6px;">@play.i18n.Messages.get("total")：
+						<span ng-bind="newOrder.amount | currency: '￥'" style=" font-weight: bold;color: #c31919;vertical-align: middle;">￥270.0</span>
+						<span class="div3_p2" style="color: #fff;">(include tax)</span>
+					</p>
+				</div>
+				<div class="cat_div3_right" ng-click="addOrder()" ng-if="defaultLocation.phone != null">
+				@play.i18n.Messages.get("addOrder")
+				</div>
+				<div class="cat_div3_right"ng-click="jinggao(defaultLocation)" ng-if="defaultLocation === null">
+				@play.i18n.Messages.get("addOrder")
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+}
+<script src='@routes.Assets.at("js/controllers/pay_controller.js")'></script>
