@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="col-xs-12">
+		<!-- PAGE CONTENT BEGINS -->
+
+		<form class="form-horizontal" role="form" ng-submit="saveContent()">
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 用户名: </label>
+
+				<div class="col-sm-9">
+					<input type="text" id="form-field-3" ng-model="currentObj.loginName"
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 联系电话: </label>
+
+				<div class="col-sm-9">
+					<input type="text" id="form-field-3" ng-model="currentObj.phone"
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+  			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 备注: </label>
+
+				<div class="col-sm-9">
+					<textarea class="form-control" id="form-field-8"
+						ng-model="currentObj.descriptions"></textarea>
+					<span class="help-inline col-xs-12 col-sm-7"> <span
+						class="middle">* 不超过100字</span>
+					</span>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<!-- /.col -->
+</div>
+<!-- /.row -->

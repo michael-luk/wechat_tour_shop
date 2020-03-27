@@ -1,0 +1,102 @@
+<div class="row">
+	<div class="col-xs-12">
+		<form class="form-horizontal" role="form" name="myform" ng-submit="formSave(myform.$valid)" novalidate>
+
+
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Info.name}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="name" ng-model="currentObj.name" class="col-xs-10 col-sm-5 button_border" required />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Info.classify}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="classify" ng-model="currentObj.classify" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Info.englishName}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="englishName" ng-model="currentObj.englishName" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Info.phone}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="phone" ng-model="currentObj.phone" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Info.url}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="url" ng-model="currentObj.url" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Info.description1}}
+                </label>
+		        <div class="col-sm-9">
+                    <div simditor ng-model="currentObj.description1" style="width:550px"></div><br>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Info.description2}}
+                </label>
+		        <div class="col-sm-9">
+                    <div simditor ng-model="currentObj.description2" style="width:550px"></div><br>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Info.comment}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="comment" ng-model="currentObj.comment" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+			<div class="form-group" ng-show="myform.$invalid">
+    			<label class="col-sm-2 control-label"></label>
+			    <div class="col-sm-10">
+			      <div class="alert alert-warning" style="margin-bottom: 0px">
+			        <ul>                    
+                        <li ng-show='myform.name.$error.required'>{{objFieldInfo.Info.name}} 不能为空！</li>
+                        <li ng-show='myform.name.$error.maxlength'>{{objFieldInfo.Info.name}} 超出长度！</li>
+                        <li ng-show='myform.classify.$error.maxlength'>{{objFieldInfo.Info.classify}} 超出长度！</li>
+                        <li ng-show='myform.englishName.$error.maxlength'>{{objFieldInfo.Info.englishName}} 超出长度！</li>
+                        <li ng-show='myform.phone.$error.maxlength'>{{objFieldInfo.Info.phone}} 超出长度！</li>
+                        <li ng-show='myform.url.$error.maxlength'>{{objFieldInfo.Info.url}} 超出长度！</li>
+                        <li ng-show='myform.description1.$error.maxlength'>{{objFieldInfo.Info.description1}} 超出长度！</li>
+                        <li ng-show='myform.description2.$error.maxlength'>{{objFieldInfo.Info.description2}} 超出长度！</li>
+                        <li ng-show='myform.comment.$error.maxlength'>{{objFieldInfo.Info.comment}} 超出长度！</li>
+			        </ul>
+			      </div>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10 no-padding-right">
+					<input type="button" class="btn btn-danger" value="取消" ng-click="dialogClose()" style="float:right;margin: 0 -11%;"/>
+					<input type="submit" class="btn btn-primary" value="确定" ng-disabled="myform.$invalid" style="float:right;"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

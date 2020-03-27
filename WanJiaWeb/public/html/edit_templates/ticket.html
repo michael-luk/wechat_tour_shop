@@ -1,0 +1,306 @@
+<div class="row">
+	<div class="col-xs-12">
+		<form class="form-horizontal" role="form" name="myform" ng-submit="formSave(myform.$valid)" novalidate>
+
+            <div class="form-group">
+        		<label class="col-sm-3 control-label no-padding-right" > {{objFieldInfo.Ticket.shipInfo}}: </label>
+        		<div class="col-sm-9">
+        			<div ui-grid="gridParents" ui-grid-resize-columns ui-grid-selection></div>
+        			<tm-pagination conf="paginationConf4Parent"></tm-pagination>
+        		    <br>
+        		</div>
+        	</div>
+            <div class="form-group">
+        		<label class="col-sm-3 control-label no-padding-right" > {{objFieldInfo.Ticket.products}}: </label>
+        		<div class="col-sm-9">
+        			<div ui-grid="gridFriendsProduct" ui-grid-resize-columns ui-grid-selection></div>
+        			<tm-pagination conf="paginationConf4FriendProduct"></tm-pagination>
+        		    <br>
+        		</div>
+        	</div>
+
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.name}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="name" ng-model="currentObj.name" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.quantity}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="quantity" ng-model="currentObj.quantity" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.shipFee}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="shipFee" ng-model="currentObj.shipFee" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.productAmount}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="productAmount" ng-model="currentObj.productAmount" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.amount}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="amount" ng-model="currentObj.amount" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.creditUsed}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="creditUsed" ng-model="currentObj.creditUsed" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.creditUsedAmount}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="creditUsedAmount" ng-model="currentObj.creditUsedAmount" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.promotionAmount}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="promotionAmount" ng-model="currentObj.promotionAmount" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.liuYan}}
+                </label>
+		        <div class="col-sm-9">
+                    <div simditor ng-model="currentObj.liuYan" style="width:550px"></div><br>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.shipTime}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" id="shipTime" name="shipTime" ng-model="currentObj.shipTime" class="col-xs-10 col-sm-5 button_border" />
+                    <script type='text/javascript'>
+                        $('#shipTime').datetimepicker({
+                            language: 'zh-CN',
+                            format: 'yyyy-mm-dd',
+                            minView: 'month',
+                            todayBtn: true,
+                            todayHighlight: true,
+                            autoclose: true
+                        });
+                    </script>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.payReturnCode}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="payReturnCode" ng-model="currentObj.payReturnCode" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.payReturnMsg}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="payReturnMsg" ng-model="currentObj.payReturnMsg" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.payResultCode}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="payResultCode" ng-model="currentObj.payResultCode" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.payTransitionId}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="payTransitionId" ng-model="currentObj.payTransitionId" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.payAmount}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="payAmount" ng-model="currentObj.payAmount" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.payBank}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="payBank" ng-model="currentObj.payBank" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.paySign}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="paySign" ng-model="currentObj.paySign" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.payTime}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="payTime" ng-model="currentObj.payTime" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.payThirdPartyId}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="payThirdPartyId" ng-model="currentObj.payThirdPartyId" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.payThirdPartyUnionId}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="payThirdPartyUnionId" ng-model="currentObj.payThirdPartyUnionId" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.resellerProfit1}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="resellerProfit1" ng-model="currentObj.resellerProfit1" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.resellerProfit2}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="resellerProfit2" ng-model="currentObj.resellerProfit2" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.resellerProfit3}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="resellerProfit3" ng-model="currentObj.resellerProfit3" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.comment}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="comment" ng-model="currentObj.comment" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Ticket.doResellerTime}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" id="doResellerTime" name="doResellerTime" ng-model="currentObj.doResellerTime" class="col-xs-10 col-sm-5 button_border" />
+                    <script type='text/javascript'>
+                        $('#doResellerTime').datetimepicker({
+                            language: 'zh-CN',
+                            format: 'yyyy-mm-dd',
+                            minView: 'month',
+                            todayBtn: true,
+                            todayHighlight: true,
+                            autoclose: true
+                        });
+                    </script>
+		        </div>
+	        </div>
+			<div class="form-group" ng-show="myform.$invalid">
+    			<label class="col-sm-2 control-label"></label>
+			    <div class="col-sm-10">
+			      <div class="alert alert-warning" style="margin-bottom: 0px">
+			        <ul>                    
+                        <li ng-show='myform.name.$error.maxlength'>{{objFieldInfo.Ticket.name}} 超出长度！</li>
+                        <li ng-show='myform.quantity.$error.maxlength'>{{objFieldInfo.Ticket.quantity}} 超出长度！</li>
+                        <li ng-show='myform.shipFee.$error.maxlength'>{{objFieldInfo.Ticket.shipFee}} 超出长度！</li>
+                        <li ng-show='myform.productAmount.$error.maxlength'>{{objFieldInfo.Ticket.productAmount}} 超出长度！</li>
+                        <li ng-show='myform.amount.$error.maxlength'>{{objFieldInfo.Ticket.amount}} 超出长度！</li>
+                        <li ng-show='myform.creditUsed.$error.maxlength'>{{objFieldInfo.Ticket.creditUsed}} 超出长度！</li>
+                        <li ng-show='myform.creditUsedAmount.$error.maxlength'>{{objFieldInfo.Ticket.creditUsedAmount}} 超出长度！</li>
+                        <li ng-show='myform.promotionAmount.$error.maxlength'>{{objFieldInfo.Ticket.promotionAmount}} 超出长度！</li>
+                        <li ng-show='myform.liuYan.$error.maxlength'>{{objFieldInfo.Ticket.liuYan}} 超出长度！</li>
+                        <li ng-show='myform.shipTime.$error.maxlength'>{{objFieldInfo.Ticket.shipTime}} 超出长度！</li>
+                        <li ng-show='myform.payReturnCode.$error.maxlength'>{{objFieldInfo.Ticket.payReturnCode}} 超出长度！</li>
+                        <li ng-show='myform.payReturnMsg.$error.maxlength'>{{objFieldInfo.Ticket.payReturnMsg}} 超出长度！</li>
+                        <li ng-show='myform.payResultCode.$error.maxlength'>{{objFieldInfo.Ticket.payResultCode}} 超出长度！</li>
+                        <li ng-show='myform.payTransitionId.$error.maxlength'>{{objFieldInfo.Ticket.payTransitionId}} 超出长度！</li>
+                        <li ng-show='myform.payAmount.$error.maxlength'>{{objFieldInfo.Ticket.payAmount}} 超出长度！</li>
+                        <li ng-show='myform.payBank.$error.maxlength'>{{objFieldInfo.Ticket.payBank}} 超出长度！</li>
+                        <li ng-show='myform.paySign.$error.maxlength'>{{objFieldInfo.Ticket.paySign}} 超出长度！</li>
+                        <li ng-show='myform.payTime.$error.maxlength'>{{objFieldInfo.Ticket.payTime}} 超出长度！</li>
+                        <li ng-show='myform.payThirdPartyId.$error.maxlength'>{{objFieldInfo.Ticket.payThirdPartyId}} 超出长度！</li>
+                        <li ng-show='myform.payThirdPartyUnionId.$error.maxlength'>{{objFieldInfo.Ticket.payThirdPartyUnionId}} 超出长度！</li>
+                        <li ng-show='myform.resellerProfit1.$error.maxlength'>{{objFieldInfo.Ticket.resellerProfit1}} 超出长度！</li>
+                        <li ng-show='myform.resellerProfit2.$error.maxlength'>{{objFieldInfo.Ticket.resellerProfit2}} 超出长度！</li>
+                        <li ng-show='myform.resellerProfit3.$error.maxlength'>{{objFieldInfo.Ticket.resellerProfit3}} 超出长度！</li>
+                        <li ng-show='myform.comment.$error.maxlength'>{{objFieldInfo.Ticket.comment}} 超出长度！</li>
+                        <li ng-show='myform.doResellerTime.$error.maxlength'>{{objFieldInfo.Ticket.doResellerTime}} 超出长度！</li>
+			        </ul>
+			      </div>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10 no-padding-right">
+					<input type="button" class="btn btn-danger" value="取消" ng-click="dialogClose()" style="float:right;margin: 0 -11%;"/>
+					<input type="submit" class="btn btn-primary" value="确定" ng-disabled="myform.$invalid" style="float:right;"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

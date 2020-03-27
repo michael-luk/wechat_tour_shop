@@ -1,0 +1,238 @@
+@CHARSET "UTF-8";
+
+.order-wine{
+	width:100%;
+	height:px;
+	border:1px;
+	float:left;
+}
+
+.order-mg{
+	float:left;
+	width:100%;
+	background:#fff;
+	margin-top:1.5%;
+	text-align: center;
+	/*margin-bottom: 3%;*/
+}
+.order-p1{
+	padding: 3% 0 3% 3%;
+	color: #35B0AE;
+	background: #B9E0E4;
+	min-height: 26px;
+	font-size: 14px;
+	margin: 3% 0 5% 0;
+}
+.order-div1{
+	float:left;
+	width:100%;
+	    min-height: 80px;
+	background-color: #D8EDF0;
+}
+.order-img{
+	float: left;
+	width: 22%;
+	min-height: 30px;
+	margin: 5% 0 5% 4%;
+	border-radius: 5px;
+}
+.order-p2{
+	height:26px;
+	font-size:14px;
+	padding:2px 0 0 16px;
+	color:#969696;
+	line-height:30px;
+}
+.order-p3{
+	min-height:26px;
+	font-size:4vw;
+/*     padding: 15px 0 0 16px; */
+	    color: #4c4c4c;
+	line-height: 15px;
+	    text-align: left;
+	width: 80%;
+	float: left;
+}
+.order-span1{
+/* 	margin-left:270px; */
+float:right;
+margin-right: 2%;
+	}
+.order-p4{
+	float:left;
+	width:94%;
+	font-size:14px;
+	    padding: 3% 0 1% 3%;
+	color:#7C7C7C;
+	text-align:right;
+}
+.selectWish{
+	background:#B48F4F;
+}
+.word{
+width:75%;
+/* height:35px; */
+ border:1px solid #999999;
+ border-radius:4px;
+    margin: 2% 12% 0 12%;
+ float:left;
+ font-size:14px;
+ color:#121A31;
+ padding: 2% 0 2% 0;
+ text-align: left;
+}
+
+.order2{
+	float:left;
+	width:100%;
+	height:px;
+	background:#fff;
+	margin-top:1.5%;
+	padding-bottom: 2%;
+	}
+.order-p5{
+	float:left;
+	    width: 100%;
+	font-size:15px;
+    padding: 3% 0 3% 3%;
+	color:#7C7C7C;
+	background:#fff;
+	border-bottom:2px solid #C8C8C8;
+}
+.mt2{
+	float:left;
+	width:100%;
+	height:px;
+	background:#C8C8C8;}
+.order2-button1{
+	float:left;
+	width:76%;
+/* 	height:68px; */
+	background:#121A31;
+	color:#B48F4F;
+    margin: 6% 0 4% 12%;
+	border-radius:5px;
+	border:1px solid #121A31;
+	font-size:16px;
+	font-weight:bold;
+	    padding: 2.5% 0 2.5% 0;
+	    text-align:center;
+	}
+.order3{
+	float:left;
+	width:100%;
+/* 	height:790px; */
+	background:#fff;
+	margin-top:1.5%;}
+.order3-img{
+float:left;
+	width:20%;
+	min-height:35px;
+	font-size:14px;
+	color:#7F7F7F;
+	background:#fff;
+	border-radius:5px;
+	margin:93px 23% 0 28%;
+	text-align:center;
+	 position:absolute;
+}
+.order-img2{
+	float:left;
+	width:76%;
+	min-height:255px;
+	font-size:14px;
+	color:#7F7F7F;
+	background:#C8C8C8;
+	border-radius:5px;
+	margin: 1% 0 0 12%;
+	text-align:center;	
+	
+}
+.eval-div1{
+	width:100%;
+	min-height:110px;
+	background:#fff;
+	    padding: 6px 0 10px 29px;
+}
+.eval-div1 p{
+	width:100%;
+       padding: 10px 0 4px 9px;
+    text-align:left;
+}
+.eval-div2{
+	width:70px;
+	min-height:70px;
+	border:1px solid #eeeeee;
+	margin-right:8px;
+}
+
+.cat-clean{
+	width: 80px;
+    min-height: 3px;
+    float: right;
+    background: #a0a0a0;
+    margin-top: -3.1%;
+    padding: 3.1% 0 3.1% 0;
+    text-align: center;
+    color: #fff;
+}
+
+/* 优惠卷 */
+.priv-p1{
+    padding: 14px 0 10px 0;
+    text-align: center;
+    font-size: 18px;
+    color: #f08300;
+    background: #fff;
+    margin: 18px 7% 0 7%;
+    width: 86%;
+    float: left;
+}
+.priv-div1{
+	    float: left;
+    width: 86%;
+    min-height: 120px;
+    margin: 18px 7% 0 7%;
+    background:url(../img/yhj.png);
+    background-size:100% 100%;
+    border-radius:4px;
+    padding:10px 10px 10px 10px;
+}
+.priv-div2{
+	width: 48px;
+    height: 24px;
+    /* margin: 18px 7% 0 7%; */
+    border-radius: 4px;
+    padding: 3px 10px 10px 10px;
+    border: 1px solid #fff;
+    float: right;
+    color: #fff;
+}
+.priv-div3{
+	width: 70%;
+    min-height: 24px;
+    border-radius: 4px;
+    padding: 3px 10px 10px 10px;
+    float: left;
+}
+.priv-p2{
+	float:left;
+	   font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+    	width:100%;
+}
+.priv-p3{
+	
+	width:100%;
+	    font-size: 15px;
+    margin-top: -7px;
+    color: #fff;
+}
+
+.priv-p4{
+    font-weight: 700;
+}
+.priv-p5{
+	    font-weight: 700;
+}

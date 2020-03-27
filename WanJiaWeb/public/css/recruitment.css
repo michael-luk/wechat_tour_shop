@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+/*service*/
+div.R-service{
+width:1201px;
+height:1100px;
+margin:auto;
+border-radius:7px;
+background:#fff;
+padding-top:63px;
+}
+.R-service div.service1{
+width:1091px;
+height:540px;
+margin:auto;
+/* border:1px solid; */
+line-height:22px;
+}
+/* .R-service div.service2{
+margin-top:60px;
+}
+ */
+.R-service .s-p1{
+font-size:17px;
+font-weight:bold;
+color:#bda770;
+}
+.R-service .s-p2{
+font-size:13px;
+font-weight:bold;
+margin-top:30px;
+margin-bottom:13px;
+}
+.R-service .s-p3{
+font-size:13px;
+margin-top:5px;
+}

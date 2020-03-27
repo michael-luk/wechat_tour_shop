@@ -1,0 +1,208 @@
+ .Dis-div{
+	float:left;
+	width:100%;
+/* 	height:68px; */
+	/* margin-top:20px; */
+	background:#fff;
+	float:left;
+    padding: 2.5% 1% 2.5% 0;
+	/*     text-align: center; */
+	}
+ /* div.series{
+	background:#fff;
+	width:100%;
+	height:68px;
+	 	border:1px  yellow;
+	 	 float: left;
+	 	 margin-top:20px;
+	 	 float:left;
+} */
+.Dis-div ul li,.team-div ul li{
+	width:27%;
+/* 	height:43px; */
+    float: left;
+    background:#fff;
+    border:1px  yellow;
+    text-align:center;
+   /*  margin-left:-40px;
+    padding-top:5px; */
+}
+
+.Dis-div ul li a,.team-div ul li a{	
+	color:#7C7C7C;
+	font-size:14px;
+	font-weight:bold;
+}
+.team-div ul li a:link{
+	text-decoration: none;
+	outline: 0;
+}
+.team-div ul li a:hover{
+	text-decoration:underline;
+	color:black;
+}
+.Dis-div ul li a:link{
+	text-decoration: none;
+	outline: 0;
+}
+/*.Dis-div ul li a:hover{
+	text-decoration:underline;
+	color:black;
+}*/
+.disOrder-button{
+	float:right;
+	width:20%;
+	border:1px solid #bda770;
+	background:#bda770;
+	border-radius: 3px;
+    padding: 1.3% 0 1.3% 0;
+    color: #fff;
+    margin-right: 4%;
+}
+
+
+/* QRcode */
+body{
+	background-color:#fff;
+	}
+.erwei{
+/* 	margin-top:10%; */
+	}
+.erwei_img{ float:left; width:40%;
+text-align:center;
+
+	}
+.erwei_wz{ float:right;  width:50%;  margin: 30px auto; display:block;}
+.erwei_wz span{ font-size:18px; color:#121a31;line-height:40px; text-align:left;}
+.erwei_pic{
+	
+	margin:0 auto;
+	padding-top:45%;
+	color:#4c4c4c;
+	font-size:14px; line-height:28px;
+	text-align:center;clear: none;}
+.erwei_pic img{width:80%;
+text-align:center;
+	}
+	
+/* 	team */
+
+.team_user{
+	width:49%;
+	background-color:#FFF;
+	padding-top:1%;
+	min-height: 190px;
+	float:left;
+	margin-right:1%;
+	margin-top:1%;
+	}
+.team_user .team_roll{ margin:0 auto;text-align:center; 
+}
+.team_user .team_roll img{width:50%;}
+.team_user .team_wenzi{
+	margin-top:2%;
+	text-align:center;
+	padding-bottom:2%;
+	}
+.team_user .team_wenzi span{ color:#121a31;
+font-size:16px;
+line-height:25px;
+	}
+ .team-div{
+	float:left;
+	width:99%;
+/* 	height:68px; */
+	background:#fff;
+	float:left;
+    padding: 2% 1% 2.5% 0;
+	/*     text-align: center; */
+	}
+	.user-p{
+	    padding: 1% 0 0 2%;
+    font-size: 14px;
+	}
+	
+/* process */
+.process-img{
+	width:100%;
+	min-height:200px;
+	background:#fff;
+	float:left;
+}
+.p-img{
+	margin:10% 0 10% 5%;
+	float:left;
+}
+
+/* collect */
+
+.collect-mg{
+	float:left;
+	width:100%;
+	background:#fff;
+
+	
+}
+.collect-wine{
+	width:100%;
+	    min-height: 400px;
+	background:#C8C8C8;
+	border:1px;
+	float:left;
+}
+.collect-p1{
+	/* min-height:26px; */
+	font-size:14px;
+	    padding: 0 0 0 2%;
+	color:#7C7C7C;
+	float:left;
+	width:100%;
+}
+
+.collect-div1{
+	float:left;
+	width:100%;
+	min-height:80px;
+	border-top:2px solid #C8C8C8;
+	border-bottom:2px solid #C8C8C8;
+}
+.collect-img{
+	float:left;
+	width:20%;
+	min-height:70px;
+	border:1px solid #C8C8C8;
+	margin:5% 4% 5% 4%;
+}
+.collect-p2{
+	height:26px;
+	font-size:14px;
+	padding:1% 0 0 0;
+	color:#969696;
+}
+.collect-p3{
+	min-height:20px;
+	font-size:14px;
+	color:#969696;
+	margin-top:9.5%;
+}
+.collect-span1{
+
+float:right;
+margin: 1% 6% 0 0;
+	}
+
+html{ 
+	box-sizing: border-box; 
+	min-height: 100% }
+	
+/*about*/
+.about{
+	width:90%;
+	min-height:390px;
+	background:#fff;
+	margin:3% 3% 1.5% 3%;
+	float:left;
+	border-radius:5px;
+	padding:6%;
+	font-size:13px;
+}

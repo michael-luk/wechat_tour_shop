@@ -1,0 +1,148 @@
+
+@font-face {
+    font-family: 'qingkong';
+    src: url('../font/hyqingkongtif-webfont.eot');
+    src: url('../font/hyqingkongtif-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/hyqingkongtif-webfont.woff2') format('woff2'),
+         url('../font/hyqingkongtif-webfont.woff') format('woff'),
+         url('../font/hyqingkongtif-webfont.ttf') format('truetype'),
+         url('../font/hyqingkongtif-webfont.svg#hyqingkongtifregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'shiguang';
+    src: url('../font/hyshiguangtiw-webfont.eot');
+    src: url('../font/hyshiguangtiw-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/hyshiguangtiw-webfont.woff2') format('woff2'),
+         url('../font/hyshiguangtiw-webfont.woff') format('woff'),
+         url('../font/hyshiguangtiw-webfont.ttf') format('truetype'),
+         url('../font/hyshiguangtiw-webfont.svg#hyshiguangtiwregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+section{
+    background-color: #17615d;
+}
+.bargain_top{
+	position: relative;
+}
+.bargain_top_img{
+	
+}
+.bargain_top_text{
+	background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    font-size: 3.2vw;
+    padding:1.5% 0;
+}
+	
+.top_p1{
+	float: left;
+    width: 79%;
+    padding-left: 2%;
+    border-right: 1px solid #fff;
+}
+.top_p2{
+	float: right;
+    text-align: right;
+    width: 20%;
+    padding-right: 2%;
+}
+
+.bargain_main{
+	background: url(../images/kan8.png) no-repeat;
+	background-size: 100%;
+	width: 100%;
+	min-height: 140px;
+    height: 27%;
+    margin-top: 10%;
+    position: relative;
+    color:#9e352a;
+}
+.old{
+    background: url(../images/kan5.png) no-repeat;
+    background-size: 100%;
+    width: 29%;
+    height: 100%;
+    position: absolute;
+    left: 23%;
+    top: 6%;
+}
+.old p{
+    position: absolute;
+    top: 12%;
+    left: 18%;
+    text-align: center;
+    font-size: 3.6vw;
+}
+.new{
+	background: url(../images/kan10.png) no-repeat;
+	background-size: 100%;
+	width: 20%;
+    height: 100%;
+    position: absolute;
+    left: 56.8%;
+    top: 15%;
+}
+.new p{
+    position: absolute;
+    top: 4%;
+    left: 21%;
+    text-align: center;
+    font-size: 3.3vw;
+}
+.bargain_footer{
+	color:#fff;
+	padding:0 10%
+}
+.user{
+	
+}
+.user_img{
+	float:left;
+	width:20%;
+}
+.user_img img{
+	width: 80%;
+}
+.user_text{
+    float: left;
+    width: 80%;
+    padding: 2%;
+    font-size: 3.6vw;
+}
+.bargain_bnt{
+    font-family: 'shiguang';
+    width: 100%;
+    margin-top: 5%;
+    background-color: #ffe135;
+    border: 1px solid #ffe135;
+    border-radius: 7px;
+    box-shadow: 0px 5px 1px rgba(255, 225, 53, 0.5); 
+    padding: 2% 0;
+        color: #9e352a;
+}
+
+.img2{
+    width:8%;
+}
+.bnt_sp{
+    font-size: 4.6vw;
+}
+
+
+
+
+
+
+
+
+
+
+

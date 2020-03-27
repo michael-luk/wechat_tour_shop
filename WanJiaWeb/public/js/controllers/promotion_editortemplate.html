@@ -1,0 +1,101 @@
+<div class="row">
+	<div class="col-xs-12">
+		<!-- PAGE CONTENT BEGINS -->
+
+		<form class="form-horizontal" role="form" ng-submit="formSave(myform.$valid)" name="myform" novalidate>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 优惠类型: </label>
+
+				<div class="col-sm-9">
+					<input type="text" id="form-field-3" name="promotionType" ng-model="currentObj.promotionType" required
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					   for="form-field-1"> 名称: </label>
+
+				<div class="col-sm-9">
+					<input type="text" id="form-field-3" name="title" ng-model="currentObj.title" required
+						   class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 满足金额: </label>
+
+				<div class="col-sm-9">
+					<input type="number" id="form-field-3" name="reachMoney" ng-model="currentObj.reachMoney" required
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 优惠金额: </label>
+
+				<div class="col-sm-9">
+					<input type="number" id="form-field-3" name="discount" ng-model="currentObj.discount" required
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 优惠开始时间: </label>
+
+				<div class="col-sm-9">
+					<input type="number" id="form-field-3" name="startTime" ng-model="currentObj.startTime" 
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 优惠结束时间: </label>
+
+				<div class="col-sm-9">
+					<input type="number" id="form-field-3" name="endTime" ng-model="currentObj.endTime" 
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+  			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 备注: </label>
+
+				<div class="col-sm-9">
+					<textarea class="form-control" id="form-field-8"
+						ng-model="currentObj.comment" ng-maxlength="100"></textarea>
+				</div>
+			</div>
+			
+			<div class="form-group" ng-show="myform.$invalid">
+    			<label class="col-sm-2 control-label"></label>
+
+			    <div class="col-sm-10">
+			      <div class="alert alert-danger" style="margin-bottom: 0px">
+			        <ul>
+			          <li ng-show="myform.promotionType.$error.required">优惠类型不能为空！</li>
+			          <li ng-show="myform.title.$error.required">名称不能为空！</li>
+						<li ng-show="myform.reachMoney.$error.required">满足金额不能为空！</li>
+						<li ng-show="myform.discount.$error.required">优惠金额不能为空！</li>
+			        </ul>
+			      </div>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10 no-padding-right">
+				    <input type="button" class="btn btn-danger" value="取消" ng-click="$modalClose()" style="float:right;margin: 0 -15%;"/>
+				    <input type="submit" class="btn btn-primary" value="确定" ng-disabled="myform.$invalid" style="float:right;"/>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<!-- /.col -->
+</div>
+<!-- /.row -->

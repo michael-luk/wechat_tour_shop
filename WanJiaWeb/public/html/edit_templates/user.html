@@ -1,0 +1,321 @@
+<div class="row">
+	<div class="col-xs-12">
+		<form class="form-horizontal" role="form" name="myform" ng-submit="formSave(myform.$valid)" novalidate>
+
+
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.name}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="name" ng-model="currentObj.name" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.loginName}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="loginName" ng-model="currentObj.loginName" class="col-xs-10 col-sm-5 button_border" required />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.email}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="email" ng-model="currentObj.email" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.emailKey}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="emailKey" ng-model="currentObj.emailKey" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.emailOverTime}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" id="emailOverTime" name="emailOverTime" ng-model="currentObj.emailOverTime" class="col-xs-10 col-sm-5 button_border" />
+                    <script type='text/javascript'>
+                        $('#emailOverTime').datetimepicker({
+                            language: 'zh-CN',
+                            format: 'yyyy-mm-dd',
+                            minView: 'month',
+                            todayBtn: true,
+                            todayHighlight: true,
+                            autoclose: true
+                        });
+                    </script>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.password}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="password" ng-model="currentObj.password" class="col-xs-10 col-sm-5 button_border" required />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.signature}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="signature" ng-model="currentObj.signature" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.phone}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="phone" ng-model="currentObj.phone" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.wxOpenId}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="wxOpenId" ng-model="currentObj.wxOpenId" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.unionId}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="unionId" ng-model="currentObj.unionId" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.title}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="title" ng-model="currentObj.title" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.country}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="country" ng-model="currentObj.country" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.province}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="province" ng-model="currentObj.province" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.city}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="city" ng-model="currentObj.city" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.zone}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="zone" ng-model="currentObj.zone" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.location}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="location" ng-model="currentObj.location" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.headImgUrl}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="headImgUrl" ng-model="currentObj.headImgUrl" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.age}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="age" ng-model="currentObj.age" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.credit}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="credit" ng-model="currentObj.credit" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.creditRate}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="creditRate" ng-model="currentObj.creditRate" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.birthday}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" id="birthday" name="birthday" ng-model="currentObj.birthday" class="col-xs-10 col-sm-5 button_border" />
+                    <script type='text/javascript'>
+                        $('#birthday').datetimepicker({
+                            language: 'zh-CN',
+                            format: 'yyyy-mm-dd',
+                            minView: 'month',
+                            todayBtn: true,
+                            todayHighlight: true,
+                            autoclose: true
+                        });
+                    </script>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.comment}}
+                </label>
+		        <div class="col-sm-9">
+                    <div simditor ng-model="currentObj.comment" style="width:550px"></div><br>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.uplineUserId}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="uplineUserId" ng-model="currentObj.uplineUserId" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.uplineUserName}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="uplineUserName" ng-model="currentObj.uplineUserName" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.uplineUserHeadImgUrl}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="uplineUserHeadImgUrl" ng-model="currentObj.uplineUserHeadImgUrl" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.becomeDownlineTime}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" id="becomeDownlineTime" name="becomeDownlineTime" ng-model="currentObj.becomeDownlineTime" class="col-xs-10 col-sm-5 button_border" />
+                    <script type='text/javascript'>
+                        $('#becomeDownlineTime').datetimepicker({
+                            language: 'zh-CN',
+                            format: 'yyyy-mm-dd',
+                            minView: 'month',
+                            todayBtn: true,
+                            todayHighlight: true,
+                            autoclose: true
+                        });
+                    </script>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.User.resellerCode}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="resellerCode" ng-model="currentObj.resellerCode" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+			<div class="form-group" ng-show="myform.$invalid">
+    			<label class="col-sm-2 control-label"></label>
+			    <div class="col-sm-10">
+			      <div class="alert alert-warning" style="margin-bottom: 0px">
+			        <ul>                    
+                        <li ng-show='myform.name.$error.maxlength'>{{objFieldInfo.User.name}} 超出长度！</li>
+                        <li ng-show='myform.loginName.$error.required'>{{objFieldInfo.User.loginName}} 不能为空！</li>
+                        <li ng-show='myform.loginName.$error.maxlength'>{{objFieldInfo.User.loginName}} 超出长度！</li>
+                        <li ng-show='myform.email.$error.maxlength'>{{objFieldInfo.User.email}} 超出长度！</li>
+                        <li ng-show='myform.emailKey.$error.maxlength'>{{objFieldInfo.User.emailKey}} 超出长度！</li>
+                        <li ng-show='myform.emailOverTime.$error.maxlength'>{{objFieldInfo.User.emailOverTime}} 超出长度！</li>
+                        <li ng-show='myform.password.$error.required'>{{objFieldInfo.User.password}} 不能为空！</li>
+                        <li ng-show='myform.password.$error.maxlength'>{{objFieldInfo.User.password}} 超出长度！</li>
+                        <li ng-show='myform.signature.$error.maxlength'>{{objFieldInfo.User.signature}} 超出长度！</li>
+                        <li ng-show='myform.phone.$error.maxlength'>{{objFieldInfo.User.phone}} 超出长度！</li>
+                        <li ng-show='myform.wxOpenId.$error.maxlength'>{{objFieldInfo.User.wxOpenId}} 超出长度！</li>
+                        <li ng-show='myform.unionId.$error.maxlength'>{{objFieldInfo.User.unionId}} 超出长度！</li>
+                        <li ng-show='myform.title.$error.maxlength'>{{objFieldInfo.User.title}} 超出长度！</li>
+                        <li ng-show='myform.country.$error.maxlength'>{{objFieldInfo.User.country}} 超出长度！</li>
+                        <li ng-show='myform.province.$error.maxlength'>{{objFieldInfo.User.province}} 超出长度！</li>
+                        <li ng-show='myform.city.$error.maxlength'>{{objFieldInfo.User.city}} 超出长度！</li>
+                        <li ng-show='myform.zone.$error.maxlength'>{{objFieldInfo.User.zone}} 超出长度！</li>
+                        <li ng-show='myform.location.$error.maxlength'>{{objFieldInfo.User.location}} 超出长度！</li>
+                        <li ng-show='myform.headImgUrl.$error.maxlength'>{{objFieldInfo.User.headImgUrl}} 超出长度！</li>
+                        <li ng-show='myform.age.$error.maxlength'>{{objFieldInfo.User.age}} 超出长度！</li>
+                        <li ng-show='myform.credit.$error.maxlength'>{{objFieldInfo.User.credit}} 超出长度！</li>
+                        <li ng-show='myform.creditRate.$error.maxlength'>{{objFieldInfo.User.creditRate}} 超出长度！</li>
+                        <li ng-show='myform.birthday.$error.maxlength'>{{objFieldInfo.User.birthday}} 超出长度！</li>
+                        <li ng-show='myform.comment.$error.maxlength'>{{objFieldInfo.User.comment}} 超出长度！</li>
+                        <li ng-show='myform.uplineUserId.$error.maxlength'>{{objFieldInfo.User.uplineUserId}} 超出长度！</li>
+                        <li ng-show='myform.uplineUserName.$error.maxlength'>{{objFieldInfo.User.uplineUserName}} 超出长度！</li>
+                        <li ng-show='myform.uplineUserHeadImgUrl.$error.maxlength'>{{objFieldInfo.User.uplineUserHeadImgUrl}} 超出长度！</li>
+                        <li ng-show='myform.becomeDownlineTime.$error.maxlength'>{{objFieldInfo.User.becomeDownlineTime}} 超出长度！</li>
+                        <li ng-show='myform.resellerCode.$error.maxlength'>{{objFieldInfo.User.resellerCode}} 超出长度！</li>
+			        </ul>
+			      </div>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10 no-padding-right">
+					<input type="button" class="btn btn-danger" value="取消" ng-click="dialogClose()" style="float:right;margin: 0 -11%;"/>
+					<input type="submit" class="btn btn-primary" value="确定" ng-disabled="myform.$invalid" style="float:right;"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

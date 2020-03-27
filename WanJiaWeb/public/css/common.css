@@ -1,0 +1,219 @@
+@charset "utf-8";
+/* 公共部分 */
+html{
+    -webkit-text-size-adjust:none;
+    -webkit-user-select:none;
+    -webkit-touch-callout: none;
+	font-family:微软雅黑;
+}
+* {margin:0;padding:0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    font-size:62.5%;  /*声明 1em==10px */
+    color:#002b22;
+}
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,pre,form,input,textarea,th,td,select{
+    margin:0;
+    padding:0;
+    font-weight: normal;
+    text-indent: 0;
+    
+}
+a,button,input{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+a,button,input,textarea,select{
+    background: none;
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+    outline:none;
+    /*-webkit-appearance:none;*/
+}
+a:link{color:#002b22;}
+a:visited{color:#002b22;}
+a:hover{color:#002b22;}
+a:active{color:#002b22;}
+div,header,section,footer
+{
+    max-width: 640px;
+    margin: 0 auto;
+}
+em{
+    font-style:normal
+}
+li{
+    list-style:none
+}
+a{
+    text-decoration:none;
+}
+img{
+    border:none;
+    vertical-align:top;
+    width:100%;
+}
+table{
+    border-collapse:collapse
+;}
+textarea{ 
+    resize:none; overflow:auto;
+}
+
+/*input{*/
+	  /*-webkit-appearance : none ;  !*解决iphone safari上的圆角问题*!*/
+/*}*/
+/* 清除浮动 */
+.clear { zoom:1; }
+.clear:after { content:''; display:block; clear:both; }
+
+/* 文字溢出变省略号 */
+.noWrapEllipsis{
+white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+
+
+/*弹框*/
+.pxc{
+    opacity: 0;
+	position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 35%;
+    text-align: center;
+    top: 40%;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+}
+/*弹框 end*/
+/*头部*/
+header{
+	margin-top: 2.5%;
+}
+.logo{
+    width: 100%;
+    margin: 0;
+    background: #002b22;
+    height: 30px;
+    line-height: 30px;
+}
+.logo_text{
+    width: 50%;
+    font-size: 15px;
+    color: #ffffff;
+}
+/*头部 end*/
+
+/*底部*/
+footer{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    color: #9f8129;
+    border-top: 1px solid #ddd;
+}
+.footer_ul li{
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 2.5% 0;
+/*  border-right: 1px solid #fff; */
+    position: relative;
+}
+.footer_ul i{
+    font-size: 6vw;
+ }
+.footer_ul p{
+    font-size: 3vw;
+}
+.footer_ul a{
+        color: #9A9898;
+}
+.mun{
+	position: absolute;
+    top: 5%;
+    right: 25%;
+    border: 1px solid #FFF;
+    border-radius: 50%;
+	width: 20px;
+    height: 20px;
+    background: #002B22;
+    color: #fff;
+    font-size:12px;
+    line-height: 20px;
+}
+.mun span{
+	position: absolute;
+    right: 0;
+    left: 0;
+}
+/*底部 end*/
+
+section{
+	padding-bottom: 20%;
+}
+
+
+.homefooter{
+   text-align: center;
+}
+.homefooter_ul{
+    padding: 3% 0;
+    border-top: 1px solid #959595;
+    margin: 3% 4% 0;
+    border-bottom: 1px solid #959595;
+}
+.homefooter_ul li{
+    float: left;
+    width:25%;
+    font-size: 3.1vw;
+    border-right: 1px solid #000;
+    font-weight: 700;
+}
+.homefooter_text_p1{
+    font-size: 3.1vw;
+    margin-top: 1%;
+    font-weight: 700;
+}
+.homefooter_text_p2{
+    font-size:2.58vw;
+    margin-top: 2%;
+}
+
+
+
+@media only screen and (min-width: 500px) {
+    .footer_ul i{
+        font-size:32px;
+    }
+    .footer_ul p{
+        font-size:20px;
+    }
+     .homefooter_ul li{
+        font-size:20px;
+    }
+    .homefooter_text_p1{
+        font-size:20px;
+    }
+    .homefooter_text_p2{
+        font-size:18px;
+    }
+}
+
+
+
+

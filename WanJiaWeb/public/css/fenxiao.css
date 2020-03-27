@@ -1,0 +1,16 @@
+.fenxiao_change{width:100%; margin:0 auto; }
+.fenxiao_change ul{ width:498px; overflow:hidden; background:#000; border:1px solid #000;
+	
+}
+.fenxiao_change ul li{
+	font-size:14px;
+	color:#4c4c4c;
+	list-style:none; float:left; margin-right:0px;padding:5px 20px; cursor: pointer;
+}
+
+.fenxiao_change ul .fenxiao_current{ color:#000; background:#ccc; }
+ 
+.fenxiao_change ul li p{
+	font-size:14px;
+	color:#b48f4f;
+}

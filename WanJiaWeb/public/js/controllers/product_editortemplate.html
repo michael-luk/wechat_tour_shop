@@ -1,0 +1,119 @@
+<div class="row">
+	<div class="col-xs-12">
+		<!-- PAGE CONTENT BEGINS -->
+
+		<form class="form-horizontal" name="myform" role="form" ng-submit="formSave(myform.$valid)" novalidate>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 所属主题: </label>
+
+					<div class="col-sm-9">
+					<div class="gridStyle" ng-grid="gridCatalogs"></div>
+		            <br>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 产品编号: </label>
+
+				<div class="col-sm-9">
+					<input type="text" id="form-field-3" name="productNo" ng-model="currentObj.productNo"
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 名称: </label>
+
+				<div class="col-sm-9">
+					<input type="text" id="form-field-3" name="name" ng-model="currentObj.name"
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 单位: </label>
+
+				<div class="col-sm-9">
+					<input type="text" id="form-field-3" name="unit" ng-model="currentObj.unit"
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 库存: </label>
+
+				<div class="col-sm-9">
+					<input type="text" id="form-field-3" name="inventory" ng-model="currentObj.inventory"
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 价格: </label>
+
+				<div class="col-sm-9">
+					<input type="number" id="form-field-3" name="price" ng-model="currentObj.price"
+						class="col-xs-10 col-sm-5" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 产品简述: </label>
+
+				<div class="col-sm-9">
+					<textarea class="form-control" name="shortDesc" id="form-field-8"
+						ng-model="currentObj.shortDesc"></textarea>
+					<span class="help-inline col-xs-12 col-sm-7"> <span
+						class="middle">* 不超过100字</span>
+					</span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right"
+					for="form-field-1"> 备注: </label>
+
+				<div class="col-sm-9">
+					<textarea class="form-control" id="form-field-8"
+						ng-model="currentObj.spec"></textarea>
+					<span class="help-inline col-xs-12 col-sm-7"> <span
+						class="middle">* 不超过200字</span>
+					</span>
+				</div>
+			</div>
+
+			<div class="form-group" ng-show="myform.$invalid||gridCatalogs.selectedItems<1">
+    			<label class="col-sm-2 control-label"></label>
+
+			  <!--  <div class="col-sm-10">
+			      <div class="alert alert-danger" style="margin-bottom: 0px">
+			        <ul>
+			         &lt;!&ndash; <li ng-show="myform.name.$error.required">名称不能为空！</li>&ndash;&gt;
+			          <li ng-show="gridCatalogs.selectedItems.length < 1">所属主题不能为空！</li>
+			          &lt;!&ndash;<li ng-show="myform.price.$error.required">价格不能为空！</li>&ndash;&gt;
+			         &lt;!&ndash; <li ng-show="myform.shortDesc.$error.required">产品简述不能为空！</li>
+			          <li ng-show="myform.shortDesc.$error.maxlength">产品简述长度不能大于100个字符！</li>&ndash;&gt;
+			        </ul>
+			      </div>
+			    </div>-->
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10 no-padding-right">
+				    <input type="button" class="btn btn-danger" value="取消" ng-click="dialogClose()" style="float:right;margin: 0 -15%;"/>
+				    <input type="submit" class="btn btn-primary" value="确定" ng-disabled="myform.$invalid" style="float:right;"/>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<!-- /.col -->
+</div>
+<!-- /.row -->

@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-xs-12" style="margin-top: -35px;border-top: 1px dashed #e2e2e2;padding-top: 13px;">
+		<!-- PAGE CONTENT BEGINS -->
+		<p>
+			下线总人数：{{downLineUsersNum}}
+		</p>
+		<form class="form-horizontal" role="form" ng-submit="saveContent()">
+			<table style="border:1px solid #F7DCDC">
+				<tr>
+				<td style="width: 80px;font-size: 16px;font-weight: bold;text-align: center;border:1px solid #F7DCDC">id</td>
+					<td style="width: 150px;font-size: 16px;font-weight: bold;text-align: center;border:1px solid #F7DCDC">昵称</td>
+					<td style="width: 100px;font-size: 16px;font-weight: bold;text-align: center;border:1px solid #F7DCDC">头像</td>
+					<td style="width: 100px;font-size: 16px;font-weight: bold;text-align: center;border:1px solid #F7DCDC">是否分销商</td>
+					<td style="width: 200px;font-size: 16px;font-weight: bold;text-align: center;border:1px solid #F7DCDC">分销码</td>
+				</tr>
+				<tr height="75" ng-repeat="list in list2">
+					<td style="width: 40px;font-size: 14px;text-align: center;border:1px solid #F7DCDC">{{list.id}}</td>
+					<td style="width: 200px;font-size: 14px;text-align: center;border:1px solid #F7DCDC">{{list.nickname}}</td>
+					<td style="width: 100px;font-size: 14px;text-align: center;border:1px solid #F7DCDC" ng-show="!list.headImgUrl"></td>
+					<td style="width: 100px;font-size: 14px;text-align: center;border:1px solid #F7DCDC" ng-show="list.headImgUrl"><img src="{{list.headImgUrl}}"style="width: 60px;height: 60px"></td>
+					<td style="width: 200px;font-size: 14px;text-align: center;border:1px solid #F7DCDC"><div><input type="checkbox" ng-model="list.isReseller" ng-disabled="true" /></div></td>
+					<td style="width: 200px;font-size: 14px;text-align: center;border:1px solid #F7DCDC">{{list.resellerCode | uppercase}}</td>
+
+				</tr>
+			</table>
+		</form>
+
+	</div>
+	<!-- /.col -->
+</div>
+<!-- /.row -->

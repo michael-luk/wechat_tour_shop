@@ -1,0 +1,37 @@
+
+/*service*/
+div.message2-service{
+width:1102px;
+height:630px;
+margin:auto;
+border-radius:7px;
+background:#fff;
+padding:50px;
+/* border:1px solid red; */
+}
+.message2-service .service1{
+width:1102px;
+height:630px;
+margin:auto;
+/* border:1px solid red; */
+}
+
+
+.message2-service .s-p1{
+font-size:17px;
+font-weight:bold;
+color:#bda770;
+text-align:center;
+}
+.message2-service .s-p2{
+font-size:13px;
+margin-top:10px;
+margin-left:-6px;
+margin-bottom:10px;
+text-align:center;
+color:#888888;
+}
+.message2-service .s-p3{
+font-size:13px;
+margin-top:5px;
+}

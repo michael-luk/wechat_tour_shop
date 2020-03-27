@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+
+/*service*/
+div.message1-service{
+width:1203px;
+height:1200px;
+margin:auto;
+border-radius:7px;
+background:#fff;
+margin-top:px;
+margin-bottom:px;
+padding:50px;
+/* border:1px solid red; */
+}
+div.message1-service .service1{
+width:90%;
+height:254px;
+margin:auto;
+/* border:1px solid; */
+}
+/* div.service2,div.service3{
+width:1000px;
+height:170px;
+margin:auto;
+margin-top:60px;
+border:1px solid;
+} */
+
+.message1-service .s-p1{
+font-size:17px;
+font-weight:bold;
+color:#bda770;
+}
+.message1-service .s-p2{
+font-size:13px;
+font-weight:bold;
+margin-top:10px;
+
+margin-bottom:10px;
+}
+.message1-service .s-p3{
+font-size:13px;
+margin-top:5px;
+}

@@ -1,0 +1,44 @@
+@main("砍价活动操作与统计", "CommercialActivitiesApp", "CommercialActivitiesController") {
+  <div class="page-content">
+    <div class="page-header">
+      <h1>砍价活动操作与统计</h1>
+    </div>
+      <!-- /.page-header -->
+
+    <div class="row">
+      <div class="col-xs-12">
+        <p>
+          <select ng-model="selectproductId" id="products" name="products"
+          ng-options="product.id as product.name for product in products">
+            <option value="">全部</option>
+          </select>
+
+          <button ng-click="addContent()" class="btn btn-primary">
+            <i class="icon-beaker align-top bigger-125"></i> 添加
+          </button>
+
+          <button ng-click="deleteContent()" class="btn btn-danger">
+            <i class="icon-trash  align-top bigger-125 icon-on-left"></i> 刪除
+          </button>
+        </p>
+
+        <div class="gridStyle" ng-grid="gridOptions"></div>
+        <br>
+        <div ng-show="pageInfo">
+          <p>每页显示: {{pageInfo.size}}, 目前显示: {{pageInfo.desc}}, 当前页: {{pageInfo.current}}, 共{{pageInfo.total}}页</p>
+          <p>
+            <a href="" ng-click="goHomePage()" ng-show="pageInfo.hasPrev" >首页</a>
+            <a href="" ng-click="goPrevPage()" ng-show="pageInfo.hasPrev">上一页</a>
+            <a href="" ng-click="goNextPage()" ng-show="pageInfo.hasNext">下一页</a>
+            <a href="" ng-click="goLastPage()" ng-show="pageInfo.hasNext" >末页</a>
+            <span ng-show="pageInfo.total > 1">跳到<input type="text" ng-Model="jumpPage" style="width:40px;height:20px"/>页
+              <input type="button" value="go" ng-click="goJumpPage()" style="width:30px;height:23px;color:#0099FF"> </span>
+          </p>
+        </div>
+      </div>
+    </div>
+      <!-- /.row -->
+  </div>
+    <!-- /.page-content -->
+    }
+>

@@ -1,0 +1,155 @@
+
+/*memu*/
+.theme1-memu{
+width:100%;
+height:50px;
+background:#bda770;
+}
+.theme1-memu p{
+padding:15px;;
+}
+.theme1-memu a{
+color:#fff;
+margin-left:100px;
+font-size:15px;
+}
+
+.theme1-memu a:hover{
+text-decoration:underline;
+}
+/*theme*/
+.theme1-theme{
+width:100%;
+height:1835px;
+margin-top:39px;
+}
+.theme1-theme2{
+margin-top:67px;
+}
+.theme1-theme3{
+margin-top:67px;
+margin-bottom:31px;
+}
+.theme1-theme .title{
+width:270px;
+height:100px;
+margin:auto;
+font-size: 15px;
+margin-top:15px;
+}
+
+.theme1-theme .title p{
+          margin-left:120px;  
+}
+.theme1-theme .title a{
+          display: inline-block;
+          width: 23px;
+          height: 28px;    
+          background: url(../img/icon.png) no-repeat #ddd;
+          margin-top: 23px;
+          background: url(../img/icon.png) no-repeat; }
+          .theme .title a{
+            background-position: -89px -1px; }
+
+.theme1-content{
+width:100%;
+height:540px;
+margin-top:20px;
+}
+.theme1-theme .title1{
+float:left;
+width:403px;
+height:535px;
+background:#ffffff;
+margin-left:40px;
+border-radius:7px;
+margin-top:30px;
+}
+.theme1-theme .travel{
+background:;
+}
+.theme1-theme .title2{
+float:left;
+width:403px;
+height:535px;
+background:#ffffff;
+margin-left:35px;
+
+}
+.theme1-theme .title3{
+float:left;
+width:403px;
+height:535px;
+background:#ffffff;
+margin-left:35px;
+
+}
+.theme1-theme .pt1{
+width:403px;
+height:270px;
+border-radius:7px 7px 0 0;
+background: url(../img/travel1.png) ;
+background-size:100% 100%px;
+}
+.theme1-theme .travel p{
+font-size:15px;
+
+text-align:center;
+}
+.theme1-theme .img1{
+width:30px;
+height:30px;
+ background: url(../img/icon.png) ;
+ background-position: -310px -2px; 
+ margin:auto;
+ margin-top:15px;
+}
+.theme1-theme .text1{
+width:240px;
+margin:auto;
+font-size:x-small;
+margin-top:20px;
+}
+.theme1-theme .button1{
+width:120px;
+height:35px;
+background:#bda770;
+margin-left:120px;
+margin-top:30px;
+color:#fff;
+z-index: 2;
+border:1px solid #bda770;
+border-radius:7px;
+}
+.theme1-theme .img2{
+width:30px;
+height:30px;
+ background: url(../img/icon.png) ;
+ background-position: -343px -2px; 
+ margin:auto;
+ margin-top:15px;
+}
+.theme1-theme .pt2{
+width:370px;
+height:270px;
+border-radius:7px 7px 0 0;
+background: url(../img/travel2.png) ;
+background-size:370px 270px;
+}
+.theme1-theme .img3{
+width:30px;
+height:30px;
+ background: url(../img/icon.png) ;
+ background-position: -373px -2px; 
+ margin:auto;
+ margin-top:15px;
+}
+.theme1-theme .pt3{
+width:370px;
+height:270px;
+border-radius:7px 7px 0 0;
+ background: url(../img/travel3.png) ;
+ background-size:370px 270px;
+}
+
+

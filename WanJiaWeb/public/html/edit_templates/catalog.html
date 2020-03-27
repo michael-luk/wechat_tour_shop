@@ -1,0 +1,89 @@
+<div class="row">
+	<div class="col-xs-12">
+		<form class="form-horizontal" role="form" name="myform" ng-submit="formSave(myform.$valid)" novalidate>
+
+            <div class="form-group">
+        		<label class="col-sm-3 control-label no-padding-right" > {{objFieldInfo.Catalog.products}}: </label>
+        		<div class="col-sm-9">
+        			<div ui-grid="gridFriendsProduct" ui-grid-resize-columns ui-grid-selection></div>
+        			<tm-pagination conf="paginationConf4FriendProduct"></tm-pagination>
+        		    <br>
+        		</div>
+        	</div>
+
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Catalog.catalogIndex}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="catalogIndex" ng-model="currentObj.catalogIndex" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Catalog.name}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="name" ng-model="currentObj.name" class="col-xs-10 col-sm-5 button_border" required />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Catalog.nameEn}}
+                </label>
+		        <div class="col-sm-9">
+                    <input type="text" name="nameEn" ng-model="currentObj.nameEn" class="col-xs-10 col-sm-5 button_border" />
+		            <span class="help-inline col-xs-12 col-sm-7"> <span class="middle">* 不超过200字</span></span>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Catalog.description}}
+                </label>
+		        <div class="col-sm-9">
+                    <div simditor ng-model="currentObj.description" style="width:550px"></div><br>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Catalog.descriptionEn}}
+                </label>
+		        <div class="col-sm-9">
+                    <div simditor ng-model="currentObj.descriptionEn" style="width:550px"></div><br>
+		        </div>
+	        </div>
+	        <div class="form-group">
+		        <label class="col-sm-3 control-label no-padding-right">
+                    {{objFieldInfo.Catalog.comment}}
+                </label>
+		        <div class="col-sm-9">
+                    <div simditor ng-model="currentObj.comment" style="width:550px"></div><br>
+		        </div>
+	        </div>
+			<div class="form-group" ng-show="myform.$invalid">
+    			<label class="col-sm-2 control-label"></label>
+			    <div class="col-sm-10">
+			      <div class="alert alert-warning" style="margin-bottom: 0px">
+			        <ul>                    
+                        <li ng-show='myform.catalogIndex.$error.maxlength'>{{objFieldInfo.Catalog.catalogIndex}} 超出长度！</li>
+                        <li ng-show='myform.name.$error.required'>{{objFieldInfo.Catalog.name}} 不能为空！</li>
+                        <li ng-show='myform.name.$error.maxlength'>{{objFieldInfo.Catalog.name}} 超出长度！</li>
+                        <li ng-show='myform.nameEn.$error.maxlength'>{{objFieldInfo.Catalog.nameEn}} 超出长度！</li>
+                        <li ng-show='myform.description.$error.maxlength'>{{objFieldInfo.Catalog.description}} 超出长度！</li>
+                        <li ng-show='myform.descriptionEn.$error.maxlength'>{{objFieldInfo.Catalog.descriptionEn}} 超出长度！</li>
+                        <li ng-show='myform.comment.$error.maxlength'>{{objFieldInfo.Catalog.comment}} 超出长度！</li>
+			        </ul>
+			      </div>
+			    </div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10 no-padding-right">
+					<input type="button" class="btn btn-danger" value="取消" ng-click="dialogClose()" style="float:right;margin: 0 -11%;"/>
+					<input type="submit" class="btn btn-primary" value="确定" ng-disabled="myform.$invalid" style="float:right;"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

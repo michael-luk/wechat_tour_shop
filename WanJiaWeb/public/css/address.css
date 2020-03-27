@@ -1,0 +1,191 @@
+
+section{
+    background-color: #faf6f2;
+}
+
+.order_div1{
+    padding: 2% 0 10%;
+}
+.order_div1_p1{
+	font-size:5vw;
+	padding: 3% 0;
+}
+.site_ul{
+	margin: 2% 0;
+	width:100%;
+    padding: 4% 0;
+    background-color: #fff
+}
+.site_ul li{
+	float:left;
+}
+.site_li1{
+    width: 12%;
+    text-align: center;
+    font-size: 5.4vw;
+    padding: 2.6% 0;
+}
+.site_li2{
+	width:60%;
+    font-size: 4.4vw;
+}
+.site_li3 i{
+    margin:13%;
+}
+.site_li3{
+	width:28%;
+	text-align: center;
+	font-size: 6.8vw;
+	padding: 1.5% 0;
+}
+.site_ul_p2{
+	padding-top: 0.5%;
+}
+
+.addsite{
+	margin-top: 3%;
+	text-align: center;
+}
+.addsite_p1{
+	width: 92%;
+    margin: auto;
+    background-color: #002b22;
+    color: #fff;
+    text-align: center;
+    font-size: 5vw;
+    padding: 2% 0;
+    letter-spacing: 1px;
+}
+.check{
+	opacity: 0;
+     transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+}
+.check_tab{
+	width:100%;
+}
+.check_tab td{
+	padding: 2% 0;
+}
+.lef{
+	text-align: right;
+	font-size: 4.4vw;
+	width: 24%;
+}
+.righ{
+	text-align: left;
+	width: 76%;
+}
+.righ input{
+	border: 1px solid #707070;
+    border-radius: 3px;
+    font-size: 4.4vw;
+    min-height: 27px;
+    min-width: 85%;
+    padding-left: 5px;
+}
+.righ b{
+	color:red;
+ 	font-size: 4.4vw;
+ 	padding-left:5px;
+}
+.check_p1{
+	    margin-bottom: 5%;
+    margin-top: 3%;
+	    font-size: 4.6vw;
+}
+.check_p1 i{
+	padding-right:5px;
+}
+
+
+.bianji{
+	position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    background: rgba(0, 0, 0, 0.52);
+    z-index: -100;
+    opacity: 0;
+     transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+}
+
+.ff{
+    background: #fff;
+    padding: 4% 0 8%;
+    margin: 12% 0;
+    border-radius: 5px;
+    width: 98%;
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 500px) {
+	
+.site_ul {
+    padding:5px 0;
+}
+.site_li1{
+	font-size:30px;
+    padding: 8px 0;
+}
+.site_li2{
+	font-size:20px;
+}	
+.site_li3{
+	font-size:36px;
+    padding: 5px 0;
+}
+.addsite_p1{
+	height: 70px;
+    font-size: 30px;
+    line-height: 70px;
+    padding: 0;
+}
+.lef{
+	font-size: 20px;
+}
+.righ{
+	font-size: 20px;
+}
+.righ input{
+	height:50px;
+	width: 400px;
+}
+.check_p1{
+		font-size: 24px;
+}
+.righ b {
+
+    font-size:20px;
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,135 @@
+@CHARSET "UTF-8";
+
+ul, li {
+	list-style: none;
+
+}
+div.series{
+	background:#fff;
+	width:100%;
+	 	border:1px  ;
+	 	 float: left;
+	 	 margin-top:0;
+	 	 padding-bottom:3%;
+}
+.series ul li{
+	width:35%;
+    float: left;
+    background:#fff;
+    border:1px  yellow;
+    text-align:center;
+
+}
+
+.series ul li a{	
+	color:#7C7C7C;
+	font-size:14px;
+	font-weight:bold;
+}
+.series ul li a:link{
+	text-decoration: none;
+	outline: 0;
+}
+.series ul li a:hover{
+	text-decoration:underline;
+	color:black;
+}
+
+
+.wine-type2{
+	float:left;
+	width:100%;
+	background:#fff;
+}
+.type-img2{
+	float:left;
+width:100%;
+}
+
+.mt{
+	float:left;
+	width:641px;
+	height:30px;
+	background:#C8C8C8;
+}
+.well2{
+	float:left;
+	width:100%;
+
+	background:#fff;
+}
+
+.well-left{
+	border-right:2px solid #D1D1D1;
+}
+.well-img1{
+	margin-left:10px;
+
+}
+
+.well-p1{
+		color:#737373;
+}
+.well-p2{
+	font-size:32px;
+	margin-top:-7px;
+		color:#B48F4F;
+}
+.mt2{
+	float:left;
+	width:100%;
+	height:10px;
+	background:#C8C8C8;
+}
+
+
+/* *{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font-size: 13px;line-height: 18px;color: #333;width:100%;}
+ */
+/* nav */ 
+.nav{
+	margin-top:;
+	overflow:hidden;
+	width:100%;
+	height:65px; 
+	float:left;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 36px;
+	position:relative;}
+.nav .line{ 
+	position:absolute;
+ 	height:55px;
+	left:0;
+/* 	line-height:55px; */
+	text-align:center;
+	background:#fff;
+	cursor:pointer; 
+	float:left;
+	    margin-top: 0;
+	}
+.nav .line li{
+	float:left;
+	height:30px;
+	background:url(images/line.png) no-repeat left 9px;
+	border-right:1px solid #7C7C7C ;
+	/* margin-top:0.3%; */
+	    padding: 0.1% 0.6% 0.3% 0.5%;
+	        margin-top: 0.2%;
+	}
+	
+.nav .line li:first-child{
+	background:none;
+	}
+.nav .line li a{ 
+	color:#7C7C7C;
+	text-decoration:none;
+		font-weight:bold;}
+
+ /* .nav{margin-top:20px;overflow:hidden;width:100%;height:300px;font-weight: 300;font-size: 20px;line-height: 36px;position:relative;}
+.nav .line{ position:absolute;height:60px;left:0;line-height:60px;text-align:center;background:#2c63a6;cursor:pointer;}
+.nav .line li{float:left;height:30px;background:url(images/line.png) no-repeat left 9px;}
+.nav .line li:first-child{ background:none;}
+.nav .line li a{ color:#fff;text-decoration:none;}
+  */
